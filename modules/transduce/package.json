@@ -1,0 +1,24 @@
+{
+  "name": "@yafu/transduce",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
+  "main": "dist/cjs/transduce.js",
+  "module": "index.js",
+  "scripts": {
+    "pretest": "yarn",
+    "test": "yarn unit",
+    "unit": "mocha"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^11.0.1",
+    "@yafu/eslint-config-yafu": "^1.0.2",
+    "chai": "^4.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "yafu": "^1.0.4"
+  }
+}

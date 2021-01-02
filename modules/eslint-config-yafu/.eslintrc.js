@@ -29,6 +29,7 @@ module.exports = {
       2,
     ],
     'new-cap': 0,
+    'no-cond-assign': ['error', 'except-parens'],
     'no-multiple-empty-lines': [ 'warn', { max: 1, maxBOF: 0, maxEOF: 0 } ],
     'no-nested-ternary': 'off',
     'no-plusplus': 'off',
