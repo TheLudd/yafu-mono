@@ -60,6 +60,7 @@ jobs:
           node-version: << parameters.node-version >>
       - run-tests
   commitlint:
+    resource_class: small
     docker:
       - image: circleci/node:14
     steps:
