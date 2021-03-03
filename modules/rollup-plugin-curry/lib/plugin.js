@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import curryDefinition from './curry-definition.js'
 
 export default function plugin () {
   return {
@@ -16,15 +17,13 @@ export default function plugin () {
       }
     },
     generateBundle (_, files) {
-      const definitionFiles = Object.keys(files).filter((s) => s.endsWith('.d.ts'))
-      /*
-       * These needs to be expanded. generateBundle is the only hook I have
-       * found where it is possible to see which definition files have been
-       * created. However, in this hook they will/have already been written to
-       * disk, so we need to modify them after that. It would be better to do
-       * it in a previous step but not sure if it is possible.
-       */
-      console.log(definitionFiles)
+      Object.entries(files).forEach(([ key, value ]) => {
+        const { source } = value
+        if (key.endsWith('.d.ts') && source.indexOf('function') !== -1) {
+          // eslint-disable-next-line no-param-reassign
+          value.source = curryDefinition(source)
+        }
+      })
     },
   }
 }
