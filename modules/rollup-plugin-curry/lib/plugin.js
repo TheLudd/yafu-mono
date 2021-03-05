@@ -19,9 +19,13 @@ export default function plugin () {
     generateBundle (_, files) {
       Object.entries(files).forEach(([ key, value ]) => {
         const { source } = value
-        if (key.endsWith('.d.ts') && source.indexOf('function') !== -1) {
+        if (key.endsWith('.d.ts') && source.includes(' function ')) {
+          const sourceRows = source.split('\n')
+          const newSource = sourceRows.reduce((acc, row) => (row.includes(' function ')
+            ? `${acc}${curryDefinition(row)}\n`
+            : `${acc}${row}\n`), '')
           // eslint-disable-next-line no-param-reassign
-          value.source = curryDefinition(source)
+          value.source = newSource.slice(0, newSource.length - 1)
         }
       })
     },
