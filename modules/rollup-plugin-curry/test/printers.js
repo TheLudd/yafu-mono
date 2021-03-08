@@ -1,10 +1,5 @@
 import { assert } from 'chai'
-import {
-  printBinary,
-  printQuaternary,
-  printTernary,
-  printUnary,
-} from '../lib/printers.js'
+import curryPrint from '../lib/curry-print.js'
 
 const { equal } = assert
 it('printUnary', () => {
@@ -17,7 +12,7 @@ it('printUnary', () => {
     } ],
     type: 'number',
   }
-  const result = printUnary(definition)
+  const result = curryPrint(definition)
   const expected = 'export function inc (n: number): number'
   equal(result, expected)
 })
@@ -35,10 +30,10 @@ it('printBinary', () => {
     } ],
     type: 'A',
   }
-  const result = printBinary(definition)
+  const result = curryPrint(definition)
   const expected = `
-export function K <A, B>(a: A, b: B): A
 export function K <A, B>(a: A): (b: B) => A
+export function K <A, B>(a: A, b: B): A
 `.trim()
   equal(result, expected)
 })
@@ -59,14 +54,14 @@ it('printTernary', () => {
     } ],
     type: 'A',
   }
-  const result = printTernary(definition)
+  const result = curryPrint(definition)
   const expected = `
-export function reduce <A, B>(fn: (acc: B, item: A) => B, init: B, list: A[]): A
-export function reduce <A, B>(fn: (acc: B, item: A) => B, init: B): (list: A[]) => A
 export function reduce <A, B>(fn: (acc: B, item: A) => B): {
-  (init: B) => (list: A[]): A
+  (init: B): (list: A[]) => A
   (init: B, list: A[]): A
 }
+export function reduce <A, B>(fn: (acc: B, item: A) => B, init: B): (list: A[]) => A
+export function reduce <A, B>(fn: (acc: B, item: A) => B, init: B, list: A[]): A
 `.trim()
   equal(result, expected)
 })
@@ -81,24 +76,24 @@ it('printQuaternary', () => {
       { name: 'b', type: 'B' },
       { name: 'c', type: 'C' },
       { name: 'd', type: 'D' },
-    ]
+    ],
   }
-  const result = printQuaternary(definition)
+  const result = curryPrint(definition)
   const expected = `
-export function someName <A, B, C, D>(a: A, b: B, c: C, d: D): D
-export function someName <A, B, C, D>(a: A, b: B, c: C): (d: D) => D
-export function someName <A, B, C, D>(a: A, b: B): {
-  (c: C) => (d: D): D
-  (c: C, d: D): D
-}
 export function someName <A, B, C, D>(a: A): {
-  (b: B, c: C, d: D): D
   (b: B): {
-    (c: C) => (d: D): D
+    (c: C): (d: D) => D
     (c: C, d: D): D
   }
-  (b: B) => (c: C) => (d: D): D
+  (b: B, c: C): (d: D) => D
+  (b: B, c: C, d: D): D
 }
+export function someName <A, B, C, D>(a: A, b: B): {
+  (c: C): (d: D) => D
+  (c: C, d: D): D
+}
+export function someName <A, B, C, D>(a: A, b: B, c: C): (d: D) => D
+export function someName <A, B, C, D>(a: A, b: B, c: C, d: D): D
 `.trim()
   equal(result, expected)
 })

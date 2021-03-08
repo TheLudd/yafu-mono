@@ -8,6 +8,7 @@ import {
   match,
   replace,
   split,
+  trim,
 } from 'ramda'
 
 const nameRegex = /export (declare )?(function|const) (\w*)/
@@ -21,10 +22,6 @@ const countClosing = compose(length, match(closingParensRegex))
 
 function last (arr) {
   return arr[arr.length - 1]
-}
-
-function trim (s) {
-  return s.trim()
 }
 
 function moreOpenThanCloseParensDetected () {
@@ -94,7 +91,7 @@ export function parseParameters (string) {
   )
 }
 
-const parseType = compose(replace(/;$/, ''), last, split(' '))
+const parseType = compose(trim, replace(/;\n?$/m, ''), last, split(' '))
 
 export default function parse (string) {
   return {
