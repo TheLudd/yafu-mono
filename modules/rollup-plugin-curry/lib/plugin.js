@@ -1,20 +1,13 @@
-/* eslint-disable no-console */
 import curryDefinition from './curry-definition.js'
+import curryCode from './curry-code.js'
 
 export default function plugin () {
   return {
-    /*
-     * Any hook described in the documentation can be added as a key to this
-     * object.
-     * https://rollupjs.org/guide/en/#build-hooks
-     * https://rollupjs.org/guide/en/#output-generation-hooks
-     */
-    transform (code) {
-      console.log('---')
-      console.log(code) // this is where we would wrap functions in curry
-      return {
-        code: `${code}\n // modified`,
+    transform (code, id) {
+      if (id.startsWith(process.cwd())) {
+        return curryCode(code)
       }
+      return undefined
     },
     generateBundle (_, files) {
       Object.entries(files).forEach(([ key, value ]) => {
