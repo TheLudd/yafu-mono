@@ -2,16 +2,16 @@ import { terser } from 'rollup-plugin-terser'
 
 export default {
   input: 'lib/index.js',
-  output: [{
+  output: [ {
     file: 'dist/umd/yafu.js',
     format: 'umd',
     name: 'yafu',
-    sourcemap: true
+    sourcemap: true,
   }, {
     file: 'dist/umd/yafu.min.js',
     format: 'umd',
     name: 'yafu',
-    plugins: [terser()],
-    sourcemap: true
-  }],
+    plugins: [ terser() ],
+    sourcemap: true,
+  } ],
 }
