@@ -1,7 +1,7 @@
 import { assert } from 'chai'
-import parse, { parseGenerics, parseParameters } from '../lib/parse.js'
+import parse, { parseGenerics, parseParameters, parseName } from '../lib/parse.js'
 
-const { deepEqual } = assert
+const { equal, deepEqual } = assert
 
 const propOr = 'export function propOr <A, B>(a: A, b: string, c: B): A'
 
@@ -19,6 +19,13 @@ describe('parse', () => {
       ]
     }
     deepEqual(result, expected)
+  })
+})
+
+describe('parseName', () => {
+  it('finds the name', () => {
+    const result = parseName(propOr)
+    equal(result, 'propOr')
   })
 })
 

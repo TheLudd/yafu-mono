@@ -57,7 +57,7 @@ function batchWhile (pred) {
   }
 }
 
-export function paseName (string) {
+export function parseName (string) {
   const nameMatch = string.match(nameRegex)
   return nameMatch[3]
 }
@@ -95,7 +95,7 @@ const parseType = compose(trim, replace(/;\n?$/m, ''), last, split(' '))
 
 export default function parse (string) {
   return {
-    name: paseName(string),
+    name: parseName(string),
     generics: parseGenerics(string),
     type: parseType(string),
     parameters: parseParameters(string),
