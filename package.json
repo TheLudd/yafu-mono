@@ -19,7 +19,7 @@
     "@commitlint/config-conventional": "^12.0.1",
     "@yafu/eslint-config-yafu": "^1.0.2",
     "array-equal": "^1.0.0",
-    "lerna": "^3.21.1",
+    "lerna": "^4.0.0",
     "yaml": "^1.10.0"
   }
 }
