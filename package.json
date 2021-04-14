@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "clean": "lerna run clean --parallel",
+    "lint": "lerna run lint --parallel",
     "prepublishOnly": "yarn clean && yarn test",
     "pretest": "yarn && yarn transpile",
     "test": "lerna run test",
