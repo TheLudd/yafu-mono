@@ -5,7 +5,11 @@
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "main": "dist/lens.js",
-  "module": "index.js",
+  "exports": {
+    "import": "./index.js",
+    "require": "./dist/lens.js"
+  },
+  "type": "module",
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "eslint lib test *.js",

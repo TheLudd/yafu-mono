@@ -5,7 +5,11 @@
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "main": "dist/const.js",
-  "module": "const.js",
+  "exports": {
+    "import": "./const.js",
+    "require": "./dist/const.js"
+  },
+  "type": "module",
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "eslint *.js",

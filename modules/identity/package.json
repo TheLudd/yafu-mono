@@ -5,7 +5,11 @@
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "main": "dist/identity.js",
-  "module": "identity.js",
+  "exports": {
+    "import": "./identity.js",
+    "require": "./dist/identity.js"
+  },
+  "type": "module",
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "eslint *.js",

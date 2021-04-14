@@ -5,7 +5,11 @@
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "main": "dist/curry.js",
-  "module": "lib/curry.js",
+  "exports": {
+    "import": "./lib/curry.js",
+    "require": "./dist/curry.js"
+  },
+  "type": "module",
   "scripts": {
     "clean": "rm -rf dist/",
     "lint": "eslint lib/*.js test/*.js",

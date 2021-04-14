@@ -3,7 +3,8 @@
   "version": "1.0.4",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
-  "module": "./dist/es6/fantasy-functions.js",
+  "exports": "./dist/es6/fantasy-functions.js",
+  "type": "module",
   "files": [
     "lib",
     "dist",
