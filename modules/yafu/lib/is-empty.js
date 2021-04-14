@@ -1,4 +1,4 @@
-import curry from './curry'
+import curry from './curry.js'
 
 export default curry(_isEmpty)
 

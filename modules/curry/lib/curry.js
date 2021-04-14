@@ -1,6 +1,6 @@
-import apply from './apply'
-import concat from './concat'
-import slice from './slice'
+import apply from './apply.js'
+import concat from './concat.js'
+import slice from './slice.js'
 
 /**
  * Curries a function according to the following rules:

@@ -22,8 +22,8 @@ function generateMain () {
   ))
 
   return [
-    "import * as production from './fantasy-functions-production'",
-    "import * as debug from './fantasy-functions-development'",
+    "import * as production from './fantasy-functions-production.js'",
+    "import * as debug from './fantasy-functions-development.js'",
     '',
     "const fantasyFunctions = process.env.NODE_ENV === 'production' ? production : debug",
     '',

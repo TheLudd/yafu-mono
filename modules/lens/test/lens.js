@@ -5,7 +5,7 @@ import {
   over,
   set,
   view,
-} from '../index'
+} from '../index.js'
 
 const { deepEqual, equal } = assert
 

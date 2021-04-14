@@ -1,5 +1,5 @@
-import curry from './curry'
-import _arrayToSet from './_arrayToSet'
+import curry from './curry.js'
+import _arrayToSet from './_arrayToSet.js'
 
 export default curry(_difference)
 

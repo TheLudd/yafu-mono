@@ -1,4 +1,4 @@
-import I from '../lib/i'
+import I from '../lib/i.js'
 
 module.exports = function (uniqBy) {
   return function () {

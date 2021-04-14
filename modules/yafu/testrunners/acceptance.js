@@ -1,4 +1,4 @@
-import runTests from './run-tests'
+import runTests from './run-tests.js'
 import { camelCase } from 'camel-case'
 
 const bundle = require('../dist/umd/yafu')

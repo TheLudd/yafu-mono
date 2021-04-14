@@ -1,6 +1,6 @@
-import curry from './curry'
-import _arrayToSet from './_arrayToSet'
-import _setToArray from './_setToArray'
+import curry from './curry.js'
+import _arrayToSet from './_arrayToSet.js'
+import _setToArray from './_setToArray.js'
 
 export default curry(_intersection)
 

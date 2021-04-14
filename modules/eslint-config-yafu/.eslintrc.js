@@ -10,6 +10,7 @@ module.exports = {
     'arrow-body-style': 'warn',
     'arrow-parens': [ 'warn', 'always' ],
     'comma-dangle': [ 'warn', 'always-multiline' ],
+    'import/extensions': [ 'error', 'always' ],
     'import/named': 'error',
     'import/no-extraneous-dependencies': [
       'warn',

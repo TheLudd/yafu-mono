@@ -1,6 +1,6 @@
-import callWith from './call-with'
-import flip from './flip'
-import reduce from './reduce'
+import callWith from './call-with.js'
+import flip from './flip.js'
+import reduce from './reduce.js'
 
 /**
  * Pass a value through a list of function where the result of each

@@ -1,6 +1,6 @@
 import * as FL from 'fantasy-land'
 import { I, composeN } from 'yafu'
-import isSameType from './is-same-type'
+import isSameType from './is-same-type.js'
 
 function getSpecParts (spec) {
   const specParts = spec.split(':')

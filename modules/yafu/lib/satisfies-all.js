@@ -1,6 +1,6 @@
-import curry from './curry'
-import drop from './drop'
-import isEmpty from './is-empty'
+import curry from './curry.js'
+import drop from './drop.js'
+import isEmpty from './is-empty.js'
 
 export default curry(_satisfiesAll)
 

@@ -1,5 +1,5 @@
-import I from './i'
-import uniqBy from './uniq-by'
+import I from './i.js'
+import uniqBy from './uniq-by.js'
 
 /**
  * Returns a new list without duplicate elements.

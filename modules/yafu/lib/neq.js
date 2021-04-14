@@ -1,4 +1,4 @@
-import curry from './curry'
+import curry from './curry.js'
 
 /**
  * Check for non equality with using the !== binary operator.

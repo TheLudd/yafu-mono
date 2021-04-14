@@ -1,4 +1,4 @@
-import runTests from './run-tests'
+import runTests from './run-tests.js'
 
 function getFunction (name) {
   var filePath = '../lib/' + name

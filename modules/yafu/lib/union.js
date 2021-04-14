@@ -1,5 +1,5 @@
-import composeBinary from './compose-binary'
-import uniq from './uniq'
+import composeBinary from './compose-binary.js'
+import uniq from './uniq.js'
 
 function concat (a, b) {
   return a.concat(b)

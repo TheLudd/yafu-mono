@@ -1,4 +1,4 @@
-import curry from './curry'
+import curry from './curry.js'
 
 /**
  * Applies a binary function to the supplied arguments.

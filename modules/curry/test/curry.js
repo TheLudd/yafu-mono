@@ -1,5 +1,5 @@
 import { should } from 'chai'
-import { curry } from '../lib/curry'
+import { curry } from '../lib/curry.js'
 
 should()
 
