@@ -1,7 +1,7 @@
 import { terser } from 'rollup-plugin-terser'
 
 export default {
-  input: 'lib/index.js',
+  input: 'dist/index.js',
   output: [ {
     file: 'dist/umd/yafu.js',
     format: 'umd',

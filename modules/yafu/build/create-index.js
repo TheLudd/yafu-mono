@@ -1,4 +1,5 @@
 const { readdirSync, writeFileSync } = require('fs')
+const { mkdirpSync } = require('fs-extra')
 const {
   basename,
   extname,
@@ -18,19 +19,20 @@ function createIndex (projectPath) {
   }
 
   const jsFiles = readdirSync(getAbsolute('lib'))
-    .filter((s) => getFileBaseName(s).indexOf('_') !== 0 && s !== 'index.js')
+    .filter((s) => basename(s).indexOf('_') !== 0 && s !== 'index.js')
 
   const varNames = jsFiles
     .map(getFileBaseName)
     .map((s) => s.length === 1 ? s.toUpperCase() : camelCase(s))
 
   const imports = jsFiles.map((item, i) => {
-    const pathName = `./${getFileBaseName(item)}`
+    const pathName = `../lib/${basename(item)}`
     const varName = varNames[i]
     return `export { default as ${varName} } from '${pathName}'`
   }).join('\n')
 
-  writeFileSync(getAbsolute('lib/index.js'), imports)
+  mkdirpSync('dist')
+  writeFileSync(getAbsolute('dist/index.js'), imports)
 }
 
 createIndex(process.cwd())
