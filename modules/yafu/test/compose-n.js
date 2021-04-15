@@ -1,4 +1,4 @@
-module.exports = function (composeN) {
+export default function (composeN) {
   return function () {
     const add = (x, y) => x + y
     const mulBy2 = (x) => x * 2

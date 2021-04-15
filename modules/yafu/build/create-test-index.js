@@ -1,5 +1,4 @@
 import { readdirSync, writeFileSync } from 'fs'
-import { mkdirpSync } from 'fs-extra'
 import {
   basename,
   extname,
@@ -18,7 +17,7 @@ function createIndex (projectPath) {
     return normalize(join(projectPath, relative))
   }
 
-  const jsFiles = readdirSync(getAbsolute('lib'))
+  const jsFiles = readdirSync(getAbsolute('test'))
     .filter((s) => basename(s).indexOf('_') !== 0 && s !== 'index.js')
 
   const varNames = jsFiles
@@ -26,13 +25,12 @@ function createIndex (projectPath) {
     .map((s) => (s.length === 1 ? s.toUpperCase() : camelCase(s)))
 
   const imports = jsFiles.map((item, i) => {
-    const pathName = `../lib/${basename(item)}`
+    const pathName = `./${basename(item)}`
     const varName = varNames[i]
     return `export { default as ${varName} } from '${pathName}'`
   }).join('\n')
 
-  mkdirpSync('dist')
-  writeFileSync(getAbsolute('dist/index.js'), imports)
+  writeFileSync(getAbsolute('test/index.js'), imports)
 }
 
 createIndex(process.cwd())

@@ -1,4 +1,4 @@
-module.exports = function (modArgs) {
+export default function (modArgs) {
   return function () {
     const concat = (a, b) => a + b
     const addFoo = (a) => a + 'foo'

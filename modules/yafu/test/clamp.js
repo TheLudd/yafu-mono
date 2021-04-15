@@ -1,4 +1,4 @@
-module.exports = function (clamp) {
+export default function (clamp) {
   return function () {
     it('clamps to the lower bound', function () {
       clamp(1, 100, -100).should.equal(1)

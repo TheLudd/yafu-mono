@@ -1,5 +1,5 @@
-const { existsSync, mkdirSync, writeFileSync } = require('fs')
-const fantasyLand = require('fantasy-land')
+import { existsSync, mkdirSync, writeFileSync } from 'fs'
+import * as fantasyLand from 'fantasy-land'
 
 const names = Object.keys(fantasyLand)
 

@@ -1,4 +1,4 @@
-module.exports = function (I) {
+export default function (I) {
   return function () {
     it('should return the argument it receives', function () {
       const someValue = {}

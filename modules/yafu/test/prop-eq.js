@@ -1,4 +1,4 @@
-module.exports = function (propEq) {
+export default function (propEq) {
   return function () {
     const obj = { foo: 'bar' }
 

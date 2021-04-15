@@ -1,4 +1,4 @@
-module.exports = function (map) {
+export default function (map) {
   return function () {
     it('should return an empty array for empty input', function () {
       map(null, []).should.deep.equal([])

@@ -20,6 +20,7 @@
     "unit": "mocha"
   },
   "dependencies": {
+    "@yafu/curry": "^1.0.0",
     "fantasy-land": "^5.0.0",
     "yafu": "^1.1.1"
   },

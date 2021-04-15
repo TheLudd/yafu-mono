@@ -1,4 +1,4 @@
-module.exports = function (drop) {
+export default function (drop) {
   return function () {
     it('should remove the first n elements from a list', function () {
       drop(1, [1, 2, 3]).should.deep.equal([2, 3])

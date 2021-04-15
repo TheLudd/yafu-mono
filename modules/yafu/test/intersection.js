@@ -1,4 +1,4 @@
-module.exports = function (intersection) {
+export default function (intersection) {
   return function () {
     it('should return empty list for empty input list', () => {
       intersection([], []).should.deep.equal([])

@@ -1,4 +1,4 @@
-module.exports = function (satisfiesAll) {
+export default function (satisfiesAll) {
   return function () {
     var isNumber = (n) => typeof n === 'number'
     var isOdd = (n) => n % 2 === 1

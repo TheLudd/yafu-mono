@@ -23,14 +23,14 @@
     "lib"
   ],
   "scripts": {
-    "acceptance": "mocha testrunners/acceptance",
     "pretranspile": "node build/create-index",
     "transpile": "rollup -c",
     "clean": "rm -rf dist",
     "jsdoc": "jsdoc -c jsdoc.json lib",
-    "prepublishOnly": "yarn clean && yarn run transpile && yarn run acceptance",
+    "prepublishOnly": "yarn clean && yarn run transpile",
     "postpublish": "rm lib/index.js",
-    "test": "yarn unit && yarn transpile && yarn acceptance && rm lib/index.js",
+    "pretest": "node build/create-test-index",
+    "test": "yarn unit && rm -f test/index.js",
     "unit": "mocha testrunners/unit"
   },
   "dependencies": {

@@ -1,4 +1,4 @@
-module.exports = function (isEmpty) {
+export default function (isEmpty) {
   return function () {
     it('should return true for an empty array', function () {
       isEmpty([]).should.equal(true)

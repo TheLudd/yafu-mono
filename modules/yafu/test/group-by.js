@@ -1,6 +1,6 @@
 import I from '../lib/i.js'
 
-module.exports = function (groupBy) {
+export default function (groupBy) {
   return function () {
     it('returns empty object for empty list', () => {
       groupBy(I, []).should.deep.equal({})

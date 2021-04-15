@@ -1,4 +1,4 @@
-module.exports = function (findIndex) {
+export default function (findIndex) {
   return function () {
     const isEven = (x) => x % 2 === 0
     const findEven = findIndex(isEven)

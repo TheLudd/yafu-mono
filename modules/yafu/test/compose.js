@@ -1,4 +1,4 @@
-module.exports = function (compose) {
+export default function (compose) {
   return function () {
     const inc = (n) => n + 1
     const dbl = (n) => n * 2

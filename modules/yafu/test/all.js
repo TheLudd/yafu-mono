@@ -1,4 +1,4 @@
-module.exports = function (all) {
+export default function (all) {
   return function () {
     var getFalse = () => false
     var isNumber = (n) => typeof n === 'number'

@@ -1,4 +1,4 @@
-module.exports = function (eq) {
+export default function (eq) {
   return function () {
     it('returns true for two equal values', () => {
       eq(1, 1).should.equal(true)

@@ -1,4 +1,4 @@
-module.exports = function (pipe) {
+export default function (pipe) {
   return function () {
     const toUpper = (s) => s.toUpperCase()
 

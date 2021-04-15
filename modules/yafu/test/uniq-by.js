@@ -1,6 +1,6 @@
 import I from '../lib/i.js'
 
-module.exports = function (uniqBy) {
+export default function (uniqBy) {
   return function () {
     it('returns empty list for empty input', () => {
       uniqBy(I, []).should.deep.equal([])

@@ -1,4 +1,4 @@
-module.exports = function (difference) {
+export default function (difference) {
   return function () {
     it('should return empty list for empty input lists', () => {
       difference([], []).should.deep.equal([])

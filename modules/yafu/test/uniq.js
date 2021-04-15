@@ -1,4 +1,4 @@
-module.exports = function (uniq) {
+export default function (uniq) {
   return function () {
     it('returns empty list for empty input', () => {
       uniq([]).should.deep.equal([])

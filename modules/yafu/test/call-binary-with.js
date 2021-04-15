@@ -1,4 +1,4 @@
-module.exports = function (callBinaryWith) {
+export default function (callBinaryWith) {
   return function () {
     const subtract = (a, b) => a - b
 

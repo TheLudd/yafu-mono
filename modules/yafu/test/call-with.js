@@ -1,4 +1,4 @@
-module.exports = function (callWith) {
+export default function (callWith) {
   return function () {
     const inc = (n) => n + 1
 

@@ -1,4 +1,4 @@
-module.exports = function (composeBinary) {
+export default function (composeBinary) {
   return function () {
     const add = (x, y) => x + y
     const mulBy2 = (x) => x * 2

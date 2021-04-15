@@ -1,4 +1,4 @@
-module.exports = function (K) {
+export default function (K) {
   return function () {
     it('should return the first of the two arguments', function () {
       const obj1 = {}

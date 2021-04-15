@@ -1,5 +1,4 @@
 const config = {
-  require: [ '@babel/register', 'source-map-support' ],
   reporter: 'dot',
   recursive: true,
 }

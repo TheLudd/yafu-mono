@@ -1,5 +1,5 @@
 import * as FL from 'fantasy-land'
-import { curry } from 'yafu'
+import { curry } from '@yafu/curry'
 
 export default function createFunction (name, definition) {
   const {

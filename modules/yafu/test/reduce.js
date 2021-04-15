@@ -1,4 +1,4 @@
-module.exports = function (reduce) {
+export default function (reduce) {
   return function () {
     const add = (a, b) => a + b
 

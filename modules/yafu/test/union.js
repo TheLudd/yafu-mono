@@ -1,4 +1,4 @@
-module.exports = function (union) {
+export default function (union) {
   return function () {
     it('should return an empty list when both input lists are empty', () => {
       union([], []).should.deep.equal([])

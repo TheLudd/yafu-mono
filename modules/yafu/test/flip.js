@@ -1,4 +1,4 @@
-module.exports = function (flip) {
+export default function (flip) {
   return function () {
     const strConcat = (a, b) => a + b
 

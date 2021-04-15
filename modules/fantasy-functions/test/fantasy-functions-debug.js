@@ -1,6 +1,7 @@
 /* eslint-disable max-classes-per-file */
 import { assert } from 'chai'
-import { I, curry } from 'yafu'
+import { curry } from '@yafu/curry'
+import { I } from 'yafu'
 import * as FL from 'fantasy-land'
 import * as ff from '../dist/es6/fantasy-functions-development.js'
 

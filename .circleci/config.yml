@@ -4,7 +4,7 @@ commands:
   install:
     parameters:
       node-version:
-        default: '12'
+        default: '14'
         type: string
     steps:
       - run:
@@ -75,4 +75,4 @@ workflows:
       - test:
           matrix:
             parameters:
-              node-version: [ '10', '12', '14' ]
+              node-version: [ '12', '14' ]

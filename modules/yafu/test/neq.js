@@ -1,4 +1,4 @@
-module.exports = function (neq) {
+export default function (neq) {
   return function () {
     it('returns false for two equal values', () => {
       neq(1, 1).should.equal(false)
