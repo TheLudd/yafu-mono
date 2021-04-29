@@ -4,10 +4,12 @@ import { identityOf } from '@yafu/identity'
 import { constOf } from '@yafu/const'
 
 function over (lens, f, target) {
-  const functor = lens((focus) => {
+  function createOverFunctor (focus) {
     const newValue = f(focus)
     return newValue === focus ? constOf(target) : identityOf(newValue)
-  }, target)
+  }
+
+  const functor = lens(createOverFunctor, target)
   return extract(functor)
 }
 
