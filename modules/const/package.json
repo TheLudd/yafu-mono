@@ -14,7 +14,7 @@
     "transpile": "rollup -c"
   },
   "dependencies": {
-    "fantasy-land": "^4.1.0"
+    "fantasy-land": "^5.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^11.2.1",
