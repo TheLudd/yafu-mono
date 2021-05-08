@@ -28,7 +28,6 @@
     "clean": "rm -rf dist",
     "jsdoc": "jsdoc -c jsdoc.json lib",
     "prepublishOnly": "yarn clean && yarn run transpile",
-    "postpublish": "rm lib/index.js",
     "pretest": "node build/create-test-index",
     "test": "yarn unit && rm -f test/index.js",
     "unit": "mocha testrunners/unit"
