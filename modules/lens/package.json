@@ -1,6 +1,6 @@
 {
   "name": "@yafu/lens",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Lenses to brighten up your functional programming",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
@@ -19,10 +19,10 @@
     "unit": "mocha"
   },
   "dependencies": {
-    "@yafu/const": "^1.0.4",
-    "@yafu/fantasy-functions": "^1.0.4",
-    "@yafu/identity": "^1.0.4",
-    "yafu": "^1.1.1"
+    "@yafu/const": "^1.1.0",
+    "@yafu/fantasy-functions": "^1.1.0",
+    "@yafu/identity": "^1.1.0",
+    "yafu": "^1.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.13.14",
