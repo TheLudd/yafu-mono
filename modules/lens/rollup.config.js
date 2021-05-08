@@ -9,7 +9,7 @@ export default {
     resolve(),
   ],
   output: {
-    file: 'dist/lens.js',
+    file: 'dist/lens.cjs',
     format: 'cjs',
   },
 }

@@ -4,10 +4,10 @@
   "description": "Lenses to brighten up your functional programming",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
-  "main": "dist/lens.js",
+  "main": "./dist/lens.cjs",
   "exports": {
     "import": "./index.js",
-    "require": "./dist/lens.js"
+    "require": "./dist/lens.cjs"
   },
   "type": "module",
   "scripts": {

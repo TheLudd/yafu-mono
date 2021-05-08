@@ -9,7 +9,7 @@ export default {
     resolve(),
   ],
   output: {
-    file: 'dist/identity.js',
+    file: 'dist/identity.cjs',
     format: 'cjs',
   },
 }

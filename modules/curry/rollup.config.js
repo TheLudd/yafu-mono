@@ -1,7 +1,7 @@
 export default {
   input: './lib/curry.js',
   output: {
-    file: 'dist/curry.js',
+    file: 'dist/curry.cjs',
     format: 'cjs',
   },
 }

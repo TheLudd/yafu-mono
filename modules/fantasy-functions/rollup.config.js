@@ -13,7 +13,7 @@ export default setups.map((environment) => ({
     resolve(),
   ],
   output: {
-    file: `dist/cjs/fantasy-functions-${environment}.js`,
+    file: `dist/cjs/fantasy-functions-${environment}.cjs`,
     format: 'cjs',
   },
 }))

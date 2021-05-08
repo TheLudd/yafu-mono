@@ -4,10 +4,10 @@
   "description": "Yafu's curry implementation",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
-  "main": "dist/curry.js",
+  "main": "./dist/curry.cjs",
   "exports": {
     "import": "./lib/curry.js",
-    "require": "./dist/curry.js"
+    "require": "./dist/curry.cjs"
   },
   "type": "module",
   "scripts": {

@@ -9,7 +9,7 @@ export default {
     resolve(),
   ],
   output: {
-    file: 'dist/const.js',
+    file: 'dist/const.cjs',
     format: 'cjs',
   },
 }
