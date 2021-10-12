@@ -3,7 +3,7 @@ import {
   createTransformer,
   reduced,
   step,
-} from './utils'
+} from './utils.js'
 
 export default function take (n) {
   return (transformer) => {

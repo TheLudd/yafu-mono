@@ -2,7 +2,7 @@ import {
   STEP,
   createTransformer,
   step,
-} from './utils'
+} from './utils.js'
 
 export default function drop (n) {
   return (transformer) => {

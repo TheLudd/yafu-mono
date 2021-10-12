@@ -1,8 +1,8 @@
 import { assert } from 'chai'
 import { compose } from 'yafu'
-import map from '../lib/transformers/map'
-import filter from '../lib/transformers/filter'
-import transduce from '../lib/transduce'
+import map from '../lib/transformers/map.js'
+import filter from '../lib/transformers/filter.js'
+import transduce from '../lib/transduce.js'
 
 const { equal } = assert
 const getFoo = ({ foo }) => foo

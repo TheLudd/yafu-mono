@@ -3,7 +3,7 @@ import {
   result,
   step,
   value,
-} from './transformers/utils'
+} from './transformers/utils.js'
 
 export default function runIteratorTransduce (reducer, initial, iterator) {
   let acc = initial

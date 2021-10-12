@@ -1,6 +1,6 @@
 import { assert } from 'chai'
-import filter from '../../lib/transformers/filter'
-import into from '../../lib/into'
+import filter from '../../lib/transformers/filter.js'
+import into from '../../lib/into.js'
 
 const { deepEqual } = assert
 

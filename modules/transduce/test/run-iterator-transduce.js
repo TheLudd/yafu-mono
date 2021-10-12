@@ -1,8 +1,8 @@
 import { assert } from 'chai'
-import { take } from '..'
-import runIteratorTransduce from '../lib/run-iterator-transduce'
-import { mapInc } from './utils'
-import '../lib/array'
+import { take } from '../index.js'
+import runIteratorTransduce from '../lib/run-iterator-transduce.js'
+import { mapInc } from './utils.js'
+import '../lib/array.js'
 
 const { deepEqual } = assert
 function createFibbonaciIterator (maxRounds = Infinity) {

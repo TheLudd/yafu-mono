@@ -5,7 +5,7 @@ export default {
     moduleSideEffects: false,
   },
   output: {
-    file: 'dist/cjs/transduce.js',
+    file: 'dist/cjs/transduce.cjs',
     format: 'cjs',
   },
 }

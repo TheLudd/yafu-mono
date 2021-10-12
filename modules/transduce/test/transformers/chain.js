@@ -1,6 +1,6 @@
 import { assert } from 'chai'
-import chain from '../../lib/transformers/chain'
-import into from '../../lib/into'
+import chain from '../../lib/transformers/chain.js'
+import into from '../../lib/into.js'
 
 const { deepEqual } = assert
 

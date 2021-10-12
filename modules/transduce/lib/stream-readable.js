@@ -8,7 +8,7 @@ import {
   result,
   step,
   value,
-} from './transformers/utils'
+} from './transformers/utils.js'
 
 function readableTransduce (reducer, initial) {
   const onEnd = () => result(reducer, initial)

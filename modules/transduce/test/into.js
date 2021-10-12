@@ -1,6 +1,6 @@
 import { assert } from 'chai'
-import into from '../lib/into'
-import map from '../lib/transformers/map'
+import into from '../lib/into.js'
+import map from '../lib/transformers/map.js'
 
 const { notEqual, deepEqual } = assert
 const inc = (n) => n + 1

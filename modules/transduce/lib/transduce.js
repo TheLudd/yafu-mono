@@ -1,6 +1,6 @@
 import { curry } from 'yafu'
-import { RESULT, STEP } from './transformers/utils'
-import runTransduce from './run-transduce'
+import { RESULT, STEP } from './transformers/utils.js'
+import runTransduce from './run-transduce.js'
 
 function createReducer (fn) {
   return {

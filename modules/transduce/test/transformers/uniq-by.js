@@ -1,6 +1,6 @@
 import { assert } from 'chai'
-import uniqBy from '../../lib/transformers/uniq-by'
-import into from '../../lib/into'
+import uniqBy from '../../lib/transformers/uniq-by.js'
+import into from '../../lib/into.js'
 
 const { deepEqual } = assert
 

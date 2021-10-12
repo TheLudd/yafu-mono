@@ -1,5 +1,5 @@
 import { compose } from 'yafu'
-import { map, filter } from '..'
+import { map, filter } from '../index.js'
 
 export const inc = (x) => x + 1
 export const isEven = (x) => x % 2 === 0

@@ -5,8 +5,8 @@ import {
   RESULT,
   STEP,
   TRANSDUCE,
-} from './transformers/utils'
-import runIteratorTransduce from './run-iterator-transduce'
+} from './transformers/utils.js'
+import runIteratorTransduce from './run-iterator-transduce.js'
 
 function arrayTransduce (reducer, initial) {
   return runIteratorTransduce(reducer, initial, this.values())

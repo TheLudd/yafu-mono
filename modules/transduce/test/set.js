@@ -1,7 +1,7 @@
 import { assert } from 'chai'
-import { into } from '..'
-import { incEven } from './utils'
-import '../lib/set'
+import { into } from '../index.js'
+import { incEven } from './utils.js'
+import '../lib/set.js'
 
 const { notEqual, deepEqual } = assert
 

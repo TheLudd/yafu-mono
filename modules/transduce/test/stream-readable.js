@@ -1,12 +1,12 @@
 import { I } from 'yafu'
 import { assert } from 'chai'
 import { Readable } from 'stream'
-import '../lib/stream-readable'
-import into from '../lib/into'
-import map from '../lib/transformers/map'
-import take from '../lib/transformers/take'
-import filter from '../lib/transformers/filter'
-import chain from '../lib/transformers/chain'
+import '../lib/stream-readable.js'
+import into from '../lib/into.js'
+import map from '../lib/transformers/map.js'
+import take from '../lib/transformers/take.js'
+import filter from '../lib/transformers/filter.js'
+import chain from '../lib/transformers/chain.js'
 
 const { deepEqual } = assert
 const inc = (x) => x + 1
