@@ -6,7 +6,7 @@ import into from '../lib/into.js'
 import map from '../lib/transformers/map.js'
 import take from '../lib/transformers/take.js'
 import filter from '../lib/transformers/filter.js'
-import chain from '../lib/transformers/chain.js'
+import spread from '../lib/transformers/spread.js'
 
 const { deepEqual } = assert
 const inc = (x) => x + 1
@@ -70,7 +70,7 @@ it('filter', (done) => {
   assertStreamResult(result, [ 1, 3 ], done)
 })
 
-it('chain', (done) => {
+it('spread', (done) => {
   const getTags = ({ tags }) => tags
 
   const list = [
@@ -79,6 +79,6 @@ it('chain', (done) => {
   ]
 
   const str = createArrayStream(list)
-  const result = into(emptyStream, chain(getTags), str)
+  const result = into(emptyStream, spread(getTags), str)
   assertStreamResult(result, [ 'a', 'b', 'c', 'd', 'e', 'f' ], done)
 })
