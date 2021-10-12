@@ -11,8 +11,8 @@
     "lint": "lerna run lint --parallel",
     "prepublishOnly": "yarn clean && yarn test",
     "pretest": "yarn && yarn transpile",
-    "test": "lerna run test",
-    "transpile": "lerna run transpile --parallel",
+    "test": "lerna run test --parallel",
+    "transpile": "lerna run transpile",
     "watch": "lerna run --parallel transpile -- -w"
   },
   "devDependencies": {
