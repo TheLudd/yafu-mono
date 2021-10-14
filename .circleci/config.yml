@@ -15,15 +15,16 @@ commands:
           command: |
             ls modules > /tmp/folders
             cat /tmp/folders | xargs node scripts/verify-paths.js
+      - store-node-version
       - restore_cache:
           name: 'Restoring cache'
-          key: yafu-node-<< parameters.node-version >>-{{ checksum "yarn.lock" }}-{{ checksum "/tmp/folders" }}
+          key: yafu-node-{{ checksum "/tmp/node-version" }}-{{ checksum "yarn.lock" }}-{{ checksum "/tmp/folders" }}
       - run:
           name: 'Install packages'
           command: yarn install --frozen-lockfile
       - save_cache:
           name: 'Saving cache'
-          key: yafu-node-<< parameters.node-version >>-{{ checksum "yarn.lock" }}-{{ checksum "/tmp/folders" }}
+          key: yafu-node-{{ checksum "/tmp/node-version" }}-{{ checksum "yarn.lock" }}-{{ checksum "/tmp/folders" }}
           paths:
             #pathsbegin
             - node_modules
@@ -43,6 +44,12 @@ commands:
           name: Run tests
       - store_test_results:
           path: test-results
+  store-node-version:
+    steps:
+      - run:
+          name: Store node version
+          command: |
+            node -v | tee /tmp/node-version
   commitlint:
     steps:
       - run:
