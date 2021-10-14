@@ -1,6 +1,5 @@
 import { assert } from 'chai'
-import chain from '../../lib/transformers/spread.js'
-import into from '../../lib/into.js'
+import { spread, into } from '../../index.js'
 
 const { deepEqual } = assert
 
@@ -11,10 +10,10 @@ const list = [
   { tags: [ 'd', 'e', 'f' ] },
 ]
 
-it('chain', () => {
+it('spread', () => {
   const result = into(
     [],
-    chain(getTags),
+    spread(getTags),
     list,
   )
   deepEqual(result, [ 'a', 'b', 'c', 'd', 'e', 'f' ])

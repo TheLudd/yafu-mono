@@ -1,6 +1,5 @@
 import { assert } from 'chai'
-import map from '../../lib/transformers/map.js'
-import into from '../../lib/into.js'
+import { map, into } from '../../index.js'
 
 const { deepEqual } = assert
 

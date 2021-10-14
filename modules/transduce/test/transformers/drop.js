@@ -1,6 +1,5 @@
 import { assert } from 'chai'
-import drop from '../../lib/transformers/drop.js'
-import into from '../../lib/into.js'
+import { drop, into } from '../../index.js'
 
 const { deepEqual } = assert
 
