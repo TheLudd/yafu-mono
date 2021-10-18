@@ -2,7 +2,7 @@ import { assert } from 'chai'
 import { take } from '../index.js'
 import runIteratorTransduce from '../lib/run-iterator-transduce.js'
 import { mapInc } from './utils.js'
-import '../lib/array.js'
+import '../lib/polyfills/array.js'
 
 const { deepEqual } = assert
 function createFibbonaciIterator (maxRounds = Infinity) {

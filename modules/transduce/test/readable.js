@@ -1,7 +1,7 @@
 import { I } from 'yafu'
 import { assert } from 'chai'
 import { Readable } from 'stream'
-import '../lib/stream-readable.js'
+import '../lib/polyfills/readable.js'
 import into from '../lib/into.js'
 import map from '../lib/transformers/map.js'
 import take from '../lib/transformers/take.js'

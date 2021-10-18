@@ -3,7 +3,7 @@ import {
   INIT,
   RESULT,
   STEP,
-} from './transformers/utils.js'
+} from '../transformers/utils.js'
 
 function writableInit () {
   return this

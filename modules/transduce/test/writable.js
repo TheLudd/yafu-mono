@@ -1,7 +1,7 @@
 import { assert } from 'chai'
 import { Readable, Writable } from 'stream'
-import '../lib/stream-witable.js'
-import '../lib/stream-readable.js'
+import '../lib/polyfills/writable.js'
+import '../lib/polyfills/readable.js'
 import into from '../lib/into.js'
 import map from '../lib/transformers/map.js'
 
