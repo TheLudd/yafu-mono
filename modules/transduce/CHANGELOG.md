@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/TheLudd/yafu-mono/compare/@yafu/transduce@1.1.0...@yafu/transduce@1.2.0) (2021-10-19)
+
+
+### Features
+
+* **transduce:** add batch transducer ([4fde96f](https://github.com/TheLudd/yafu-mono/commit/4fde96f5a31fc203de07913c22d3fd4ed2d6dbb3))
+
+
+
+
+
 # 1.1.0 (2021-10-14)
 
 
