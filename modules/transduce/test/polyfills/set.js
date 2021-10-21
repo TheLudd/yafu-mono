@@ -1,7 +1,7 @@
 import { assert } from 'chai'
-import { into } from '../index.js'
-import { incEven } from './utils.js'
-import '../lib/polyfills/set.js'
+import { into } from '../../index.js'
+import { incEven } from '../utils.js'
+import '../../lib/polyfills/set.js'
 
 const { notEqual, deepEqual } = assert
 

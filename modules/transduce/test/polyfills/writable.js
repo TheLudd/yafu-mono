@@ -1,9 +1,9 @@
 import { assert } from 'chai'
 import { Readable, Writable } from 'stream'
-import '../lib/polyfills/writable.js'
-import '../lib/polyfills/readable.js'
-import into from '../lib/into.js'
-import map from '../lib/transformers/map.js'
+import '../../lib/polyfills/writable.js'
+import '../../lib/polyfills/readable.js'
+import into from '../../lib/into.js'
+import map from '../../lib/transformers/map.js'
 
 const { deepEqual } = assert
 const inc = (x) => x + 1

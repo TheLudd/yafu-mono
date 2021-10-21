@@ -1,12 +1,12 @@
 import { I } from 'yafu'
 import { assert } from 'chai'
 import { Readable } from 'stream'
-import '../lib/polyfills/readable.js'
-import into from '../lib/into.js'
-import map from '../lib/transformers/map.js'
-import take from '../lib/transformers/take.js'
-import filter from '../lib/transformers/filter.js'
-import spread from '../lib/transformers/spread.js'
+import '../../lib/polyfills/readable.js'
+import into from '../../lib/into.js'
+import map from '../../lib/transformers/map.js'
+import take from '../../lib/transformers/take.js'
+import filter from '../../lib/transformers/filter.js'
+import spread from '../../lib/transformers/spread.js'
 
 const { deepEqual } = assert
 const inc = (x) => x + 1
