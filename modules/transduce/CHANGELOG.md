@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/TheLudd/yafu-mono/compare/@yafu/transduce@1.3.0...@yafu/transduce@1.3.1) (2021-10-21)
+
+
+### Bug Fixes
+
+* **transduce:** curry into ([b38817e](https://github.com/TheLudd/yafu-mono/commit/b38817ece8293ee1fd41d66c015f99296f50ff9d))
+
+
+
+
+
 # [1.3.0](https://github.com/TheLudd/yafu-mono/compare/@yafu/transduce@1.2.0...@yafu/transduce@1.3.0) (2021-10-21)
 
 
