@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/TheLudd/yafu-mono/compare/@yafu/transduce@1.2.0...@yafu/transduce@1.3.0) (2021-10-21)
+
+
+### Features
+
+* **transduce:** add object polyfill ([6b1b0d9](https://github.com/TheLudd/yafu-mono/commit/6b1b0d965f16c5c086327a22ac4767e8b737f358))
+
+
+
+
+
 # [1.2.0](https://github.com/TheLudd/yafu-mono/compare/@yafu/transduce@1.1.0...@yafu/transduce@1.2.0) (2021-10-19)
 
 
