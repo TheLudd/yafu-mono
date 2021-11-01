@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/TheLudd/yafu/compare/yafu@1.2.1...yafu@1.3.0) (2021-11-01)
+
+
+### Features
+
+* **yafu:** add eqProps ([5e718e2](https://github.com/TheLudd/yafu/commit/5e718e23b34c693820896b8bf44881c054768f27))
+* **yafu:** add unionBy ([102e2c4](https://github.com/TheLudd/yafu/commit/102e2c4498df05ca689d852fa8fba46a09355754))
+
+
+
+
+
 ## [1.2.1](https://github.com/TheLudd/yafu/compare/yafu@1.2.0...yafu@1.2.1) (2021-05-08)
 
 
