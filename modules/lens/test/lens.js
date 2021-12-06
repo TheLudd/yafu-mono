@@ -1,5 +1,6 @@
 import { assert } from 'chai'
-import { compose, curry } from 'yafu'
+import { curry } from '@yafu/curry'
+import { compose } from 'yafu'
 import {
   lens,
   over,

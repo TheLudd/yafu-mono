@@ -1,4 +1,5 @@
-import { K, curry } from 'yafu'
+import { curry } from '@yafu/curry'
+import { K } from 'yafu'
 import over from './over.js'
 
 function set (lens, value, target) {

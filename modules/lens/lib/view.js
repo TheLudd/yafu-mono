@@ -1,4 +1,4 @@
-import { curry } from 'yafu'
+import { curry } from '@yafu/curry'
 import { extract } from '@yafu/fantasy-functions'
 import { constOf } from '@yafu/const'
 

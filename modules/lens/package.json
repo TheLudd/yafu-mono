@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@yafu/const": "^1.1.1",
+    "@yafu/curry": "^1.1.1",
     "@yafu/fantasy-functions": "^1.1.2",
     "@yafu/identity": "^1.1.1",
     "yafu": "^1.3.0"

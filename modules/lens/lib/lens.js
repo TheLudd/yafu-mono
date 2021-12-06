@@ -1,4 +1,5 @@
-import { curry, flip } from 'yafu'
+import { curry } from '@yafu/curry'
+import { flip } from 'yafu'
 import { map } from '@yafu/fantasy-functions'
 import { constOf } from '@yafu/const'
 

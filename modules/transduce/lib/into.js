@@ -1,4 +1,4 @@
-import { curry } from 'yafu'
+import { curry } from '@yafu/curry'
 import { init } from './transformers/utils.js'
 import runTransduce from './run-transduce.js'
 
