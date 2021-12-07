@@ -1,0 +1,28 @@
+{
+  "name": "@yafu/fantasy-types",
+  "version": "0.0.0",
+  "description": "TypeScript defenitions of fantasy-land types",
+  "license": "MIT",
+  "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
+  "types": "./dist/types.d.ts",
+  "type": "module",
+  "exports": "./dist/fantasy-types.js",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "pretranspile": "mkdir -p dist",
+    "generate": "node dist/generate-ts-modules.js > dist/types.ts",
+    "transpile": "rollup -c rollup.script.config.js && yarn generate && rollup -c",
+    "test": "tsc --noEmit dist/*.ts",
+    "prepublishOnly": "yarn clean && yarn transpile && yarn test"
+  },
+  "dependencies": {
+    "@yafu/type-utils": "^0.0.0",
+    "fantasy-land": "^5.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.2"
+  }
+}

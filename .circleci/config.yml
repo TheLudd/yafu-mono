@@ -32,6 +32,7 @@ commands:
             - modules/curry/node_modules
             - modules/eslint-config-yafu/node_modules
             - modules/fantasy-functions/node_modules
+            - modules/fantasy-types/node_modules
             - modules/identity/node_modules
             - modules/lens/node_modules
             - modules/rollup-plugin-curry/node_modules
