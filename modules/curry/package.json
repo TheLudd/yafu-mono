@@ -10,6 +10,7 @@
     "require": "./dist/curry.cjs"
   },
   "type": "module",
+  "types": "./curry.d.ts",
   "scripts": {
     "clean": "rm -rf dist/",
     "lint": "eslint lib/*.js test/*.js",
