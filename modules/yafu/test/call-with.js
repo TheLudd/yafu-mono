@@ -1,9 +1,7 @@
-export default function (callWith) {
-  return function () {
-    const inc = (n) => n + 1
+export default (callWith) => () => {
+  const inc = (n) => n + 1
 
-    it('calls the function with the supplied argument', function () {
-      callWith(1, inc).should.equal(2)
-    })
-  }
+  it('calls the function with the supplied argument', () => {
+    callWith(1, inc).should.equal(2)
+  })
 }

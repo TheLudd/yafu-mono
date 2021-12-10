@@ -1,4 +1,4 @@
-import I from '../lib/i.js'
+import { I } from '../dist/i.js'
 
 export default function (unionBy) {
   return function () {

@@ -35,6 +35,7 @@ commands:
             - modules/identity/node_modules
             - modules/lens/node_modules
             - modules/rollup-plugin-curry/node_modules
+            - modules/sort-dependencies/node_modules
             - modules/transduce/node_modules
             - modules/yafu/node_modules
             #pathsend

@@ -1,8 +1,6 @@
-export default function (I) {
-  return function () {
-    it('should return the argument it receives', function () {
-      const someValue = {}
-      I(someValue).should.equal(someValue)
-    })
-  }
+export default (I) => () => {
+  it('should return the argument it receives', () => {
+    const someValue = {}
+    I(someValue).should.equal(someValue)
+  })
 }

@@ -12,24 +12,27 @@
   },
   "license": "MIT",
   "author": "Ludwig Magnusson",
-  "main": "./dist/umd/yafu.cjs",
+  "type": "module",
   "exports": {
     "import": "./dist/index.js",
-    "require": "./dist/umd/yafu.cjs"
+    "require": "./dist/cjs/yafu.cjs"
   },
-  "type": "module",
+  "main": "./dist/cjs/yafu.cjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist",
     "lib"
   ],
   "scripts": {
-    "pretranspile": "node build/create-index",
-    "transpile": "rollup -c",
+    "acceptance": "mocha testrunners/acceptance",
     "clean": "rm -rf dist",
     "jsdoc": "jsdoc -c jsdoc.json lib",
     "prepublishOnly": "yarn clean && yarn run transpile",
     "pretest": "node build/create-test-index",
-    "test": "yarn unit && rm -f test/index.js",
+    "test": "yarn transpile && yarn unit && yarn acceptance",
+    "posttest": "rm -f test/index.js",
+    "pretranspile": "mkdir -p dist",
+    "transpile": "node build/create-index.js && rollup -c",
     "unit": "mocha testrunners/unit"
   },
   "dependencies": {
@@ -39,21 +42,25 @@
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
     "@babel/register": "^7.16.0",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@yafu/rollup-plugin-curry": "^0.0.0",
     "babel-plugin-add-module-exports": "^1.0.4",
     "camel-case": "^4.1.1",
     "chai": "^4.3.4",
-    "fs-extra": "^10.0.0",
+    "glob": "^7.1.6",
     "jsdoc": "^3.6.7",
     "mocha": "^9.1.3",
     "rollup": "^2.60.2",
     "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.31.1",
+    "sort-dependencies": "^1.0.0",
     "source-map-support": "^0.5.21",
     "yaml": "^1.10.2"
   },
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "7281dfbb47ac1d4ee618ae2176dace369b4496f9",
+  "gitHead": "76609e54a0d57b9a161b69afb45b4eb89869a074",
   "standard": {
     "global": [
       "describe",

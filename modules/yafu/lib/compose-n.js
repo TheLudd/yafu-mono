@@ -1,7 +1,3 @@
-import curry from './curry.js'
-
-export default curry(_composeN)
-
 /**
  * Composes a function of length n with a unary functon. The unary function will be
  * applied to the result of the length n function.
@@ -11,7 +7,7 @@ export default curry(_composeN)
  * @arg g {Function} A function of length n
  * @arg args {Any} n number of arguments
  */
-function _composeN (n, f, g) {
+export function composeN (n, f, g) {
   function composed (...args) {
     return f(g(...args))
   }

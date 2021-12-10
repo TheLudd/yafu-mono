@@ -1,11 +1,11 @@
 import { readdirSync, writeFileSync } from 'fs'
+import { camelCase } from 'camel-case'
 import {
   basename,
   extname,
   join,
   normalize,
 } from 'path'
-import { camelCase } from 'camel-case'
 
 function createIndex (projectPath) {
   function getFileBaseName (fullName) {
@@ -18,16 +18,13 @@ function createIndex (projectPath) {
   }
 
   const jsFiles = readdirSync(getAbsolute('test'))
-    .filter((s) => basename(s).indexOf('_') !== 0 && s !== 'index.js')
-
-  const varNames = jsFiles
+    .filter((s) => s.indexOf('_') !== 0 && !s.endsWith('index.js'))
     .map(getFileBaseName)
-    .map((s) => (s.length === 1 ? s.toUpperCase() : camelCase(s)))
 
-  const imports = jsFiles.map((item, i) => {
-    const pathName = `./${basename(item)}`
-    const varName = varNames[i]
-    return `export { default as ${varName} } from '${pathName}'`
+  const imports = jsFiles.map((item) => {
+    const pathName = `./${item}`
+    const varName = item.length === 1 ? item.toUpperCase() : camelCase(item)
+    return `export { default as ${varName} } from '${pathName}.js'`
   }).join('\n')
 
   writeFileSync(getAbsolute('test/index.js'), imports)

@@ -1,11 +1,9 @@
-export default function (isEmpty) {
-  return function () {
-    it('should return true for an empty array', function () {
-      isEmpty([]).should.equal(true)
-    })
+export default (isEmpty) => () => {
+  it('should return true for an empty array', () => {
+    isEmpty([]).should.equal(true)
+  })
 
-    it('should return false for a non empty array', function () {
-      isEmpty([1]).should.equal(false)
-    })
-  }
+  it('should return false for a non empty array', () => {
+    isEmpty([ 1 ]).should.equal(false)
+  })
 }

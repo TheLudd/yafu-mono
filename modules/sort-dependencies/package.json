@@ -1,0 +1,29 @@
+{
+  "name": "sort-dependencies",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Internal utility",
+  "license": "MIT",
+  "author": "Ludwig Magnusson <ludwig@mediatool.com>",
+  "type": "module",
+  "exports": {
+    "import": "./lib/sort-dependencies.js",
+    "require": "./dist/cjs/sort-dependencies.cjs"
+  },
+  "main": "./dist/es/sort-dependencies.cjs",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "transpile": "yarn rollup -c"
+  },
+  "dependencies": {
+    "minimist": "^1.2.5",
+    "ramda": "^0.27.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@theludd/eslint-config-gaius": "^2.1.1",
+    "eslint": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "rollup": "^2.60.2"
+  }
+}

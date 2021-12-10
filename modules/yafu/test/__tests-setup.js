@@ -1,1 +1,3 @@
-require('chai').should()
+import { should } from 'chai.js'
+
+should()
