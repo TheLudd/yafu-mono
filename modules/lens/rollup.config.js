@@ -1,15 +1,5 @@
-import resolve from '@rollup/plugin-node-resolve'
+import pkg from './package.json'
+// eslint-disable-next-line import/no-relative-packages
+import createRollupConfig from '../../create-rollup-config.js'
 
-export default {
-  input: './index.js',
-  treeshake: {
-    moduleSideEffects: false,
-  },
-  plugins: [
-    resolve(),
-  ],
-  output: {
-    file: 'dist/lens.cjs',
-    format: 'cjs',
-  },
-}
+export default createRollupConfig('./index.ts', pkg)

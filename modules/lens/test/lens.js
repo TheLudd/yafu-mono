@@ -1,12 +1,11 @@
 import { assert } from 'chai'
-import { curry } from '@yafu/curry'
-import { compose } from 'yafu'
+import { compose, curry } from 'yafu'
 import {
   lens,
   over,
   set,
   view,
-} from '../index.js'
+} from '../dist/es6/index.js'
 
 const { deepEqual, equal } = assert
 
@@ -43,19 +42,20 @@ const toUpper = (s) => s.toUpperCase()
 describe('lens', () => {
   describe('view', () => {
     it('returns the value in the focus', () => {
-      equal('bar', view(fooLens, obj))
-      equal('QUX', view(bazLens, obj))
-      equal('a', view(headLens, array))
-      equal('b', view(indexLens(1), array))
-      equal('c', view(indexLens(2), array))
+      equal('bar', view('def', fooLens, obj))
+      equal('QUX', view('def', bazLens, obj))
+      equal('a', view('def', headLens, array))
+      equal('b', view('def', indexLens(1), array))
+      equal('c', view('def', indexLens(2), array))
     })
 
     it('handles composed lenses', () => {
-      equal('foo1', view(firstFooLens, complex))
+      equal('foo1', view('def', firstFooLens, complex))
     })
 
-    it('returns the target if the focus does not exist', () => {
-      equal(obj, view(firstWutLens, obj))
+    it('returns the default value if the focus does not exist', () => {
+      equal('def', view('def', firstWutLens, obj))
+      equal('def', view('def', wutWutLens, complex))
     })
   })
 
@@ -108,6 +108,7 @@ describe('lens', () => {
     it('returns the exact same object if the focus is unchanged', () => {
       equal(obj, set(fooLens, 'bar', obj))
       equal(obj, set(firstWutLens, toUpper, obj))
+      equal(complex, set(firstWutLens, toUpper, complex))
     })
   })
 })
