@@ -1,0 +1,34 @@
+{
+  "name": "@yafu/either",
+  "version": "0.0.0",
+  "description": "Either monad",
+  "license": "MIT",
+  "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
+  "main": "./dist/cjs/either.js",
+  "exports": {
+    "import": "./dist/es6/either.js",
+    "require": "./dist/cjs/either.js"
+  },
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "lint": "eslint lib/*.ts",
+    "prepublishOnly": "yarn clean && yarn transpile",
+    "test": "yarn lint",
+    "transpile": "rollup -c"
+  },
+  "dependencies": {
+    "@yafu/fantasy-types": "^0.0.0",
+    "fantasy-land": "^5.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^11.0.1",
+    "eslint": "^7.17.0",
+    "rollup": "^2.35.1",
+    "typescript": "^4.1.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "76609e54a0d57b9a161b69afb45b4eb89869a074"
+}

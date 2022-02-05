@@ -30,6 +30,7 @@ commands:
             - node_modules
             - modules/const/node_modules
             - modules/curry/node_modules
+            - modules/either/node_modules
             - modules/eslint-config-yafu/node_modules
             - modules/fantasy-functions/node_modules
             - modules/fantasy-types/node_modules
