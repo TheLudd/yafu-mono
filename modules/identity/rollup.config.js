@@ -1,15 +1,5 @@
-import resolve from '@rollup/plugin-node-resolve'
+import pkg from './package.json'
+// eslint-disable-next-line
+import createRollupConfig from '../../create-rollup-config.js'
 
-export default {
-  input: './identity.js',
-  treeshake: {
-    moduleSideEffects: false,
-  },
-  plugins: [
-    resolve(),
-  ],
-  output: {
-    file: 'dist/identity.cjs',
-    format: 'cjs',
-  },
-}
+export default createRollupConfig('./identity.ts', pkg)

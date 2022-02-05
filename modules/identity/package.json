@@ -4,12 +4,11 @@
   "description": "Identity monad",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
-  "main": "./dist/identity.cjs",
+  "main": "./dist/cjs/identity.js",
   "exports": {
-    "import": "./identity.js",
-    "require": "./dist/identity.cjs"
+    "import": "./dist/es/identity.mjs",
+    "require": "./dist/cjs/identity.js"
   },
-  "type": "module",
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "eslint *.js",
@@ -18,6 +17,7 @@
     "transpile": "rollup -c"
   },
   "dependencies": {
+    "@yafu/fantasy-types": "^0.0.0",
     "fantasy-land": "^5.0.0"
   },
   "devDependencies": {
