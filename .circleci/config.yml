@@ -89,4 +89,4 @@ workflows:
       - test:
           matrix:
             parameters:
-              node-version: [ '14', '16' ]
+              node-version: [ '14' ]
