@@ -36,6 +36,7 @@ commands:
             - modules/fantasy-types/node_modules
             - modules/identity/node_modules
             - modules/lens/node_modules
+            - modules/maybe/node_modules
             - modules/rollup-plugin-curry/node_modules
             - modules/sort-dependencies/node_modules
             - modules/transduce/node_modules
