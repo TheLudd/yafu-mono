@@ -29,6 +29,7 @@ commands:
             #pathsbegin
             - node_modules
             - modules/const/node_modules
+            - modules/create-rollup-config/node_modules
             - modules/curry/node_modules
             - modules/either/node_modules
             - modules/eslint-config-yafu/node_modules

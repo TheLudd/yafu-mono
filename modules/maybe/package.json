@@ -23,6 +23,7 @@
     "@yafu/fantasy-functions": "^1.0.0"
   },
   "devDependencies": {
+    "@yafu/create-rollup-config": "^0.0.0",
     "@rollup/plugin-node-resolve": "^11.0.1",
     "eslint": "^7.17.0",
     "rollup": "^2.35.1",

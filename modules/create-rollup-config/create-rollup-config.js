@@ -1,7 +1,7 @@
-import typescript from 'rollup-plugin-ts'
-import curry from '@yafu/rollup-plugin-curry'
+const typescript = require('rollup-plugin-ts')
+const curry = require('@yafu/rollup-plugin-curry')
 
-export default function createRollupConfig (input, pkg) {
+exports.createRollupConfig = (input, pkg) => {
   const { main, exports: { import: esFile } } = pkg
   return {
     input,
