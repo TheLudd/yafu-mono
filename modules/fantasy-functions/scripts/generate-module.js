@@ -9,7 +9,7 @@ function generate (name, path) {
   ))
 
   return [
-    "import definitions from '../../lib/definitions.js'",
+    "import { definitions } from '@yafu/fantasy-types'",
     `import ${name} from '../../lib/${path}'`,
     '',
     ...lines,
@@ -31,9 +31,9 @@ function generateMain () {
   ].join('\n')
 }
 
-if (!existsSync('dist/es6')) {
-  mkdirSync('dist/es6', { recursive: true })
+if (!existsSync('dist/es')) {
+  mkdirSync('dist/es', { recursive: true })
 }
-writeFileSync('dist/es6/fantasy-functions-development.js', generate('createDebugFunction', 'create-debug-function.js'))
-writeFileSync('dist/es6/fantasy-functions-production.js', generate('createFunction', 'create-function.js'))
-writeFileSync('dist/es6/fantasy-functions.js', generateMain())
+writeFileSync('dist/es/fantasy-functions-development.js', generate('createDebugFunction', 'create-debug-function.js'))
+writeFileSync('dist/es/fantasy-functions-production.js', generate('createFunction', 'create-function.js'))
+writeFileSync('dist/es/fantasy-functions.js', generateMain())

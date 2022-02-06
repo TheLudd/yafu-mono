@@ -3,7 +3,7 @@ import { assert } from 'chai'
 import { curry } from '@yafu/curry'
 import { I } from 'yafu'
 import * as FL from 'fantasy-land'
-import * as ff from '../dist/es6/fantasy-functions-development.js'
+import * as ff from '../dist/es/fantasy-functions-development.js'
 
 const {
   deepEqual,
@@ -58,8 +58,8 @@ class Identity {
     return this.v
   }
 
-  [FL.traverse] (Type, f) {
-    return Type[FL.of](new Identity(f(this.v)))
+  [FL.traverse] (_, f) {
+    return new Identity(f(this.v))
   }
 
   [FL.equals] (b) {
@@ -177,7 +177,7 @@ describe('fantasyFunctions', () => {
   })
 
   it('should work when the input requires a type representative function', () => {
-    const result = traverse(Const, inc, i2)
+    const result = traverse(Const, (c) => of(Const, c + 1), i2)
     deepEqual(result, of(Identity, of(Const, 3)))
   })
 })
@@ -249,7 +249,7 @@ describe('errors', () => {
 
   it('throws if a type representative is missing a function', () => {
     throws(() => traverse(Add, inc, i2), buildMessage([
-      `traverse expects a type representative with function ${FL.of}`,
+      'traverse expects a type representative of an Applicable',
       'but got Add',
     ]))
   })

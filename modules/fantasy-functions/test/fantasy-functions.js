@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 import { assert } from 'chai'
 import * as FL from 'fantasy-land'
-import * as ff from '../dist/es6/fantasy-functions-production.js'
+import * as ff from '../dist/es/fantasy-functions-production.js'
 
 const { deepEqual, equal, isEmpty } = assert
 const {
