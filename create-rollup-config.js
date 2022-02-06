@@ -1,4 +1,5 @@
 import typescript from 'rollup-plugin-ts'
+import curry from '@yafu/rollup-plugin-curry'
 
 export default function createRollupConfig (input, pkg) {
   const { main, exports: { import: esFile } } = pkg
@@ -9,6 +10,7 @@ export default function createRollupConfig (input, pkg) {
     },
     plugins: [
       typescript(),
+      curry(),
     ],
     output: [ {
       file: esFile,
