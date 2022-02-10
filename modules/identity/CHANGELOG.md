@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/TheLudd/yafu-mono/compare/@yafu/identity@2.0.0...@yafu/identity@2.0.1) (2022-02-10)
+
+**Note:** Version bump only for package @yafu/identity
+
+
+
+
+
 ## [1.1.1](https://github.com/TheLudd/yafu-mono/compare/@yafu/identity@1.1.0...@yafu/identity@1.1.1) (2021-05-08)
 
 

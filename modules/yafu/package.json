@@ -1,6 +1,6 @@
 {
   "name": "yafu",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Functional programming experimentation",
   "homepage": "https://github.com/TheLudd/yafu#readme",
   "bugs": {
@@ -37,7 +37,7 @@
     "unit": "mocha testrunners/unit"
   },
   "dependencies": {
-    "@yafu/curry": "^1.2.0"
+    "@yafu/curry": "^1.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

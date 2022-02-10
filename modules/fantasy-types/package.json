@@ -1,6 +1,6 @@
 {
   "name": "@yafu/fantasy-types",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TypeScript defenitions of fantasy-land types",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
@@ -16,7 +16,7 @@
     "prepublishOnly": "yarn clean && yarn transpile && yarn test"
   },
   "dependencies": {
-    "@yafu/type-utils": "^1.0.0",
+    "@yafu/type-utils": "^1.0.1",
     "fantasy-land": "^5.0.0"
   },
   "publishConfig": {

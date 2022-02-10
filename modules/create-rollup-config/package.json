@@ -1,7 +1,7 @@
 {
   "name": "@yafu/create-rollup-config",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "exports": "./create-rollup-config.js",
   "main": "./create-rollup-config.js",

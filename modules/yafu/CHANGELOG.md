@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/TheLudd/yafu/compare/yafu@2.0.0...yafu@2.0.1) (2022-02-10)
+
+
+### Bug Fixes
+
+* **yafu:** remove all unknown types ([f7cd73a](https://github.com/TheLudd/yafu/commit/f7cd73af879e6986f636dd77b9b02ff801c41253))
+
+
+
+
+
 # [1.1.0](https://github.com/TheLudd/yafu/compare/yafu@1.0.4...yafu@1.1.0) (2021-01-05)
 
 
