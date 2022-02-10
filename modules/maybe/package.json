@@ -1,6 +1,6 @@
 {
   "name": "@yafu/maybe",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Maybe monad",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
@@ -19,12 +19,12 @@
     "unit": "mocha"
   },
   "dependencies": {
-    "fantasy-land": "^5.0.0",
-    "@yafu/fantasy-functions": "^1.0.0"
+    "@yafu/fantasy-functions": "^2.0.0",
+    "fantasy-land": "^5.0.0"
   },
   "devDependencies": {
-    "@yafu/create-rollup-config": "^0.0.0",
     "@rollup/plugin-node-resolve": "^11.0.1",
+    "@yafu/create-rollup-config": "^1.0.0",
     "eslint": "^7.17.0",
     "rollup": "^2.35.1",
     "typescript": "^4.1.3"
