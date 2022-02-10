@@ -5,6 +5,7 @@
  * @arg {*} val The value to look for
  * @arg {Object} o The object
  */
-export function propEq (name: string, val: unknown, o: Record<string, unknown>): boolean {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function propEq (name: string, val: any, o: Record<string, any>): boolean {
   return o[name] === val
 }

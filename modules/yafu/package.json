@@ -27,6 +27,7 @@
     "acceptance": "mocha testrunners/acceptance",
     "clean": "rm -rf dist",
     "jsdoc": "jsdoc -c jsdoc.json lib",
+    "lint": "eslint lib test",
     "prepublishOnly": "yarn clean && yarn run transpile",
     "pretest": "node build/create-test-index",
     "test": "yarn transpile && yarn unit && yarn acceptance",
