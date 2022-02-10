@@ -1,5 +1,5 @@
 import resolve from '@rollup/plugin-node-resolve'
-import typescript2 from 'rollup-plugin-ts'
+import typescript from 'rollup-plugin-ts'
 import globPkg from 'glob'
 import { terser } from 'rollup-plugin-terser'
 import curry from '@yafu/rollup-plugin-curry'
@@ -27,7 +27,7 @@ function transpileFiles (plugins, input) {
   }
 }
 
-const tsTranspilations = tsFileGroups.map((input) => transpileFiles([ typescript2(), curry() ], input))
+const tsTranspilations = tsFileGroups.map((input) => transpileFiles([ typescript(), curry() ], input))
 
 export default [
   ...tsTranspilations,
