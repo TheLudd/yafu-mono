@@ -40,6 +40,7 @@ commands:
             - modules/maybe/node_modules
             - modules/rollup-plugin-curry/node_modules
             - modules/sort-dependencies/node_modules
+            - modules/test-all-exports/node_modules
             - modules/transduce/node_modules
             - modules/type-utils/node_modules
             - modules/yafu/node_modules
@@ -51,6 +52,11 @@ commands:
           name: Run tests
       - store_test_results:
           path: test-results
+  verify-exports:
+    steps:
+      - run:
+          command: cd modules/test-all-exports && yarn verify
+          name: Verify exports
   store-node-version:
     steps:
       - run:
@@ -74,6 +80,7 @@ jobs:
       - install:
           node-version: << parameters.node-version >>
       - run-tests
+      - verify-exports
   commitlint:
     resource_class: small
     docker:
