@@ -25,7 +25,7 @@ interface EitherHKTMark extends HKT2Mark {
 
 type Self = Either<never, never>
 
-export default abstract class Either<L, R> implements HKT2, Functor<R, Self>, Foldable<R> {
+export abstract class Either<L, R> implements HKT2, Functor<R, Self>, Foldable<R> {
   static [OF] <T> (v: T) {
     return eitherOf(v)
   }

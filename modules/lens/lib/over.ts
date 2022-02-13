@@ -1,5 +1,5 @@
 import { K, I } from 'yafu'
-import Either, { right, cata, left } from '@yafu/either'
+import { Either, right, cata, left } from '@yafu/either'
 import { Lens } from './lens'
 
 export function over <F, T, U extends F>(lens: Lens<F, T>, f: (a: F) => U, target: T): T {
