@@ -1,14 +1,14 @@
 {
   "name": "test-all-exports",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
   "private": true,
+  "license": "MIT",
+  "main": "index.js",
   "scripts": {
     "build": "node build-tests.mjs",
-    "verifyEs": "node dist/imports.mjs && node dist/require.cjs",
+    "verify": "yarn build && yarn verifyEs && yarn verifyCJS",
     "verifyCJS": "node dist/imports.mjs && node dist/require.cjs",
-    "verify": "yarn build && yarn verifyEs && yarn verifyCJS"
+    "verifyEs": "node dist/imports.mjs && node dist/require.cjs"
   },
   "dependencies": {
     "camel-case": "^4.1.2",

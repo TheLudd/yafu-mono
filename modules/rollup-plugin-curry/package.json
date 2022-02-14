@@ -11,10 +11,21 @@
   "scripts": {
     "clean": "rm -rf dist/",
     "lint": "eslint lib/ samplecode/",
+    "prepublishOnly": "yarn clean && yarn transpile",
     "test": "yarn lint && yarn unit",
-    "unit": "mocha",
     "transpile": "rollup -c",
-    "prepublishOnly": "yarn clean && yarn transpile"
+    "unit": "mocha"
+  },
+  "dependencies": {
+    "@babel/core": "^7.17.2",
+    "@babel/preset-typescript": "^7.16.7",
+    "@babel/traverse": "^7.17.0",
+    "@babel/types": "^7.17.0",
+    "@types/chai": "^4.3.0",
+    "@types/mocha": "^9.1.0",
+    "estree-walker": "^3.0.1",
+    "ramda": "^0.28.0",
+    "recast": "^0.20.5"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.1.3",
@@ -29,16 +40,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "@babel/core": "^7.17.2",
-    "@babel/preset-typescript": "^7.16.7",
-    "@babel/traverse": "^7.17.0",
-    "@babel/types": "^7.17.0",
-    "@types/chai": "^4.3.0",
-    "@types/mocha": "^9.1.0",
-    "estree-walker": "^3.0.1",
-    "ramda": "^0.28.0",
-    "recast": "^0.20.5"
   }
 }

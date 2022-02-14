@@ -4,12 +4,12 @@
   "description": "Const monad",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
-  "main": "./dist/const.cjs",
+  "type": "module",
   "exports": {
     "import": "./const.js",
     "require": "./dist/const.cjs"
   },
-  "type": "module",
+  "main": "./dist/const.cjs",
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "eslint *.js",

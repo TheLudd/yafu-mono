@@ -4,21 +4,21 @@
   "description": "Utilities for working with typescript",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
-  "main": "./index",
   "exports": "./index.js",
+  "main": "./index",
   "types": "./index.d.ts",
   "scripts": {
-    "typecheck": "tsc --noEmit",
-    "test": "yarn typecheck"
+    "test": "yarn typecheck",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "fantasy-land": "^5.0.0"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "devDependencies": {
     "typescript": "^4.5.5"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "gitHead": "6b481c79d7765e9358d1a0d215b566720f96f4ce"
 }

@@ -3,13 +3,13 @@
   "version": "2.0.1",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
+  "type": "module",
   "exports": {
     "import": "./dist/es/fantasy-functions.js",
     "require": "./dist/cjs/fantasy-functions-development.cjs"
   },
   "main": "./dist/cjs/fantasy-functions-development.cjs",
   "types": "./dist/ts/fantasy-functions.d.ts",
-  "type": "module",
   "files": [
     "lib",
     "dist",
@@ -18,12 +18,12 @@
   ],
   "scripts": {
     "clean": "rm -rf dist",
+    "generate": "yarn generateEs & yarn generateTs",
+    "generateEs": "node scripts/generate-module.js",
+    "generateTs": "node --loader ts-node/esm scripts/new-ts.ts > dist/ts/fantasy-functions.ts",
     "lint": "eslint lib test *.js",
     "prepublishOnly": "yarn clean && yarn transpile && yarn test",
     "test": "yarn lint && yarn unit",
-    "generateEs": "node scripts/generate-module.js",
-    "generateTs": "node --loader ts-node/esm scripts/new-ts.ts > dist/ts/fantasy-functions.ts",
-    "generate": "yarn generateEs & yarn generateTs",
     "transpile": "yarn tsgen && rollup -c",
     "tsgen": "mkdir -p dist/ts && yarn generate > dist/ts/fantasy-functions.ts",
     "unit": "mocha"

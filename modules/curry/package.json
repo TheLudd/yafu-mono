@@ -4,19 +4,19 @@
   "description": "Yafu's curry implementation",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
-  "main": "./dist/curry.cjs",
+  "type": "module",
   "exports": {
     "import": "./lib/curry.js",
     "require": "./dist/curry.cjs"
   },
-  "type": "module",
+  "main": "./dist/curry.cjs",
   "types": "./curry.d.ts",
   "scripts": {
     "clean": "rm -rf dist/",
     "lint": "eslint lib/*.js test/*.js",
+    "prepublishOnly": "yarn clean && yarn transpile",
     "test": "yarn lint && yarn unit",
     "transpile": "rollup -c",
-    "prepublishOnly": "yarn clean && yarn transpile",
     "unit": "mocha"
   },
   "devDependencies": {

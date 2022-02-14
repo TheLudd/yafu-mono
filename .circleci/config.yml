@@ -68,6 +68,13 @@ commands:
       - run:
           command: npx commitlint --from origin/master
           name: Commitlint
+  sort-package-json:
+    steps:
+      - run:
+          command: |
+            yarn lerna exec "npx sort-package-json --check"
+            npx sort-package-json
+          name: Verify package jsons sorted
 jobs:
   test:
     parameters:
@@ -81,7 +88,7 @@ jobs:
           node-version: << parameters.node-version >>
       - run-tests
       - verify-exports
-  commitlint:
+  checks:
     resource_class: small
     docker:
       - image: circleci/node:14
@@ -90,11 +97,12 @@ jobs:
       - install:
           node-version: '14'
       - commitlint
+      - sort-package-json
 
 workflows:
   test-all:
     jobs:
-      - commitlint
+      - checks
       - test:
           matrix:
             parameters:
