@@ -4,12 +4,12 @@
   "description": "Maybe monad",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
-  "main": "./dist/cjs/maybe.js",
-  "exports": {
-    "import": "./dist/es6/maybe.mjs",
-    "require": "./dist/cjs/maybe.js"
-  },
+  "main": "./dist/cjs/maybe.cjs",
   "type": "module",
+  "exports": {
+    "import": "./dist/es/maybe.js",
+    "require": "./dist/cjs/maybe.cjs"
+  },
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "eslint lib/*.ts",

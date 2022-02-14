@@ -4,25 +4,31 @@
   "description": "TypeScript defenitions of fantasy-land types",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
-  "types": "./dist/types.d.ts",
   "type": "module",
-  "exports": "./dist/fantasy-types.js",
+  "exports": {
+    "import": "./dist/es/fantasy-types.js",
+    "require": "./dist/cjs/fantasy-types.cjs"
+  },
+  "main": "./dist/cjs/fantasy-types.cjs",
+  "types": "./dist/types.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
-    "pretranspile": "mkdir -p dist",
     "generate": "node dist/generate-ts-modules.js > dist/types.ts",
-    "transpile": "rollup -c rollup.script.config.js && yarn generate && rollup -c",
+    "prepublishOnly": "yarn clean && yarn transpile && yarn test",
     "test": "tsc --noEmit dist/*.ts",
-    "prepublishOnly": "yarn clean && yarn transpile && yarn test"
+    "pretranspile": "mkdir -p dist",
+    "transpile": "rollup -c rollup.script.config.js && yarn generate && rollup -c"
   },
   "dependencies": {
     "@yafu/type-utils": "^1.0.1",
     "fantasy-land": "^5.0.0"
   },
+  "devDependencies": {
+    "@yafu/create-rollup-config": "^1.0.1",
+    "@yafu/rollup-plugin-curry": "^1.0.0",
+    "typescript": "^4.5.5"
+  },
   "publishConfig": {
     "access": "public"
-  },
-  "devDependencies": {
-    "typescript": "^4.5.5"
   }
 }

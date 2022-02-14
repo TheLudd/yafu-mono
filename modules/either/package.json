@@ -4,12 +4,12 @@
   "description": "Either monad",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
-  "main": "./dist/cjs/either.js",
-  "exports": {
-    "import": "./dist/es6/either.js",
-    "require": "./dist/cjs/either.js"
-  },
+  "main": "./dist/cjs/either.cjs",
   "type": "module",
+  "exports": {
+    "import": "./dist/es/either.js",
+    "require": "./dist/cjs/either.cjs"
+  },
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "eslint lib/*.ts",

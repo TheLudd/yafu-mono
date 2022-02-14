@@ -19,7 +19,9 @@ declare module '@yafu/fantasy-functions' {
 export type Maybe<T> = Just<T> | Nothing
 
 abstract class M {
-	static [OF] = maybeOf
+	static [OF] <T> (v: T) {
+		return new Just(v)
+	}
 }
 
 type Binary<A, B, C> = (a: A, b: B) => C

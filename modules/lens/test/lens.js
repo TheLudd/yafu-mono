@@ -5,7 +5,7 @@ import {
   over,
   set,
   view,
-} from '../dist/es6/index.js'
+} from '../dist/es/index.js'
 
 const { deepEqual, equal } = assert
 

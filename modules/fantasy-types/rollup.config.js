@@ -1,12 +1,4 @@
-import ts from 'rollup-plugin-ts'
+import { createRollupConfig } from '@yafu/create-rollup-config'
+import pkg from './package.json'
 
-export default {
-  input: './index.ts',
-  plugins: [
-    ts(),
-  ],
-  output: {
-    file: 'dist/fantasy-types.js',
-    format: 'es',
-  },
-}
+export default createRollupConfig('./index.ts', pkg)

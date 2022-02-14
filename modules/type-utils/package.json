@@ -5,6 +5,7 @@
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "main": "./index",
+  "exports": "./index.js",
   "types": "./index.d.ts",
   "scripts": {
     "typecheck": "tsc --noEmit",

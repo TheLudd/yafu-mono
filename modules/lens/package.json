@@ -4,12 +4,12 @@
   "description": "Lenses to brighten up your functional programming",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
-  "main": "./dist/cjs/index.js",
-  "exports": {
-    "import": "./dist/es6/index.js",
-    "require": "./dist/cjs/index.js"
-  },
+  "main": "./dist/cjs/index.cjs",
   "type": "module",
+  "exports": {
+    "import": "./dist/es/index.js",
+    "require": "./dist/cjs/index.cjs"
+  },
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "eslint lib test *.js",
