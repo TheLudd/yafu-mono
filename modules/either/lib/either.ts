@@ -2,65 +2,61 @@
 import {
   ap as AP,
   chain as CHAIN,
+  equals as EQUALS,
   map as MAP,
   of as OF,
   reduce as REDUCE,
 } from 'fantasy-land'
-import { HKT2, HKT2Mark } from '@yafu/type-utils'
-import { Functor, Foldable } from '@yafu/fantasy-types'
+import { Unary } from '@yafu/type-utils'
+import '@yafu/fantasy-functions'
 
-// eslint-disable-next-line no-use-before-define
-export function eitherOf <L, R>(v: R): Either<L, R> {
+declare module '@yafu/fantasy-functions' {
+  export function ap <T, U, L>(f: Either<L, Unary<T, U>>): (either: Either<L, T>) => Either<L, U>
+  export function ap <T, U, L>(f: Either<L, Unary<T, U>>, either: Either<L, T>): Either<L, U>
+  export function chain <T, U, L>(f: Unary<T, Either<L, U>>): (either: Either<L, T>) => Either<L, U>
+  export function chain <T, U, L>(f: Unary<T, Either<L, U>>, either: Either<L, T>): Either<L, U>
+  export function map <T, U, L>(f: Unary<T, U>): (either: Either<L, T>) => Either<L, U>
+  export function map <T, U, L>(f: Unary<T, U>, either: Either<L, T>): Either<L, U>
+}
+
+export function eitherOf <R>(v: R): Either<never, R> {
   return new Right(v)
 }
 
 interface Cata<L, R, U> {
-  Right: (r: R) => U,
   Left: (l: L) => U,
+  Right: (r: R) => U,
 }
 
-interface EitherHKTMark extends HKT2Mark {
-    Type: Either<this['U'], this['T']>;
-}
+export type Either<L, R> = Left<L> | Right<R>
 
-type Self = Either<never, never>
+class AbstractEither {}
 
-export abstract class Either<L, R> implements HKT2, Functor<R, Self>, Foldable<R> {
-  static [OF] <T> (v: T) {
-    return eitherOf(v)
-  }
-
-  hkt!: EitherHKTMark
-  hkt2!: EitherHKTMark
-
-  abstract [MAP] <U> (f: (x: R) => U): Either<L, U>
-
-  abstract [AP] <U> (b: Either<L, (x: R) => U>): Either<L, U>
-
-  abstract [CHAIN] <U> (f: (x: R) => Either<L, U>): Either<L, U>
-
-  abstract [REDUCE] <U> (f: (acc: U, item: R) => U, init: U): U
-
-  abstract cata <U> (c: Cata<L, R, U>): U
-}
-
-class Right<L, R> extends Either<L, R> {
+class Right<R> extends AbstractEither {
   v: R
+
+  static [OF] <T> (t: T) {
+    return eitherOf(t)
+  }
 
   constructor (v: R) {
     super()
     this.v = v
   }
 
+  [EQUALS] (b: unknown): boolean {
+    return b instanceof Right && this.v === b.v
+  }
+
   [MAP] <U> (f: (x: R) => U) {
     return eitherOf(f(this.v))
   }
 
-  [AP] <U> (b: Either<L, (x: R) => U>) {
-    return b[CHAIN]((f) => this[MAP](f))
+  [AP] <U, L> (b: Either<L, (x: R) => U>): Either<L, U> {
+    return b[CHAIN]((f) => this[MAP](f)) as Either<L, U>
   }
 
-  [CHAIN] <U> (f: (x: R) => Either<L, U>) {
+  [CHAIN] <U, L> (f: (x: R) => Either<L, U>) {
     return f(this.v)
   }
 
@@ -68,7 +64,7 @@ class Right<L, R> extends Either<L, R> {
     return f(init, this.v)
   }
 
-  cata <U> (c: Cata<L, R, U>) {
+  cata <U> (c: Cata<never, R, U>) {
     const { Right: rightFn } = c
     return rightFn(this.v)
   }
@@ -78,23 +74,31 @@ class Right<L, R> extends Either<L, R> {
   }
 }
 
-class Left<L, R> extends Either<L, R> {
+class Left<L> extends AbstractEither {
   v: L
+
+  static [OF] <T> (t: T) {
+    return eitherOf(t)
+  }
 
   constructor (v: L) {
     super()
     this.v = v
   }
 
-  [MAP] () {
+  [EQUALS] (b: unknown): boolean {
+    return b instanceof Left && this.v === b.v
+  }
+
+  [MAP] (_f: unknown) {
     return this
   }
 
-  [AP] () {
+  [AP] (_b: unknown) {
     return this
   }
 
-  [CHAIN] () {
+  [CHAIN] (_f: unknown) {
     return this
   }
 
@@ -103,8 +107,7 @@ class Left<L, R> extends Either<L, R> {
     return init
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  cata <U> (c: Cata<L, any, U>) {
+  cata <U> (c: Cata<L, never, U>) {
     const { Left: leftFn } = c
     return leftFn(this.v)
   }
@@ -114,13 +117,11 @@ class Left<L, R> extends Either<L, R> {
   }
 }
 
-export function left <L, T> (x: L): Either<L, T> {
+export function left <L> (x: L): Either<L, never> {
   return new Left(x)
 }
 
-export function right <L, T> (x: T): Either<L, T> {
-  return new Right(x)
-}
+export const right = eitherOf
 
 export function cata <L, T, U> (
   ifLeft: (l: L) => U,

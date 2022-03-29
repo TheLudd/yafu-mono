@@ -12,12 +12,14 @@
   "main": "./dist/cjs/either.cjs",
   "scripts": {
     "clean": "rm -rf dist",
-    "lint": "eslint lib/*.ts",
+    "lint": "eslint lib/*.ts test/*.ts",
     "prepublishOnly": "yarn clean && yarn transpile",
     "test": "yarn lint",
-    "transpile": "rollup -c"
+    "transpile": "rollup -c",
+    "unit": "mocha"
   },
   "dependencies": {
+    "@yafu/fantasy-functions": "^2.0.2",
     "@yafu/fantasy-types": "^1.0.2",
     "fantasy-land": "^5.0.0"
   },
