@@ -1,7 +1,7 @@
 import { print } from 'recast'
 import { parse } from '@babel/core'
 import { Node, Scope } from '@babel/traverse'
-import { map } from 'ramda'
+import { map, uniq } from 'ramda'
 import {
   Identifier,
   TSDeclareFunction,
@@ -58,22 +58,23 @@ function cleanType (type: string): string {
 
 function intersectionBy (getKey: (s: string) => string, a: string[], b: string[]): string[] {
   const keySet = new Set(map(getKey, b))
-  return a.filter((item) => keySet.has(getKey(item)))
+  return uniq(a.filter((item) => keySet.has(getKey(item))))
 }
 
 function differenceBy (getKey: (s: string) => string, a: string[], b: string[]): string[] {
-  return b.filter((item) => a.indexOf(getKey(item)) === -1)
+  const keySet = new Set(map(getKey, a))
+  return b.filter((item) => !keySet.has(getKey(item)))
 }
 
 type GroupedGenerics = Record<string, string[]>
 
-function analyzeParameterGenerics (groupedGenerics: GroupedGenerics, allFunctionGenerics: string[], genericsInParameter: string[]) {
-  const thisLevelGenerics = intersectionBy(cleanType, allFunctionGenerics, genericsInParameter)
+function analyzeParameterGenerics (groupedGenerics: GroupedGenerics, remainingFunctionGenerics: string[], genericsInParameter: string[]) {
+  const thisLevelGenerics = intersectionBy(cleanType, remainingFunctionGenerics, genericsInParameter)
   const dependencies = thisLevelGenerics.flatMap((item) => groupedGenerics[item])
-  const allParamGenerics = intersectionBy(cleanType, dependencies.concat(thisLevelGenerics), allFunctionGenerics)
+  const allParamGenerics = intersectionBy(cleanType, dependencies.concat(thisLevelGenerics), remainingFunctionGenerics)
   return {
     thisLevelGenerics: allParamGenerics,
-    remainingGenerics: differenceBy(cleanType, allParamGenerics, allFunctionGenerics),
+    remainingGenerics: differenceBy(cleanType, allParamGenerics, remainingFunctionGenerics),
   }
 }
 

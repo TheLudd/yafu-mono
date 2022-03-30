@@ -49,4 +49,16 @@ export declare function binary (a: number, b: string): number
 `
     equal(result, expeced)
   })
+
+  it('works', () => {
+   const code = `
+export declare function ap<T, U, Type extends Apply<T, HKT>>(f: Kind<Type, Unary<T, U>>, apply: Type): Kind<Type, U>
+`
+    const result = curryDefinition(code)
+    const expeced = `
+export declare function ap <T, U, Type extends Apply<T, HKT>>(f: Kind<Type, Unary<T, U>>): (apply: Type) => Kind<Type, U>
+export declare function ap <T, U, Type extends Apply<T, HKT>>(f: Kind<Type, Unary<T, U>>, apply: Type): Kind<Type, U>
+`
+    equal(result, expeced)
+  })
 })

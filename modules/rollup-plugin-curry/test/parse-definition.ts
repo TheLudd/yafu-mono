@@ -120,4 +120,17 @@ describe('parseDefinition', () => {
 			line: 1,
 		}])
 	})
+
+	it('handles constraints used in more than one parameter', () => {
+		const result = parseDefinition('declare function ap<T, U, Type extends Apply<T, HKT>>(f: Kind<Type, Unary<T, U>>, apply: Type): Kind<Type, U>')
+		deepEqual(result, [ { 
+			name: 'ap',
+			type: 'Kind<Type, U>',
+			parameters: [
+				{ name: 'f', type: 'Kind<Type, Unary<T, U>>', generics: [ 'T', 'U', 'Type extends Apply<T, HKT>' ] },
+				{ name: 'apply', type: 'Type', generics: [] },
+			],
+			line: 1,
+		}])
+	})
 })
