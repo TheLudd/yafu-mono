@@ -26,7 +26,7 @@
   "devDependencies": {
     "@yafu/create-rollup-config": "^1.0.2",
     "@yafu/rollup-plugin-curry": "^1.0.1",
-    "typescript": "^4.5.5"
+    "typescript": "^4.6.3"
   },
   "publishConfig": {
     "access": "public"
