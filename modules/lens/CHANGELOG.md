@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/TheLudd/yafu-mono/compare/@yafu/lens@2.0.2...@yafu/lens@2.0.3) (2022-04-10)
+
+
+### Bug Fixes
+
+* **lens:** add either as a dependency ([c4b104f](https://github.com/TheLudd/yafu-mono/commit/c4b104f31008a4433639585ca0f2357f0ffeb967))
+
+
+
+
+
 ## [2.0.2](https://github.com/TheLudd/yafu-mono/compare/@yafu/lens@2.0.1...@yafu/lens@2.0.2) (2022-02-15)
 
 

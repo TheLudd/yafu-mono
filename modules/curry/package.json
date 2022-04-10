@@ -1,6 +1,6 @@
 {
   "name": "@yafu/curry",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Yafu's curry implementation",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
