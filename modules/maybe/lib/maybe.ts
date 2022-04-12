@@ -8,6 +8,7 @@ import {
 } from 'fantasy-land'
 import '@yafu/fantasy-functions'
 import { map } from '@yafu/fantasy-functions'
+import { Fold, Unary } from '@yafu/type-utils'
 
 declare module '@yafu/fantasy-functions' {
 	export function ap<T, U>(a: Maybe<(x: T) => U>, apply: Maybe<T>): Maybe<U>
@@ -23,10 +24,6 @@ abstract class M {
 		return new Just(v)
 	}
 }
-
-type Binary<A, B, C> = (a: A, b: B) => C
-type Unary<A, B> = (a: A) => B
-type Fold<A, B> = Binary<B, A, B>
 
 class Just<T> extends M {
 
