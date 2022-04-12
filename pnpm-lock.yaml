@@ -445,6 +445,58 @@ importers:
         specifier: ^5.0.3
         version: 5.0.3
 
+  modules/reader:
+    dependencies:
+      '@yafu/curry':
+        specifier: ^1.2.6
+        version: link:../curry
+      '@yafu/fantasy-functions':
+        specifier: ^2.0.3
+        version: link:../fantasy-functions
+      '@yafu/fantasy-types':
+        specifier: ^1.0.3
+        version: link:../fantasy-types
+      '@yafu/identity':
+        specifier: ^2.0.7
+        version: link:../identity
+      '@yafu/type-utils':
+        specifier: ^1.0.5
+        version: link:../type-utils
+      fantasy-land:
+        specifier: ^5.0.0
+        version: 5.0.1
+    devDependencies:
+      '@esbuild-kit/esm-loader':
+        specifier: ^2.5.4
+        version: 2.5.4
+      '@rollup/plugin-node-resolve':
+        specifier: ^15.0.1
+        version: 15.0.1(rollup@3.20.2)
+      '@types/chai':
+        specifier: ^4.3.4
+        version: 4.3.4
+      '@types/mocha':
+        specifier: ^10.0.1
+        version: 10.0.1
+      '@yafu/create-rollup-config':
+        specifier: ^1.0.3
+        version: link:../create-rollup-config
+      chai:
+        specifier: ^4.3.7
+        version: 4.3.7
+      eslint:
+        specifier: ^8.13.0
+        version: 8.32.0
+      mocha:
+        specifier: ^10.2.0
+        version: 10.2.0
+      rollup:
+        specifier: ^3.8.1
+        version: 3.20.2
+      typescript:
+        specifier: ^5.0.3
+        version: 5.0.3
+
   modules/rollup-plugin-curry:
     dependencies:
       '@babel/core':
@@ -5609,7 +5661,7 @@ packages:
       fs.realpath: 1.0.0
       inflight: 1.0.6
       inherits: 2.0.4
-      minimatch: 3.0.5
+      minimatch: 3.1.2
       once: 1.4.0
       path-is-absolute: 1.0.1
     dev: true
