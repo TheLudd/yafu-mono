@@ -32,9 +32,16 @@ export abstract class M {
 
 export const Maybe = M
 
-class Just<T> extends M {
+abstract class AbstractMaybe {
+	static hkt: MaybeHKTMark
+	static [OF] <T> (v: T) {
+		return new Just(v)
+	}
+}
 
-	v: T
+class Just<T> extends AbstractMaybe {
+
+	private readonly v: T
 
 	constructor (v: T) {
 		super()
@@ -57,12 +64,12 @@ class Just<T> extends M {
 		return f(seed, this.v)
 	}
 
-	[EQUALS](b: unknown): boolean {
+	[EQUALS] (b: unknown): boolean {
 		return b instanceof Just && b.v === this.v
 	}
 }
 
-class Nothing extends M {
+class Nothing extends AbstractMaybe {
 
 	[MAP] (): Nothing {
 		return this
@@ -72,7 +79,7 @@ class Nothing extends M {
 		return this
 	}
 
-	[CHAIN](): Nothing {
+	[CHAIN] (): Nothing {
 		return this
 	}
 
@@ -80,7 +87,7 @@ class Nothing extends M {
 		return seed
 	}
 
-	[EQUALS](b: unknown): boolean {
+	[EQUALS] (b: unknown): boolean {
 		return b instanceof Nothing
 	}
 }

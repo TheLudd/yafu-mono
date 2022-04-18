@@ -62,14 +62,18 @@ describe('apply', () => {
 
 describe('chain', () => {
   const incPositive
-    : (v: number) => Maybe<number>
-    = (v) => (v > 0 ? maybeOf(v + 1) : nothing)
+    = (v: number) => (v > 0 ? maybeOf(v + 1) : nothing)
   it('applies the function to the encapsulated value', () => {
     deepEqual(chain(incPositive, m1), maybeOf(2))
   })
 
   it('retuns nothing if the instance is nothing', () => {
     const m = chain(incPositive, nothing)
+    equal(m, nothing)
+  })
+
+  it('can convert Just instances to nothing', () => {
+    const m = chain(incPositive, maybeOf(-1))
     equal(m, nothing)
   })
 })
