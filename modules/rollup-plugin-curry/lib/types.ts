@@ -5,6 +5,7 @@ export interface Parameter {
 }
 
 export interface Definition {
+  isExported?: boolean,
   name: string,
   type: string,
   parameters: Parameter[],

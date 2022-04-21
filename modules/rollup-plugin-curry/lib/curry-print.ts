@@ -66,11 +66,13 @@ interface StringBuilder {
   outputString: string
 }
 
-function NamedPrintFromFunctionObj (functionName: string, out: StringBuilder, functionObj: CurryStruct) {
+function NamedPrintFromFunctionObj (isExported: boolean, functionName: string, out: StringBuilder, functionObj: CurryStruct) {
   const { inParams, outParams } = functionObj
   const generics = findParamsGenerics(inParams)
 
-  out.outputString = `${out.outputString}export declare function ${functionName} ${printGenerics(generics)}`
+  const exportStatement = isExported ? 'export ' : ''
+
+  out.outputString = `${out.outputString}${exportStatement}declare function ${functionName} ${printGenerics(generics)}`
   out.outputString = `${out.outputString}(${printParameters(inParams)})`
 
   if (Array.isArray(outParams)) {
@@ -94,6 +96,7 @@ function NamedPrintFromFunctionObj (functionName: string, out: StringBuilder, fu
 type CurryPrintInput = Omit<Definition, 'line'>
 
 export default function curryPrint ({
+  isExported = true,
   name,
   parameters,
   type,
@@ -101,7 +104,7 @@ export default function curryPrint ({
   const functionObjs = recursiveGenerateCurryStruct(parameters, type) as CurryStruct[]
   const out = { outputString: '' }
   functionObjs.forEach((obj) => {
-    NamedPrintFromFunctionObj(name, out, obj)
+    NamedPrintFromFunctionObj(isExported, name, out, obj)
   })
   return out.outputString
 }

@@ -16,6 +16,7 @@ import {
   isTSTypeParameterInstantiation,
   isTSTypeReference,
   SourceLocation,
+  isExportDeclaration,
 } from '@babel/types'
 import { traverse } from './traverse.js'
 import { Definition, Parameter } from './types'
@@ -154,8 +155,7 @@ export function parseDefinition (code: string): Definition[] {
   const definitions: Definition[] = []
   traverse(ast, {
     TSDeclareFunction (path) {
-      const { node, scope } = path
-
+      const { node, scope, parent } = path
       const { typeParameters } = node
 
       const groupedGenerics = isTSTypeParameterDeclaration(typeParameters)
@@ -163,6 +163,7 @@ export function parseDefinition (code: string): Definition[] {
         : {}
 
       const definition: Definition = {
+        isExported: isExportDeclaration(parent),
         name: getFunctionName(node),
         type: getFunctionType(node),
         parameters: getFunctionParameters(scope, groupedGenerics, node),

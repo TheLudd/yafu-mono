@@ -50,6 +50,22 @@ export declare function binary (a: number, b: string): number
     equal(result, expeced)
   })
 
+  it('does not add the export keyword where it does not exist', () => {
+    const code = `
+declare function unary (a: number): number
+
+declare function binary (a: number, b: string): number
+`
+    const result = curryDefinition(code)
+    const expeced = `
+declare function unary (a: number): number
+
+declare function binary (a: number): (b: string) => number
+declare function binary (a: number, b: string): number
+`
+    equal(result, expeced)
+  })
+
   it('works', () => {
    const code = `
 export declare function ap<T, U, Type extends Apply<T, HKT>>(f: Kind<Type, Unary<T, U>>, apply: Type): Kind<Type, U>
