@@ -8,7 +8,7 @@ import {
 } from 'fantasy-land'
 import '@yafu/fantasy-functions'
 import { map } from '@yafu/fantasy-functions'
-import { Fold, Unary } from '@yafu/type-utils'
+import { Fold, Unary, HKT, HKTMark } from '@yafu/type-utils'
 
 declare module '@yafu/fantasy-functions' {
 	export function ap<T, U>(a: Maybe<(x: T) => U>, apply: Maybe<T>): Maybe<U>
@@ -19,11 +19,18 @@ declare module '@yafu/fantasy-functions' {
 
 export type Maybe<T> = Just<T> | Nothing
 
-abstract class M {
+interface MaybeHKTMark extends HKTMark {
+  Type: Maybe<this['T']>
+}
+
+export abstract class M {
+	static hkt: MaybeHKTMark
 	static [OF] <T> (v: T) {
 		return new Just(v)
 	}
 }
+
+export const Maybe = M
 
 class Just<T> extends M {
 

@@ -1,9 +1,10 @@
 import { assert } from 'chai'
-import { ap, chain, equals, map, reduce } from '@yafu/fantasy-functions'
-import { Maybe, maybeOf, nothing } from '../lib/maybe.js'
+import { ap, chain, equals, map, reduce, of } from '@yafu/fantasy-functions'
+import { Maybe, nothing } from '../lib/maybe.js'
 
 const inc = (a: number) => a + 1
 
+const maybeOf = of(Maybe)
 const m1 = maybeOf(1)
 
 const {
