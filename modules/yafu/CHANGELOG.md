@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/TheLudd/yafu/compare/yafu@2.0.3...yafu@2.0.4) (2022-07-07)
+
+**Note:** Version bump only for package yafu
+
+
+
+
+
 ## [2.0.3](https://github.com/TheLudd/yafu/compare/yafu@2.0.2...yafu@2.0.3) (2022-04-10)
 
 **Note:** Version bump only for package yafu
