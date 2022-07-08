@@ -13,15 +13,15 @@
   "types": "./curry.d.ts",
   "scripts": {
     "clean": "rm -rf dist/",
-    "lint": "eslint lib/*.js test/*.js",
+    "lint": "lint-yafu lib/*.js test/*.js",
     "prepublishOnly": "yarn clean && yarn transpile",
     "test": "yarn lint && yarn unit",
     "transpile": "rollup -c",
     "unit": "mocha"
   },
   "devDependencies": {
-    "chai": "^4.3.6",
-    "eslint": "^8.13.0"
+    "@yafu/eslint-config-yafu": "^1.1.2",
+    "chai": "^4.3.6"
   },
   "publishConfig": {
     "access": "public"

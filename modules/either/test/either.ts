@@ -1,5 +1,4 @@
 import { assert } from 'chai'
-import { of as OF } from 'fantasy-land'
 import { ap, chain, equals, map, reduce } from '@yafu/fantasy-functions'
 import {
   cata,

@@ -21,9 +21,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.1.3",
-    "@theludd/eslint-config-gaius": "^2.1.1",
-    "eslint": "^8.13.0",
-    "eslint-plugin-import": "^2.26.0",
+    "@yafu/eslint-config-yafu": "^1.1.2",
     "rollup": "^2.70.1"
   }
 }

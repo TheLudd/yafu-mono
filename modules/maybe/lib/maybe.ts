@@ -8,7 +8,7 @@ import {
 } from 'fantasy-land'
 import '@yafu/fantasy-functions'
 import { map } from '@yafu/fantasy-functions'
-import { Fold, Unary, HKT, HKTMark } from '@yafu/type-utils'
+import { Fold, Unary, HKTMark } from '@yafu/type-utils'
 
 declare module '@yafu/fantasy-functions' {
 	export function ap<T, U>(a: Maybe<(x: T) => U>, apply: Maybe<T>): Maybe<U>

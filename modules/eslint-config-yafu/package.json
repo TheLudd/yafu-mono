@@ -3,9 +3,12 @@
   "version": "1.1.2",
   "license": "MIT",
   "main": ".eslintrc.js",
+  "bin": {
+    "lint-yafu": "./lint-yafu"
+  },
   "scripts": {
     "pretest": "yarn",
-    "test": "eslint *.js"
+    "test": "lint-yafu *.js"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.18.0",
