@@ -1,0 +1,46 @@
+{
+  "name": "@yafu/fantasy-array-polyfill",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
+  "type": "module",
+  "exports": {
+    "types": "./dist/types.d.ts",
+    "import": "./dist/es/polyfill.js",
+    "require": "./dist/cjs/polyfill.cjs"
+  },
+  "main": "./dist/es/polyfill.js",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "lib",
+    "dist",
+    "readme.md"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "lint": "lint-yafu",
+    "prepublishOnly": "pnpm clean && pnpm transpile",
+    "test": "pnpm lint && pnpm unit",
+    "transpile": "rollup -c",
+    "unit": "mocha"
+  },
+  "dependencies": {
+    "@yafu/fantasy-functions": "^2.0.4",
+    "@yafu/fantasy-types": "^1.0.4",
+    "@yafu/type-utils": "^1.0.3",
+    "fantasy-land": "^5.0.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.0.3",
+    "@yafu/create-rollup-config": "^1.0.4",
+    "chai": "^4.3.6",
+    "eslint": "^8.13.0",
+    "mocha": "^10.0.0",
+    "rollup": "^3.8.0",
+    "ts-node": "^10.8.2",
+    "typescript": "^4.6.3"
+  }
+}
