@@ -19,12 +19,16 @@
     "transpile": "rollup -c rollup.script.config.js && yarn generate && rollup -c"
   },
   "dependencies": {
+    "@yafu/curry": "^1.2.3",
     "@yafu/type-utils": "^1.0.3",
     "fantasy-land": "^5.0.0"
   },
   "devDependencies": {
+    "@types/node": "^18.0.3",
     "@yafu/create-rollup-config": "^1.0.4",
     "@yafu/rollup-plugin-curry": "^1.0.3",
+    "rollup": "^2.76.0",
+    "rollup-plugin-ts": "^3.0.2",
     "typescript": "^4.6.3"
   },
   "publishConfig": {

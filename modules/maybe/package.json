@@ -20,13 +20,20 @@
   },
   "dependencies": {
     "@yafu/fantasy-functions": "^2.0.4",
+    "@yafu/type-utils": "^1.0.3",
     "fantasy-land": "^5.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.1.3",
+    "@types/chai": "^4.3.0",
+    "@types/mocha": "^9.1.0",
+    "@types/node": "^18.0.3",
     "@yafu/create-rollup-config": "^1.0.4",
     "@yafu/eslint-config-yafu": "^1.1.2",
+    "chai": "^4.3.6",
+    "mocha": "^9.2.2",
     "rollup": "^2.70.1",
+    "ts-node": "^10.8.2",
     "typescript": "^4.6.3"
   },
   "publishConfig": {

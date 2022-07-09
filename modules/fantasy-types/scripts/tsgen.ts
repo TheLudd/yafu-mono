@@ -39,7 +39,7 @@ const allDefs = Object.entries(definitions).filter(notTraversable).map(([ fn, sp
     args,
     extending = [],
     generics: genericsList = [],
-    extendingGenerics: extendingGenericsList = [ ...genericsList ],
+    extendingGenerics: extendingGenericsList = genericsList.concat([]),
     isStatic = false,
     returnType: originalReturnType,
     name,

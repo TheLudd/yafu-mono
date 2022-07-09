@@ -31,6 +31,7 @@
   "dependencies": {
     "@yafu/curry": "^1.2.3",
     "@yafu/fantasy-types": "^1.0.4",
+    "@yafu/type-utils": "^1.0.3",
     "fantasy-land": "^5.0.0",
     "yafu": "^2.0.4"
   },
@@ -39,6 +40,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/register": "^7.17.7",
     "@rollup/plugin-node-resolve": "^13.1.3",
+    "@types/node": "^18.0.3",
     "@yafu/eslint-config-yafu": "^1.1.2",
     "@yafu/rollup-plugin-curry": "^1.0.3",
     "babel-plugin-add-module-exports": "^1.0.4",
@@ -46,7 +48,9 @@
     "mocha": "^9.2.2",
     "rollup": "^2.70.1",
     "rollup-plugin-replace": "^2.2.0",
-    "rollup-plugin-ts": "^2.0.5"
+    "rollup-plugin-ts": "^2.0.5",
+    "ts-node": "^10.8.2",
+    "typescript": "^4.6.3"
   },
   "publishConfig": {
     "access": "public"
