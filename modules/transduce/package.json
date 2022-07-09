@@ -19,9 +19,9 @@
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "lint-yafu lib test *.js",
-    "prepublishOnly": "yarn clean && yarn transpile",
-    "pretest": "yarn",
-    "test": "yarn unit",
+    "prepublishOnly": "pnpm clean && pnpm transpile",
+    "pretest": "pnpm i",
+    "test": "pnpm unit",
     "transpile": "rollup -c",
     "unit": "mocha --esm"
   },

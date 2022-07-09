@@ -8,7 +8,7 @@
   "main": "./index",
   "types": "./index.d.ts",
   "scripts": {
-    "test": "yarn typecheck",
+    "test": "pnpm typecheck",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

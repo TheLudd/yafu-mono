@@ -14,9 +14,9 @@
   "scripts": {
     "clean": "rm -rf dist",
     "generate": "node dist/generate-ts-modules.js > dist/types.ts",
-    "prepublishOnly": "yarn clean && yarn transpile && yarn test",
+    "prepublishOnly": "pnpm clean && pnpm transpile && pnpm test",
     "test": "tsc --noEmit dist/*.ts",
-    "transpile": "rollup -c rollup.script.config.js && yarn generate && rollup -c"
+    "transpile": "rollup -c rollup.script.config.js && pnpm generate && rollup -c"
   },
   "dependencies": {
     "@yafu/curry": "^1.2.3",

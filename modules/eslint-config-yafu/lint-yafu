@@ -1,2 +1,2 @@
 #!/bin/bash
-yarn eslint --max-warnings 0 $@
+pnpm eslint --max-warnings 0 $@

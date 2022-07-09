@@ -28,8 +28,8 @@
     "clean": "rm -rf dist",
     "jsdoc": "jsdoc -c jsdoc.json lib",
     "lint": "lint-yafu lib test",
-    "prepublishOnly": "yarn clean && yarn run transpile",
-    "test": "node build/create-test-index && yarn transpile && yarn unit && yarn acceptance; rm -f test/index.js",
+    "prepublishOnly": "pnpm clean && pnpm run transpile",
+    "test": "node build/create-test-index && pnpm transpile && pnpm unit && pnpm acceptance; rm -f test/index.js",
     "transpile": "mkdir -p dist && node build/create-index.js && rollup -c",
     "unit": "mocha testrunners/unit"
   },

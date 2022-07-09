@@ -6,12 +6,18 @@
   "main": "index.js",
   "scripts": {
     "build": "node build-tests.mjs",
-    "verify": "yarn build && yarn verifyEs && yarn verifyCJS",
+    "clean": "git checkout package.json ../../pnpm-lock.yaml",
+    "inst": "./print-module-names.mjs | xargs pnpm add",
+    "verify": "pnpm inst && pnpm build && pnpm verifyEs && pnpm verifyCJS && pnpm clean",
     "verifyCJS": "node dist/imports.mjs && node dist/require.cjs",
     "verifyEs": "node dist/imports.mjs && node dist/require.cjs"
   },
   "dependencies": {
     "camel-case": "^4.1.2",
-    "glob": "^7.2.0"
+    "glob": "^7.2.0",
+    "yaml": "^2.0.0"
+  },
+  "devDependencies": {
+    "@yafu/eslint-config-yafu": "workspace:^1.1.2"
   }
 }

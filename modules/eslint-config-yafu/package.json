@@ -7,7 +7,7 @@
     "lint-yafu": "./lint-yafu"
   },
   "scripts": {
-    "pretest": "yarn",
+    "pretest": "pnpm i",
     "test": "lint-yafu *.js"
   },
   "dependencies": {

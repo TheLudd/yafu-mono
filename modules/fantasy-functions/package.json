@@ -18,14 +18,14 @@
   ],
   "scripts": {
     "clean": "rm -rf dist",
-    "generate": "yarn generateEs & yarn generateTs",
+    "generate": "pnpm generateEs & pnpm generateTs",
     "generateEs": "node scripts/generate-module.js",
     "generateTs": "node --loader ts-node/esm scripts/new-ts.ts > dist/ts/fantasy-functions.ts",
     "lint": "lint-yafu lib test *.js",
-    "prepublishOnly": "yarn clean && yarn transpile && yarn test",
-    "test": "yarn lint && yarn unit",
-    "transpile": "yarn tsgen && rollup -c",
-    "tsgen": "mkdir -p dist/ts && yarn generate > dist/ts/fantasy-functions.ts",
+    "prepublishOnly": "pnpm clean && pnpm transpile && pnpm test",
+    "test": "pnpm lint && pnpm unit",
+    "transpile": "pnpm tsgen && rollup -c",
+    "tsgen": "mkdir -p dist/ts && pnpm generate > dist/ts/fantasy-functions.ts",
     "unit": "mocha"
   },
   "dependencies": {

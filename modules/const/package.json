@@ -13,8 +13,8 @@
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "lint-yafu *.js",
-    "prepublishOnly": "yarn clean && yarn transpile",
-    "test": "yarn lint",
+    "prepublishOnly": "pnpm clean && pnpm transpile",
+    "test": "pnpm lint",
     "transpile": "rollup -c"
   },
   "dependencies": {

@@ -1,74 +1,58 @@
 version: 2.1
 
 commands:
+  install-pnpm:
+    steps:
+      - run:
+          name: Install pnpm
+          command: npm install -g pnpm
   install:
-    parameters:
-      node-version:
-        default: '14'
-        type: string
     steps:
       - run:
           name: Set auth token
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-      - run:
-          name: Verify cache settings
-          command: |
-            ls modules > /tmp/folders
-            cat /tmp/folders | xargs node scripts/verify-paths.js
-      - store-node-version
       - restore_cache:
           name: 'Restoring cache'
-          key: yafu-node-{{ checksum "/tmp/node-version" }}-{{ checksum "yarn.lock" }}-{{ checksum "/tmp/folders" }}
+          key: pnpm-hash-{{ checksum "pnpm-lock.yaml" }}
       - run:
           name: 'Install packages'
-          command: yarn install --frozen-lockfile
+          command: pnpm install --frozen-lockfile
       - save_cache:
           name: 'Saving cache'
-          key: yafu-node-{{ checksum "/tmp/node-version" }}-{{ checksum "yarn.lock" }}-{{ checksum "/tmp/folders" }}
+          key: pnpm-hash-{{ checksum "pnpm-lock.yaml" }}
           paths:
-            #pathsbegin
-            - node_modules
-            - modules/const/node_modules
-            - modules/create-rollup-config/node_modules
-            - modules/curry/node_modules
-            - modules/either/node_modules
-            - modules/eslint-config-yafu/node_modules
-            - modules/fantasy-functions/node_modules
-            - modules/fantasy-types/node_modules
-            - modules/identity/node_modules
-            - modules/lens/node_modules
-            - modules/maybe/node_modules
-            - modules/rollup-plugin-curry/node_modules
-            - modules/sort-dependencies/node_modules
-            - modules/test-all-exports/node_modules
-            - modules/transduce/node_modules
-            - modules/type-utils/node_modules
-            - modules/yafu/node_modules
-            #pathsend
+            - ~/.local/share/pnpm/store
   run-tests:
     steps:
       - run:
-          command: yarn test
+          command: pnpm test
           name: Run tests
       - store_test_results:
           path: test-results
+  transpile:
+    steps:
+      - run:
+          name: Transpile
+          command: pnpm transpile
+  lint:
+    steps:
+      - run:
+          name: Lint
+          command: pnpm lint
   verify-exports:
     steps:
       - run:
-          command: cd modules/test-all-exports && yarn verify
+          command: cd modules/test-all-exports && pnpm verify
           name: Verify exports
-  store-node-version:
-    steps:
-      - run:
-          name: Store node version
-          command: |
-            node -v | tee /tmp/node-version
   sort-package-json:
     steps:
       - run:
+          command: npm add -g sort-package-json
+          name: Install sort-package-json
+      - run:
           command: |
-            yarn lerna exec "npx sort-package-json --check"
-            npx sort-package-json
+            pnpm -r exec sort-package-json --check
+            pnpm sort-package-json --check
           name: Verify package jsons sorted
 jobs:
   test:
@@ -79,8 +63,10 @@ jobs:
       - image: cimg/node:<< parameters.node-version >>
     steps:
       - checkout
-      - install:
-          node-version: << parameters.node-version >>
+      - install-pnpm
+      - install
+      - transpile
+      - lint
       - run-tests
       - verify-exports
   checks:
@@ -89,8 +75,7 @@ jobs:
       - image: cimg/node:14.19
     steps:
       - checkout
-      - install:
-          node-version: '14'
+      - install-pnpm
       - sort-package-json
 
 workflows:

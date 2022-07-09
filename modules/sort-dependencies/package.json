@@ -13,7 +13,7 @@
   "main": "./dist/es/sort-dependencies.cjs",
   "scripts": {
     "clean": "rm -rf dist",
-    "transpile": "yarn rollup -c"
+    "transpile": "pnpm rollup -c"
   },
   "dependencies": {
     "minimist": "^1.2.6",

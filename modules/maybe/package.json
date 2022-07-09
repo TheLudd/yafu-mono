@@ -13,12 +13,13 @@
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "lint-yafu lib/*.ts",
-    "prepublishOnly": "yarn clean && yarn transpile",
-    "test": "yarn lint && yarn unit",
+    "prepublishOnly": "pnpm clean && pnpm transpile",
+    "test": "pnpm lint && pnpm unit",
     "transpile": "rollup -c",
     "unit": "mocha"
   },
   "dependencies": {
+    "@yafu/curry": "^1.0.0",
     "@yafu/fantasy-functions": "^2.0.4",
     "@yafu/type-utils": "^1.0.3",
     "fantasy-land": "^5.0.0"
@@ -36,6 +37,7 @@
     "ts-node": "^10.8.2",
     "typescript": "^4.6.3"
   },
+  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   },

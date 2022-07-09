@@ -1,0 +1,7 @@
+if [ -n "$CI ]
+  prePost=false
+then
+  prePost=true
+fi
+enable-pre-post-scripts=$prePost
+save-workspace-protocol=false

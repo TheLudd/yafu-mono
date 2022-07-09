@@ -3,17 +3,13 @@
   "private": true,
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
-  "workspaces": [
-    "modules/*"
-  ],
   "scripts": {
-    "clean": "lerna run clean --parallel",
-    "lint": "lerna run lint --parallel",
-    "prepublishOnly": "yarn clean && yarn test",
-    "pretest": "yarn && yarn transpile",
-    "test": "lerna run test --parallel",
-    "transpile": "lerna run transpile",
-    "watch": "lerna run --parallel transpile -- -w"
+    "clean": "pnpm run --parallel clean",
+    "lint": "pnpm run --parallel lint",
+    "prepublishOnly": "pnpm clean && pnpm test",
+    "pretest": "pnpm i && pnpm transpile",
+    "test": "pnpm test -r --parallel",
+    "transpile": "pnpm run -r transpile"
   },
   "devDependencies": {
     "@yafu/eslint-config-yafu": "^1.0.2",
