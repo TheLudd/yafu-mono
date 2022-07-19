@@ -6,12 +6,12 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: {
-        extensions: [ '.js', '.ts' ],
+        extensions: [ '.js', '.ts', '.mjs' ],
       },
     },
   },
   overrides: [ {
-    files: [ '*.js', '*.jsx' ],
+    files: [ '*.js', '*.jsx', '*.mjs' ],
     extends: [
       'airbnb-base',
       'eslint:recommended',
