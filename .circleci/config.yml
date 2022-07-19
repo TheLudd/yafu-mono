@@ -81,7 +81,7 @@ jobs:
       node-version:
         type: string
     docker:
-      - image: circleci/node:<< parameters.node-version >>
+      - image: cimg/node:<< parameters.node-version >>
     steps:
       - checkout
       - install:
@@ -91,7 +91,7 @@ jobs:
   checks:
     resource_class: small
     docker:
-      - image: circleci/node:14
+      - image: cimg/node:14.19
     steps:
       - checkout
       - install:
@@ -106,4 +106,4 @@ workflows:
       - test:
           matrix:
             parameters:
-              node-version: [ '14', '16' ]
+              node-version: [ '14.19', '16.15' ]
