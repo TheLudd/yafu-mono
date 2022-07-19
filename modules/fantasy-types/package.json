@@ -16,7 +16,6 @@
     "generate": "node dist/generate-ts-modules.js > dist/types.ts",
     "prepublishOnly": "yarn clean && yarn transpile && yarn test",
     "test": "tsc --noEmit dist/*.ts",
-    "pretranspile": "mkdir -p dist",
     "transpile": "rollup -c rollup.script.config.js && yarn generate && rollup -c"
   },
   "dependencies": {
