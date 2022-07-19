@@ -29,11 +29,8 @@
     "jsdoc": "jsdoc -c jsdoc.json lib",
     "lint": "lint-yafu lib test",
     "prepublishOnly": "yarn clean && yarn run transpile",
-    "pretest": "node build/create-test-index",
-    "test": "yarn transpile && yarn unit && yarn acceptance",
-    "posttest": "rm -f test/index.js",
-    "pretranspile": "mkdir -p dist",
-    "transpile": "node build/create-index.js && rollup -c",
+    "test": "node build/create-test-index && yarn transpile && yarn unit && yarn acceptance; rm -f test/index.js",
+    "transpile": "mkdir -p dist && node build/create-index.js && rollup -c",
     "unit": "mocha testrunners/unit"
   },
   "dependencies": {
