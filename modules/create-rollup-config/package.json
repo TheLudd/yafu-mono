@@ -3,11 +3,17 @@
   "version": "1.0.4",
   "private": true,
   "license": "MIT",
-  "exports": "./create-rollup-config.js",
+  "exports": {
+    "import": "./create-rollup-config.mjs",
+    "require": "./create-rollup-config.js"
+  },
   "main": "./create-rollup-config.js",
   "dependencies": {
     "@yafu/rollup-plugin-curry": "^1.0.3",
+    "esbuild": "^0.14.51",
     "rollup": "^2.77.2",
+    "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-esbuild": "^4.9.1",
     "rollup-plugin-ts": "^2.0.5",
     "typescript": "^4.6.3"
   }
