@@ -7,7 +7,7 @@
   "main": "./create-rollup-config.js",
   "dependencies": {
     "@yafu/rollup-plugin-curry": "^1.0.3",
-    "rollup": "^2.76.0",
+    "rollup": "^2.77.2",
     "rollup-plugin-ts": "^2.0.5",
     "typescript": "^4.6.3"
   }
