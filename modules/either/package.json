@@ -10,6 +10,7 @@
     "require": "./dist/cjs/either.cjs"
   },
   "main": "./dist/cjs/either.cjs",
+  "types": "./dist/types.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "lint-yafu",
