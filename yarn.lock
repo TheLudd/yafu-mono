@@ -2440,11 +2440,6 @@ array-differ@^3.0.0:
   resolved "https://registry.yarnpkg.com/array-differ/-/array-differ-3.0.0.tgz#3cbb3d0f316810eafcc47624734237d6aee4ae6b"
   integrity sha512-THtfYS6KtME/yIAhKjZ2ul7XI96lQGHRputJQHO80LAWQnuGP4iCIN8vdMRboGbIEYBwU33q8Tch1os2+X0kMg==
 
-array-equal@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/array-equal/-/array-equal-1.0.0.tgz#8c2a5ef2472fd9ea742b04c77a75093ba2757c93"
-  integrity sha1-jCpe8kcv2ep0KwTHenUJO6J1fJM=
-
 array-ify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/array-ify/-/array-ify-1.0.0.tgz#9e528762b4a9066ad163a6962a364418e9626ece"
