@@ -7,7 +7,7 @@ import {
   of as OF,
   reduce as REDUCE,
 } from 'fantasy-land'
-import { Unary } from '@yafu/type-utils'
+import { Unary, HKTMark, HKT2Mark, HKT2 } from '@yafu/type-utils'
 import '@yafu/fantasy-functions'
 
 declare module '@yafu/fantasy-functions' {
@@ -30,14 +30,24 @@ interface Cata<L, R, U> {
 
 export type Either<L, R> = Left<L> | Right<R>
 
-class AbstractEither {}
+interface EitherHKT1Mark extends HKTMark {
+  Type: Either<never, this['T']>
+}
+
+interface EitherHKTMark extends HKT2Mark {
+  Type: Either<this['U'], this['T']>
+}
+
+class AbstractEither implements HKT2 {
+  hkt!: EitherHKT1Mark
+  hkt2!: EitherHKTMark
+  static [OF] <T> (v: T) {
+    return new Right(v)
+  }
+}
 
 class Right<R> extends AbstractEither {
   v: R
-
-  static [OF] <T> (t: T) {
-    return eitherOf(t)
-  }
 
   constructor (v: R) {
     super()
@@ -76,10 +86,6 @@ class Right<R> extends AbstractEither {
 
 class Left<L> extends AbstractEither {
   v: L
-
-  static [OF] <T> (t: T) {
-    return eitherOf(t)
-  }
 
   constructor (v: L) {
     super()
