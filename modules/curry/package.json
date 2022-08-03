@@ -13,7 +13,7 @@
   "types": "./curry.d.ts",
   "scripts": {
     "clean": "rm -rf dist/",
-    "lint": "lint-yafu lib/*.js test/*.js",
+    "lint": "lint-yafu",
     "prepublishOnly": "pnpm clean && pnpm transpile",
     "test": "pnpm lint && pnpm unit",
     "transpile": "rollup -c",

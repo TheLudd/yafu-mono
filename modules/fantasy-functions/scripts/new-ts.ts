@@ -77,7 +77,7 @@ interface EnrichedDefinition extends FantasyDefinition {
 }
 
 function enrichDefinition (spec: FantasyDefinition): EnrichedDefinition {
-  const { args, name, returnType: originalReturnType, generics } = spec
+  const { name, returnType: originalReturnType, generics } = spec
   const isHKT = needsHigherKind(spec)
   const returnType = isHKT ? getHKTRetunType(spec) : originalReturnType
   const needsFunctionGenerics = isHKT || generics.length > 0

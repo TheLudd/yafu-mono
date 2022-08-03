@@ -1,2 +1,2 @@
 #!/bin/bash
-pnpm eslint --max-warnings 0 $@
+pnpm eslint --max-warnings 0 --ignore-pattern '/dist/' .

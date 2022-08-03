@@ -27,7 +27,8 @@ function transpileFiles (plugins, input) {
   }
 }
 
-const tsTranspilations = tsFileGroups.map((input) => transpileFiles([ typescript(), curry() ], input))
+const tsTranspilations = tsFileGroups
+  .map((input) => transpileFiles([ typescript(), curry() ], input))
 
 export default [
   ...tsTranspilations,

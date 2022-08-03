@@ -12,7 +12,7 @@
   "main": "./dist/cjs/either.cjs",
   "scripts": {
     "clean": "rm -rf dist",
-    "lint": "lint-yafu lib/*.ts test/*.ts",
+    "lint": "lint-yafu",
     "prepublishOnly": "pnpm clean && pnpm transpile",
     "test": "pnpm lint && pnpm unit",
     "transpile": "rollup -c",

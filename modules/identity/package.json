@@ -11,7 +11,7 @@
   "main": "./dist/cjs/identity.js",
   "scripts": {
     "clean": "rm -rf dist",
-    "lint": "lint-yafu *.js",
+    "lint": "lint-yafu",
     "prepublishOnly": "pnpm clean && pnpm transpile",
     "test": "pnpm lint",
     "transpile": "rollup -c"

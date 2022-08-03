@@ -8,9 +8,10 @@
     "import": "./dist/es/plugin.mjs",
     "require": "./dist/cjs/plugin.cjs"
   },
+  "main": "./dist/cjs/plugin.cjs",
   "scripts": {
     "clean": "rm -rf dist/",
-    "lint": "lint-yafu lib/ samplecode/",
+    "lint": "lint-yafu",
     "prepublishOnly": "pnpm clean && pnpm transpile",
     "test": "pnpm lint && pnpm unit",
     "transpile": "rollup -c",

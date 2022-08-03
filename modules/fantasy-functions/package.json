@@ -21,7 +21,7 @@
     "generate": "pnpm generateEs & pnpm generateTs",
     "generateEs": "node scripts/generate-module.js",
     "generateTs": "node --loader ts-node/esm scripts/new-ts.ts > dist/ts/fantasy-functions.ts",
-    "lint": "lint-yafu lib test *.js",
+    "lint": "lint-yafu",
     "prepublishOnly": "pnpm clean && pnpm transpile && pnpm test",
     "test": "pnpm lint && pnpm unit",
     "transpile": "pnpm tsgen && rollup -c",

@@ -12,7 +12,7 @@
   "main": "./dist/cjs/index.cjs",
   "scripts": {
     "clean": "rm -rf dist",
-    "lint": "lint-yafu lib test *.js",
+    "lint": "lint-yafu",
     "prepublishOnly": "pnpm clean && pnpm transpile",
     "test": "pnpm lint && pnpm unit",
     "transpile": "rollup -c",

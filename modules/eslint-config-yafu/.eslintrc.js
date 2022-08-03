@@ -33,7 +33,7 @@ module.exports = {
           devDependencies: [
             '**/test*/**',
             '**/build/**',
-            '**/rollup.*.js',
+            '**/rollup.*.*',
             'scripts/**',
           ],
         },

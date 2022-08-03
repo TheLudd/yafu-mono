@@ -10,7 +10,7 @@
     "import": "./lib/sort-dependencies.js",
     "require": "./dist/cjs/sort-dependencies.cjs"
   },
-  "main": "./dist/es/sort-dependencies.cjs",
+  "main": "./dist/cjs/sort-dependencies.cjs",
   "scripts": {
     "clean": "rm -rf dist",
     "transpile": "pnpm rollup -c"

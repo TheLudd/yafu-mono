@@ -1,4 +1,6 @@
 import chai from 'chai'
+// index file will be generated for tests
+// eslint-disable-next-line import/no-unresolved
 import * as tests from '../test/index.js'
 
 chai.should()
