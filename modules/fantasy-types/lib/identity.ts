@@ -1,5 +1,5 @@
 import { Fold, HKT, HKTMark, Kind, Unary } from '@yafu/type-utils'
-import { ap, chain, equals, extend, extract, map, reduce, traverse } from 'fantasy-land'
+import { ap, chain, equals, extend, extract, map, of, reduce, traverse } from 'fantasy-land'
 import { Applicable, Chain, Comonad, Functor, Setoid, Traversable } from '../dist/types'
 
 interface IdentityHKTMark extends HKTMark {
@@ -15,6 +15,11 @@ type Self = Identity<never>
 export class Identity<T> implements HKT, Setoid, Chain<T, Self>, Comonad<T, Self>, Traversable<T, Self> {
 
   hkt!: IdentityHKTMark
+  static hkt: IdentityHKTMark
+
+  static [of] <A> (a: A) {
+    return new Identity(a)
+  }
 
   private v
 
