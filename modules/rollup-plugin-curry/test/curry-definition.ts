@@ -77,4 +77,24 @@ export declare function ap <T, U, Type extends Apply<T, HKT>>(f: Kind<Type, Unar
 `
     equal(result, expeced)
   })
+
+  it('works with module declarations', () => {
+    const code = `
+declare module 'someModule' {
+  function unary (a: number): number
+
+  function binary (a: number, b: string): number
+}
+`
+    const result = curryDefinition(code)
+    const expected = `
+declare module 'someModule' {
+  function unary (a: number): number
+
+  function binary (a: number): (b: string) => number
+  function binary (a: number, b: string): number
+}
+`
+    equal(result, expected)
+  })
 })

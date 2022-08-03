@@ -14,6 +14,7 @@ describe('parseDefinition', () => {
 		const result = parseDefinition('declare function inc (i: number): number')
 		deepEqual(result, [ { 
 			isExported: false,
+			isDeclared: true,
 			name: 'inc',
 			type: 'number',
 			parameters: [ { name: 'i', type: 'number', generics: [] } ],
@@ -25,6 +26,19 @@ describe('parseDefinition', () => {
 		const result = parseDefinition('export declare function inc (i: number): number')
 		deepEqual(result, [ { 
 			isExported: true,
+			isDeclared: true,
+			name: 'inc',
+			type: 'number',
+			parameters: [ { name: 'i', type: 'number', generics: [] } ],
+			line: 1,
+		}])
+	})
+
+	it('returns if the function is declared or not', () => {
+		const result = parseDefinition('export function inc (i: number): number')
+		deepEqual(result, [ { 
+			isExported: true,
+			isDeclared: false,
 			name: 'inc',
 			type: 'number',
 			parameters: [ { name: 'i', type: 'number', generics: [] } ],
@@ -36,6 +50,7 @@ describe('parseDefinition', () => {
 		const result = parseDefinition('declare function I <A>(a: A): A')
 		deepEqual(result, [ { 
 			isExported: false,
+			isDeclared: true,
 			name: 'I',
 			type: 'A',
 			parameters: [
@@ -53,6 +68,7 @@ describe('parseDefinition', () => {
 		const result = parseDefinition(code)
 		deepEqual(result, [ { 
 			isExported: false,
+			isDeclared: true,
 			name: 'I',
 			type: 'A',
 			parameters: [
@@ -61,6 +77,7 @@ describe('parseDefinition', () => {
 			line: 2,
 		}, {
 			isExported: false,
+				isDeclared: true,
 			name: 'inc',
 			type: 'number',
 			parameters: [ { name: 'i', type: 'number', generics: [] } ],
@@ -72,6 +89,7 @@ describe('parseDefinition', () => {
 		const result = parseDefinition('declare function K <A, B>(a: A, b: B): A')
 		deepEqual(result, [ { 
 			isExported: false,
+			isDeclared: true,
 			name: 'K',
 			type: 'A',
 			parameters: [
@@ -86,6 +104,7 @@ describe('parseDefinition', () => {
 		const result = parseDefinition('declare function map <A, B>(f: Unary<A, B>, b: A[]): B[]')
 		deepEqual(result, [ { 
 			isExported: false,
+			isDeclared: true,
 			name: 'map',
 			type: 'B[]',
 			parameters: [
@@ -100,6 +119,7 @@ describe('parseDefinition', () => {
 		const result = parseDefinition('declare function of<A, Type extends Applicable<HKT>>(applicable: Type, a: A): Kind<Type, A>')
 		deepEqual(result, [ { 
 			isExported: false,
+			isDeclared: true,
 			name: 'of',
 			type: 'Kind<Type, A>',
 			parameters: [
@@ -114,6 +134,7 @@ describe('parseDefinition', () => {
 		const result = parseDefinition('declare function chainRec<T, U, Type extends ChainRec<T, HKT>>(chainrec: Type, f: Unary<T, U>, g: Unary<U, U>, a: T): Kind<Type, U>')
 		deepEqual(result, [ { 
 			isExported: false,
+			isDeclared: true,
 			name: 'chainRec',
 			type: 'Kind<Type, U>',
 			parameters: [
@@ -130,6 +151,7 @@ describe('parseDefinition', () => {
 		const result = parseDefinition('declare function promap<T, U, V, Z, Type extends Promap<T, U, HKT2>>(f: Unary<V, T>, g: Unary<U, Z>, promap: Type): Kind2<Type, V, Z>')
 		deepEqual(result, [ { 
 			isExported: false,
+			isDeclared: true,
 			name: 'promap',
 			type: 'Kind2<Type, V, Z>',
 			parameters: [
@@ -145,6 +167,7 @@ describe('parseDefinition', () => {
 		const result = parseDefinition('declare function ap<T, U, Type extends Apply<T, HKT>>(f: Kind<Type, Unary<T, U>>, apply: Type): Kind<Type, U>')
 		deepEqual(result, [ { 
 			isExported: false,
+			isDeclared: true,
 			name: 'ap',
 			type: 'Kind<Type, U>',
 			parameters: [

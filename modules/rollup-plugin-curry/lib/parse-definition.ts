@@ -156,7 +156,7 @@ export function parseDefinition (code: string): Definition[] {
   traverse(ast, {
     TSDeclareFunction (path) {
       const { node, scope, parent } = path
-      const { typeParameters } = node
+      const { typeParameters, declare } = node
 
       const groupedGenerics = isTSTypeParameterDeclaration(typeParameters)
         ? groupGenerics(scope, typeParameters)
@@ -164,6 +164,7 @@ export function parseDefinition (code: string): Definition[] {
 
       const definition: Definition = {
         isExported: isExportDeclaration(parent),
+        isDeclared: declare ?? false,
         name: getFunctionName(node),
         type: getFunctionType(node),
         parameters: getFunctionParameters(scope, groupedGenerics, node),

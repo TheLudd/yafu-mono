@@ -66,13 +66,18 @@ interface StringBuilder {
   outputString: string
 }
 
-function NamedPrintFromFunctionObj (isExported: boolean, functionName: string, out: StringBuilder, functionObj: CurryStruct) {
+function NamedPrintFromFunctionObj (isExported: boolean, isDeclared: boolean, functionName: string, out: StringBuilder, functionObj: CurryStruct) {
   const { inParams, outParams } = functionObj
   const generics = findParamsGenerics(inParams)
 
   const exportStatement = isExported ? 'export ' : ''
+  const declareStatement = isDeclared ? 'declare ' : ''
 
-  out.outputString = `${out.outputString}${exportStatement}declare function ${functionName} ${printGenerics(generics)}`
+  // assume in this case that we are in a module declaration
+  // a better more generic solution would be nice.
+  const space = !isDeclared && !isExported ? '  ' : ''
+
+  out.outputString = `${out.outputString}${exportStatement}${declareStatement}${space}function ${functionName} ${printGenerics(generics)}`
   out.outputString = `${out.outputString}(${printParameters(inParams)})`
 
   if (Array.isArray(outParams)) {
@@ -93,10 +98,11 @@ function NamedPrintFromFunctionObj (isExported: boolean, functionName: string, o
   }
 }
 
-type CurryPrintInput = Omit<Definition, 'line'>
+type CurryPrintInput = Omit<Definition, 'line' | 'indent'>
 
 export default function curryPrint ({
   isExported = true,
+  isDeclared = true,
   name,
   parameters,
   type,
@@ -104,7 +110,7 @@ export default function curryPrint ({
   const functionObjs = recursiveGenerateCurryStruct(parameters, type) as CurryStruct[]
   const out = { outputString: '' }
   functionObjs.forEach((obj) => {
-    NamedPrintFromFunctionObj(isExported, name, out, obj)
+    NamedPrintFromFunctionObj(isExported, isDeclared, name, out, obj)
   })
   return out.outputString
 }
