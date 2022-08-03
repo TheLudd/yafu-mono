@@ -5,10 +5,10 @@
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "scripts": {
     "clean": "pnpm run --parallel clean",
-    "lint": "pnpm run --parallel lint",
+    "lint": "pnpm run --aggregate-output --parallel lint",
     "prepublishOnly": "pnpm clean && pnpm test",
     "pretest": "pnpm i && pnpm transpile",
-    "test": "pnpm test -r --parallel",
+    "test": "pnpm test -r --parallel --aggregate-output",
     "transpile": "pnpm run -r transpile"
   },
   "devDependencies": {
