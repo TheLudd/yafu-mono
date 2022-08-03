@@ -6,11 +6,16 @@ function isOutputAsset (v: OutputAsset | OutputChunk): v is OutputAsset {
   return (v as OutputAsset).source !== undefined
 }
 
-export default function plugin (): Partial<PluginHooks> {
+interface CurryOpts {
+  onlyDefinitions?: boolean
+}
+
+export default function plugin (opts?: CurryOpts): Partial<PluginHooks> {
+  const { onlyDefinitions = false } = opts ?? {}
   return {
     transform (code, id) {
       if (id.startsWith(process.cwd())) {
-        return curryCode(code)
+        return onlyDefinitions ? curryDefinition(code) : curryCode(code)
       }
       return undefined
     },
