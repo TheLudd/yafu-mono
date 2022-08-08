@@ -63,11 +63,6 @@ commands:
           name: Store node version
           command: |
             node -v | tee /tmp/node-version
-  commitlint:
-    steps:
-      - run:
-          command: npx commitlint --from origin/master
-          name: Commitlint
   sort-package-json:
     steps:
       - run:
@@ -96,7 +91,6 @@ jobs:
       - checkout
       - install:
           node-version: '14'
-      - commitlint
       - sort-package-json
 
 workflows:
