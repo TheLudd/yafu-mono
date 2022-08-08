@@ -1,0 +1,26 @@
+name: Commitlint
+
+on:
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Use Node.js 16
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+        cache: 'npm'
+    - run: npm install --no-save @commitlint/cli @commitlint/config-conventional
+    - run: npx commitlint -x @commitlint/config-conventional -f origin/master
