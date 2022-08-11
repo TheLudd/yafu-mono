@@ -1,11 +1,13 @@
 /* eslint-disable no-param-reassign */
 import { parse, print } from 'recast'
 import {
+  ArrowFunctionExpression,
   assertExpression,
   assertIdentifier,
   callExpression,
   Declaration,
   Expression,
+  FunctionDeclaration,
   identifier,
   importDeclaration,
   importSpecifier,
@@ -42,6 +44,10 @@ function modVariableDeclaration (declaration: VariableDeclaration) {
   })
 }
 
+function hasArguments (declaration: FunctionDeclaration | ArrowFunctionExpression): boolean {
+  return declaration.params.length > 0
+}
+
 export default function curryCode (code: string) {
   const ast = parse(code, { sourceFileName: 'dummy.js' })
   let found = false
@@ -55,10 +61,11 @@ export default function curryCode (code: string) {
       if (
         isVariableDeclaration(declaration)
         && isArrowFunctionExpression(declaration.declarations[0].init)
+        && hasArguments(declaration.declarations[0].init)
       ) {
         found = true
         modVariableDeclaration(declaration)
-      } else if (isFunctionDeclaration(declaration)) {
+      } else if (isFunctionDeclaration(declaration) && hasArguments(declaration)) {
         found = true
         const originalName = declaration.id?.name
         if (typeof originalName !== 'string') return

@@ -107,10 +107,15 @@ export default function curryPrint ({
   parameters,
   type,
 }: CurryPrintInput) {
-  const functionObjs = recursiveGenerateCurryStruct(parameters, type) as CurryStruct[]
   const out = { outputString: '' }
-  functionObjs.forEach((obj) => {
-    NamedPrintFromFunctionObj(isExported, isDeclared, name, out, obj)
-  })
+  if (parameters.length === 0) {
+    const functionObj = { inParams: [], outParams: type }
+    NamedPrintFromFunctionObj(isExported, isDeclared, name, out, functionObj)
+  } else {
+    const functionObjs = recursiveGenerateCurryStruct(parameters, type) as CurryStruct[]
+    functionObjs.forEach((obj) => {
+      NamedPrintFromFunctionObj(isExported, isDeclared, name, out, obj)
+    })
+  }
   return out.outputString
 }

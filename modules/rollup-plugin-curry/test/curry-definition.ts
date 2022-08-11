@@ -4,10 +4,11 @@ import curryDefinition from '../lib/curry-definition.js'
 const { equal } = assert
 
 describe('curryDefinition', () => {
-  it('replaces the code in the right place', () => {
+  it('does not change code that does not need to be curried', () => {
     const code = `
 export interface Dummy {}
 export declare function unary (a: number): number
+export declare function impure (): void
 `
     const result = curryDefinition(code)
     const expeced = code

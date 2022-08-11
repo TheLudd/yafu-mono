@@ -17,6 +17,16 @@ describe('curryCode', () => {
     isNull(result)
   })
 
+  it('ignores nullary functions', () => {
+    const original = `
+export function impure() {
+}
+const anotherImpure = () => null
+`
+    const result = curryCode(original)
+    isNull(result)
+  })
+
   it('curries default function exports', () => {
     const original = 'export default function identity (a) { return a }'
     const { code } = curryCode(original) as PrintResultType
