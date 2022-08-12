@@ -2,7 +2,7 @@ const typescript = require('rollup-plugin-ts')
 const curry = require('@yafu/rollup-plugin-curry')
 
 exports.createRollupConfig = (input, pkg) => {
-  const { main: cjsFile, exports: { import: esFile } } = pkg
+  const { exports: { import: esFile, require: cjsFile } } = pkg
   return {
     input,
     treeshake: {

@@ -5,7 +5,7 @@ import curry from '@yafu/rollup-plugin-curry'
 
 export const createRollupConfig = (input, pkgURL) => {
   const pkgContent = readFileSync(new URL('./package.json', pkgURL))
-  const { main: cjsFile, exports: { import: esFile } } = JSON.parse(pkgContent)
+  const { exports: { import: esFile, require: cjsFile } } = JSON.parse(pkgContent)
   return [ {
     input,
     treeshake: {
