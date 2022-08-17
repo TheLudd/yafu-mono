@@ -1,0 +1,43 @@
+{
+  "extends": "nx/presets/npm.json",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": [
+          "lint",
+          "prepublishOnly",
+          "test",
+          "transpile",
+          "unit",
+          "generate",
+          "generateEs",
+          "generateTs",
+          "tsgen",
+          "build",
+          "inst",
+          "verify",
+          "verifyCJS",
+          "verifyEs",
+          "typecheck",
+          "acceptance",
+          "jsdoc"
+        ]
+      }
+    }
+  },
+  "targetDefaults": {
+    "transpile": {
+      "dependsOn": ["^transpile"]
+    },
+    "lint": {
+      "dependsOn": ["transpile"]
+    },
+    "test": {
+      "dependsOn": ["transpile"]
+    }
+  },
+  "affected": {
+    "defaultBase": "master"
+  }
+}

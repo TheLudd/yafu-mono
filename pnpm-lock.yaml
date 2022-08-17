@@ -6,10 +6,12 @@ importers:
     specifiers:
       '@yafu/eslint-config-yafu': ^1.1.2
       lerna: ^6.0.3
+      nx: 14.5.6
       yaml: ^2.1.3
     devDependencies:
       '@yafu/eslint-config-yafu': link:modules/eslint-config-yafu
       lerna: 6.0.3
+      nx: 14.5.6
       yaml: 2.1.3
 
   modules/const:
@@ -2627,6 +2629,49 @@ packages:
       - supports-color
     dev: true
 
+  /@nrwl/cli/14.5.6:
+    resolution: {integrity: sha512-twTR2nzA8xtTQHgMOUxNCXutRQ4OWT9eeJID3H6C5Ev5Mhi25fZheodVOQu72MpMWHhdtH7/7kHzULJaRsTjHw==}
+    dependencies:
+      '@isaacs/string-locale-compare': 1.1.0
+      '@npmcli/installed-package-contents': 1.0.7
+      '@npmcli/map-workspaces': 2.0.4
+      '@npmcli/metavuln-calculator': 3.1.1
+      '@npmcli/move-file': 2.0.1
+      '@npmcli/name-from-folder': 1.0.1
+      '@npmcli/node-gyp': 2.0.0
+      '@npmcli/package-json': 2.0.0
+      '@npmcli/run-script': 4.2.1
+      bin-links: 3.0.3
+      cacache: 16.1.3
+      common-ancestor-path: 1.0.1
+      json-parse-even-better-errors: 2.3.1
+      json-stringify-nice: 1.1.4
+      mkdirp: 1.0.4
+      mkdirp-infer-owner: 2.0.0
+      nopt: 5.0.0
+      npm-install-checks: 5.0.0
+      npm-package-arg: 9.1.2
+      npm-pick-manifest: 7.0.2
+      npm-registry-fetch: 13.3.1
+      npmlog: 6.0.2
+      nx: 14.5.6
+      pacote: 13.6.2
+      parse-conflict-json: 2.0.2
+      proc-log: 2.0.1
+      promise-all-reject-late: 1.0.1
+      promise-call-limit: 1.0.1
+      read-package-json-fast: 2.0.3
+      readdir-scoped-modules: 1.1.0
+      rimraf: 3.0.2
+      semver: 7.3.8
+      ssri: 9.0.1
+      treeverse: 2.0.0
+      walk-up-path: 1.0.0
+    transitivePeerDependencies:
+      - '@swc-node/register'
+      - '@swc/core'
+    dev: true
+
   /@nrwl/cli/15.0.13:
     resolution: {integrity: sha512-w0oOP4v176CbD34+VytiAItIH3fOeiaccq7T2Un/hhx+/Q9mdO/VWyYZOKmp85uGodx/yZ6LyGW6rX0BjM0Rsg==}
     dependencies:
@@ -2650,6 +2695,16 @@ packages:
       tslib: 2.4.1
     transitivePeerDependencies:
       - typescript
+    dev: true
+
+  /@nrwl/tao/14.5.6:
+    resolution: {integrity: sha512-EIbYLhSU85SaYd95t3Mwcy09KVPyPd3DlE7sZBaS3TzFEgOi0o9DLrpHRiZWfUJYgY9ltZHPCQn2hKpd7h7auw==}
+    hasBin: true
+    dependencies:
+      nx: 14.5.6
+    transitivePeerDependencies:
+      - '@swc-node/register'
+      - '@swc/core'
     dev: true
 
   /@nrwl/tao/15.0.13:
@@ -3669,11 +3724,6 @@ packages:
 
   /cli-spinners/2.6.1:
     resolution: {integrity: sha512-x/5fWmGMnbKQAaNwN+UZlV79qBLM9JFnJuJ03gIi5whrob0xV0ofNVHy9DhwGdsMJQc2OKv0oGmLzvaqvAVv+g==}
-    engines: {node: '>=6'}
-    dev: true
-
-  /cli-spinners/2.7.0:
-    resolution: {integrity: sha512-qu3pN8Y3qHNgE2AFweciB1IfMnmZ/fsNTEE+NOFjmGB2F/7rLhnhzppvpCnN4FovtP26k8lHyy9ptEbNwWFLzw==}
     engines: {node: '>=6'}
     dev: true
 
@@ -5054,7 +5104,7 @@ packages:
       fs.realpath: 1.0.0
       inflight: 1.0.6
       inherits: 2.0.4
-      minimatch: 3.0.5
+      minimatch: 3.1.2
       once: 1.4.0
       path-is-absolute: 1.0.1
 
@@ -5708,6 +5758,10 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
+  /jsonc-parser/3.0.0:
+    resolution: {integrity: sha512-fQzRfAbIBnR0IQvftw9FJveWiHp72Fg20giDrHz6TdfB12UH/uue0D3hm57UB5KgAVuniLMCaS8P1IMj9NR7cA==}
+    dev: true
+
   /jsonc-parser/3.2.0:
     resolution: {integrity: sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==}
 
@@ -6069,6 +6123,7 @@ packages:
     resolution: {integrity: sha512-tUpxzX0VAzJHjLu0xUfFv1gwVp9ba3IOuRAVH2EGuRW8a5emA2FlACLqiT/lDVtS1W+TGNwqz3sWaNyLgDJWuw==}
     dependencies:
       brace-expansion: 1.1.11
+    dev: true
 
   /minimatch/3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
@@ -6459,6 +6514,56 @@ packages:
       set-blocking: 2.0.0
     dev: true
 
+  /nx/14.5.6:
+    resolution: {integrity: sha512-HqOCRKBFPyyauZVTHyF7l5x97xYGukTjeQXxZD5LdVxiL1lSyaOtBCTNUmOge/jCPH3crvSeV2Wt58ZF4u0yaw==}
+    hasBin: true
+    requiresBuild: true
+    peerDependencies:
+      '@swc-node/register': ^1.4.2
+      '@swc/core': ^1.2.173
+    peerDependenciesMeta:
+      '@swc-node/register':
+        optional: true
+      '@swc/core':
+        optional: true
+    dependencies:
+      '@nrwl/cli': 14.5.6
+      '@nrwl/tao': 14.5.6
+      '@parcel/watcher': 2.0.4
+      '@yarnpkg/lockfile': 1.1.0
+      '@yarnpkg/parsers': 3.0.0-rc.27
+      '@zkochan/js-yaml': 0.0.6
+      axios: 1.1.3
+      chalk: 4.1.0
+      chokidar: 3.5.3
+      cli-cursor: 3.1.0
+      cli-spinners: 2.6.1
+      cliui: 7.0.4
+      dotenv: 10.0.0
+      enquirer: 2.3.6
+      fast-glob: 3.2.7
+      figures: 3.2.0
+      flat: 5.0.2
+      fs-extra: 10.1.0
+      glob: 7.1.4
+      ignore: 5.2.0
+      js-yaml: 4.1.0
+      jsonc-parser: 3.0.0
+      minimatch: 3.0.5
+      npm-run-path: 4.0.1
+      open: 8.4.0
+      semver: 7.3.4
+      string-width: 4.2.3
+      strong-log-transformer: 2.1.0
+      tar-stream: 2.2.0
+      tmp: 0.2.1
+      tsconfig-paths: 3.14.1
+      tslib: 2.4.1
+      v8-compile-cache: 2.3.0
+      yargs: 17.6.2
+      yargs-parser: 21.0.1
+    dev: true
+
   /nx/15.0.13:
     resolution: {integrity: sha512-5mJGWz91B9/sxzLjXdD+pmZTel54NeNNxFDis8OhtGDn6eRZ25qWsZNDgzqIDtwKn3c9gThAMHU4XH2OTgWUnA==}
     hasBin: true
@@ -6592,7 +6697,7 @@ packages:
       bl: 4.1.0
       chalk: 4.1.2
       cli-cursor: 3.1.0
-      cli-spinners: 2.7.0
+      cli-spinners: 2.6.1
       is-interactive: 1.0.0
       is-unicode-supported: 0.1.0
       log-symbols: 4.1.0
@@ -8208,6 +8313,11 @@ packages:
   /yargs-parser/20.2.9:
     resolution: {integrity: sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==}
     engines: {node: '>=10'}
+    dev: true
+
+  /yargs-parser/21.0.1:
+    resolution: {integrity: sha512-9BK1jFpLzJROCI5TzwZL/TU4gqjK5xiHV/RfWLOahrjAko/e4DJkRDZQXfvqAsiZzzYhgAzbgz6lg48jcm4GLg==}
+    engines: {node: '>=12'}
     dev: true
 
   /yargs-parser/21.1.1:

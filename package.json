@@ -4,16 +4,17 @@
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "scripts": {
-    "clean": "pnpm run --parallel clean",
-    "lint": "pnpm run --aggregate-output --parallel lint",
+    "clean": "nx run-many --target=clean --all && nx reset",
+    "lint": "nx run-many --target=lint --all",
     "prepublishOnly": "pnpm clean && pnpm test",
-    "pretest": "pnpm i && pnpm transpile",
-    "test": "pnpm test -r --parallel --aggregate-output",
-    "transpile": "pnpm run -r transpile"
+    "pretest": "pnpm i",
+    "test": "nx run-many --target=test --all",
+    "transpile": "nx run-many --target=transpile --all"
   },
   "devDependencies": {
     "@yafu/eslint-config-yafu": "^1.1.2",
     "lerna": "^6.0.3",
+    "nx": "14.5.6",
     "yaml": "^2.1.3"
   }
 }
