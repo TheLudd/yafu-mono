@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/TheLudd/yafu-mono/compare/@yafu/rollup-plugin-curry@1.0.3...@yafu/rollup-plugin-curry@1.0.4) (2022-11-22)
+
+
+### Bug Fixes
+
+* **rollp-plugin-curry:** handle module declarations in plugin curry ([731cb8b](https://github.com/TheLudd/yafu-mono/commit/731cb8b47c5a8ff2995805bc66c5c140a6f02548))
+* **rollup-plugin-curry:** handle nullary functions ([e6f95c9](https://github.com/TheLudd/yafu-mono/commit/e6f95c9e1ed139cb2ea37d20635a7a521b52225b))
+
+
+
+
+
 ## [1.0.3](https://github.com/TheLudd/yafu-mono/compare/@yafu/rollup-plugin-curry@1.0.2...@yafu/rollup-plugin-curry@1.0.3) (2022-07-07)
 
 

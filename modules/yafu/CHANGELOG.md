@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.6](https://github.com/TheLudd/yafu/compare/yafu@2.0.4...yafu@2.0.6) (2022-11-22)
+
+
+### Bug Fixes
+
+* **yafu:** add typescript exports ([9048189](https://github.com/TheLudd/yafu/commit/9048189f78a680eda727ae83cb3d55f34a7e2d55))
+
+
+
+
+
 ## [2.0.4](https://github.com/TheLudd/yafu/compare/yafu@2.0.3...yafu@2.0.4) (2022-07-07)
 
 **Note:** Version bump only for package yafu

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/TheLudd/yafu-mono/compare/@yafu/create-rollup-config@1.0.4...@yafu/create-rollup-config@1.1.0) (2022-11-22)
+
+
+### Features
+
+* **create-rollup-cofig:** allow esbuild ([8e7a9b3](https://github.com/TheLudd/yafu-mono/commit/8e7a9b3d7aa137a037bd277692ed99366620152e))
+
+
+
+
+
 ## [1.0.4](https://github.com/TheLudd/yafu-mono/compare/@yafu/create-rollup-config@1.0.3...@yafu/create-rollup-config@1.0.4) (2022-07-07)
 
 **Note:** Version bump only for package @yafu/create-rollup-config
