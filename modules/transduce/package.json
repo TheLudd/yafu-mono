@@ -1,6 +1,6 @@
 {
   "name": "@yafu/transduce",
-  "version": "1.3.9",
+  "version": "1.3.10",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "type": "module",
@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@yafu/curry": "workspace:^1.2.4",
-    "yafu": "workspace:^2.0.9"
+    "yafu": "workspace:^2.0.10"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.0.1",
