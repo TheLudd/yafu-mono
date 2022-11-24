@@ -399,9 +399,9 @@ importers:
       '@babel/register': ^7.18.9
       '@rollup/plugin-node-resolve': ^15.0.1
       '@types/node': ^18.11.9
-      '@yafu/curry': workspace:^1.2.4
-      '@yafu/eslint-config-yafu': workspace:^1.1.3
-      '@yafu/rollup-plugin-curry': workspace:^1.0.4
+      '@yafu/curry': ^1.2.4
+      '@yafu/eslint-config-yafu': ^1.1.3
+      '@yafu/rollup-plugin-curry': ^1.0.4
       babel-plugin-add-module-exports: ^1.0.4
       camel-case: ^4.1.2
       chai: ^4.3.7
@@ -409,9 +409,10 @@ importers:
       jsdoc: ^4.0.0
       mocha: ^10.1.0
       rollup: ^2.79.1
+      rollup-plugin-dts: ^4.0.0
       rollup-plugin-terser: ^7.0.2
       rollup-plugin-ts: ^3.0.2
-      sort-dependencies: workspace:^1.0.4
+      sort-dependencies: ^1.0.4
       source-map-support: ^0.5.21
       ts-node: ^10.9.1
       typescript: ^4.8.4
@@ -433,6 +434,7 @@ importers:
       jsdoc: 4.0.0
       mocha: 10.1.0
       rollup: 2.79.1
+      rollup-plugin-dts: 4.2.3_gypgyaqhine6mwjfvh7icfhviq
       rollup-plugin-terser: 7.0.2_rollup@2.79.1
       rollup-plugin-ts: 3.0.2_bf24igmukuxscoktx36zi5bowa
       sort-dependencies: link:../sort-dependencies
@@ -7207,7 +7209,6 @@ packages:
       typescript: 4.8.4
     optionalDependencies:
       '@babel/code-frame': 7.18.6
-    dev: false
 
   /rollup-plugin-esbuild/5.0.0_262lvhvyihdlvksbgkdfcthuiu:
     resolution: {integrity: sha512-1cRIOHAPh8WQgdQQyyvFdeOdxuiyk+zB5zJ5+YOwrZP4cJ0MT3Fs48pQxrZeyZHcn+klFherytILVfE4aYrneg==}

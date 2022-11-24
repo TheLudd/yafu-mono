@@ -1,5 +1,6 @@
 import resolve from '@rollup/plugin-node-resolve'
-import typescript from 'rollup-plugin-ts'
+import esbuild from 'rollup-plugin-ts'
+import dts from 'rollup-plugin-dts'
 import globPkg from 'glob'
 import { terser } from 'rollup-plugin-terser'
 import curry from '@yafu/rollup-plugin-curry'
@@ -28,7 +29,7 @@ function transpileFiles (plugins, input) {
 }
 
 const tsTranspilations = tsFileGroups
-  .map((input) => transpileFiles([ typescript(), curry() ], input))
+  .map((input) => transpileFiles([ esbuild(), curry() ], input))
 
 export default [
   ...tsTranspilations,
@@ -37,9 +38,12 @@ export default [
     input: 'dist/index.js',
     plugins: [ resolve() ],
     output: [ {
+      file: 'dist/es/yafu.js',
+      format: 'es',
+      sourcemap: true,
+    }, {
       file: 'dist/cjs/yafu.cjs',
       format: 'cjs',
-      name: 'yafu',
       sourcemap: true,
     }, {
       file: 'dist/umd/yafu.js',
@@ -53,5 +57,12 @@ export default [
       plugins: [ terser() ],
       sourcemap: true,
     } ],
+  }, {
+    input: 'dist/index.d.ts',
+    plugins: [ dts() ],
+    output: {
+      file: 'dist/ts/types.d.ts',
+      format: 'es',
+    },
   },
 ]
