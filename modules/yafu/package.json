@@ -14,12 +14,19 @@
   "author": "Ludwig Magnusson",
   "type": "module",
   "exports": {
-    "types": "./dist/ts/types.d.ts",
-    "import": "./dist/es/yafu.js",
-    "require": "./dist/cjs/yafu.cjs"
+    ".": {
+      "types": "./dist/es/types.d.ts",
+      "import": "./dist/es/yafu.js",
+      "require": "./dist/cjs/yafu.cjs"
+    },
+    "./cjs": {
+      "types": "./dist/cjs/types.d.ts",
+      "require": "./dist/cjs/yafu.cjs"
+    },
+    "./package.json": "./package.json"
   },
-  "main": "./dist/es/yafu.js",
-  "types": "./dist/ts/types.d.ts",
+  "main": "./dist/cjs/yafu.cjs",
+  "types": "./dist/cjs/types.d.cts",
   "files": [
     "dist",
     "lib"

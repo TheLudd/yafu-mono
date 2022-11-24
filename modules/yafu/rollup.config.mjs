@@ -60,9 +60,12 @@ export default [
   }, {
     input: 'dist/index.d.ts',
     plugins: [ dts() ],
-    output: {
-      file: 'dist/ts/types.d.ts',
+    output: [ {
+      file: 'dist/es/types.d.ts',
       format: 'es',
-    },
+    }, {
+      file: 'dist/cjs/types.d.cts',
+      format: 'cjs',
+    } ],
   },
 ]
