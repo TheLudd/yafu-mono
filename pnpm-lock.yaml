@@ -67,12 +67,12 @@ importers:
       '@types/chai': ^4.3.4
       '@types/mocha': ^10.0.0
       '@types/node': ^18.11.9
-      '@yafu/create-rollup-config': workspace:^1.1.0
-      '@yafu/curry': workspace:^1.2.4
-      '@yafu/eslint-config-yafu': workspace:^1.1.3
-      '@yafu/fantasy-functions': workspace:^2.0.8
-      '@yafu/fantasy-types': workspace:^1.0.5
-      '@yafu/type-utils': workspace:^1.0.4
+      '@yafu/create-rollup-config': ^1.1.0
+      '@yafu/curry': ^1.2.4
+      '@yafu/eslint-config-yafu': ^1.1.3
+      '@yafu/fantasy-functions': ^2.0.7
+      '@yafu/fantasy-types': ^1.0.5
+      '@yafu/type-utils': ^1.0.4
       chai: ^4.3.7
       fantasy-land: ^5.0.0
       mocha: ^10.1.0
@@ -122,11 +122,11 @@ importers:
       '@rollup/plugin-node-resolve': ^15.0.1
       '@rollup/plugin-replace': ^5.0.1
       '@types/node': ^18.11.9
-      '@yafu/curry': workspace:^1.2.4
-      '@yafu/eslint-config-yafu': workspace:^1.1.3
-      '@yafu/fantasy-types': workspace:^1.0.5
-      '@yafu/rollup-plugin-curry': workspace:^1.0.4
-      '@yafu/type-utils': workspace:^1.0.4
+      '@yafu/curry': ^1.2.4
+      '@yafu/eslint-config-yafu': ^1.1.3
+      '@yafu/fantasy-types': ^1.0.5
+      '@yafu/rollup-plugin-curry': ^1.0.4
+      '@yafu/type-utils': ^1.0.4
       babel-plugin-add-module-exports: ^1.0.4
       chai: ^4.3.7
       fantasy-land: ^5.0.0
@@ -135,7 +135,7 @@ importers:
       rollup-plugin-ts: ^3.0.2
       ts-node: ^10.9.1
       typescript: ^4.8.4
-      yafu: workspace:^2.0.11
+      yafu: ^2.0.10
     dependencies:
       '@yafu/curry': link:../curry
       '@yafu/fantasy-types': link:../fantasy-types
@@ -208,20 +208,20 @@ importers:
       '@types/chai': ^4.3.4
       '@types/mocha': ^10.0.0
       '@types/node': ^18.11.9
-      '@yafu/const': workspace:^1.1.5
-      '@yafu/create-rollup-config': workspace:^1.1.0
-      '@yafu/curry': workspace:^1.2.4
-      '@yafu/either': workspace:^1.0.8
-      '@yafu/eslint-config-yafu': workspace:^1.1.3
-      '@yafu/fantasy-functions': workspace:^2.0.8
-      '@yafu/fantasy-types': workspace:^1.0.5
-      '@yafu/identity': workspace:^2.0.5
+      '@yafu/const': ^1.1.5
+      '@yafu/create-rollup-config': ^1.1.0
+      '@yafu/curry': ^1.2.4
+      '@yafu/either': ^1.0.7
+      '@yafu/eslint-config-yafu': ^1.1.3
+      '@yafu/fantasy-functions': ^2.0.7
+      '@yafu/fantasy-types': ^1.0.5
+      '@yafu/identity': ^2.0.5
       chai: ^4.3.7
       mocha: ^10.1.0
       rollup: ^2.79.1
       ts-node: ^10.9.1
       typescript: ^4.8.4
-      yafu: workspace:^2.0.11
+      yafu: ^2.0.10
     dependencies:
       '@yafu/const': link:../const
       '@yafu/curry': link:../curry
@@ -252,11 +252,11 @@ importers:
       '@types/chai': ^4.3.4
       '@types/mocha': ^10.0.0
       '@types/node': ^18.11.9
-      '@yafu/create-rollup-config': workspace:^1.1.0
-      '@yafu/curry': workspace:^1.2.4
-      '@yafu/eslint-config-yafu': workspace:^1.1.3
-      '@yafu/fantasy-functions': workspace:^2.0.8
-      '@yafu/type-utils': workspace:^1.0.4
+      '@yafu/create-rollup-config': ^1.1.0
+      '@yafu/curry': ^1.2.4
+      '@yafu/eslint-config-yafu': ^1.1.3
+      '@yafu/fantasy-functions': ^2.0.7
+      '@yafu/type-utils': ^1.0.4
       chai: ^4.3.7
       fantasy-land: ^5.0.0
       mocha: ^10.1.0
@@ -360,15 +360,15 @@ importers:
     specifiers:
       '@rollup/plugin-node-resolve': ^15.0.1
       '@types/node': ^18.11.9
-      '@yafu/curry': workspace:^1.2.4
-      '@yafu/eslint-config-yafu': workspace:^1.1.3
+      '@yafu/curry': ^1.2.4
+      '@yafu/eslint-config-yafu': ^1.1.3
       chai: ^4.3.7
       glob: ^8.0.3
       mocha: ^10.1.0
       rollup: ^2.79.1
       ts-node: ^10.9.1
       typescript: ^4.8.4
-      yafu: workspace:^2.0.11
+      yafu: ^2.0.10
     dependencies:
       '@yafu/curry': link:../curry
       yafu: link:../yafu
