@@ -1,6 +1,6 @@
 {
   "name": "@yafu/fantasy-functions",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "type": "module",
@@ -33,7 +33,7 @@
     "@yafu/fantasy-types": "workspace:^1.0.5",
     "@yafu/type-utils": "workspace:^1.0.4",
     "fantasy-land": "^5.0.0",
-    "yafu": "workspace:^2.0.10"
+    "yafu": "workspace:^2.0.11"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",

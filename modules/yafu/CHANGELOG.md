@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.11](https://github.com/TheLudd/yafu/compare/yafu@2.0.10...yafu@2.0.11) (2022-11-24)
+
+
+### Bug Fixes
+
+* **yafu:** typo in package.json path ([f4091bb](https://github.com/TheLudd/yafu/commit/f4091bb618b64d3eaa02f017c3e8500f8cc61034))
+
+
+
+
+
 ## [2.0.10](https://github.com/TheLudd/yafu/compare/yafu@2.0.9...yafu@2.0.10) (2022-11-24)
 
 **Note:** Version bump only for package yafu
