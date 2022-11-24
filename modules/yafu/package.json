@@ -20,7 +20,7 @@
       "require": "./dist/cjs/yafu.cjs"
     },
     "./cjs": {
-      "types": "./dist/cjs/types.d.ts",
+      "types": "./dist/cjs/types.d.cts",
       "require": "./dist/cjs/yafu.cjs"
     },
     "./package.json": "./package.json"
