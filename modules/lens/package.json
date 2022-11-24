@@ -1,6 +1,6 @@
 {
   "name": "@yafu/lens",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Lenses to brighten up your functional programming",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
@@ -21,11 +21,11 @@
   "dependencies": {
     "@yafu/const": "workspace:^1.1.5",
     "@yafu/curry": "workspace:^1.2.4",
-    "@yafu/either": "workspace:^1.0.5",
-    "@yafu/fantasy-functions": "workspace:^2.0.5",
+    "@yafu/either": "workspace:^1.0.6",
+    "@yafu/fantasy-functions": "workspace:^2.0.6",
     "@yafu/fantasy-types": "workspace:^1.0.5",
     "@yafu/identity": "workspace:^2.0.5",
-    "yafu": "workspace:^2.0.6"
+    "yafu": "workspace:^2.0.9"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",

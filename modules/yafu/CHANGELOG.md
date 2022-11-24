@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.9](https://github.com/TheLudd/yafu/compare/yafu@2.0.6...yafu@2.0.9) (2022-11-24)
+
+
+### Bug Fixes
+
+* **yafu:** bundle types properly ([2c93aef](https://github.com/TheLudd/yafu/commit/2c93aefd808bcffb456b9b5b9c8b345af99cad9a))
+* **yafu:** package exports ([be2e3d0](https://github.com/TheLudd/yafu/commit/be2e3d079563d74d33a96ad70448324506dd715c))
+
+
+
+
+
 ## [2.0.6](https://github.com/TheLudd/yafu/compare/yafu@2.0.4...yafu@2.0.6) (2022-11-22)
 
 

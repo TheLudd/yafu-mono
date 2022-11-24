@@ -1,6 +1,6 @@
 {
   "name": "@yafu/maybe",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Maybe monad",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@yafu/curry": "workspace:^1.2.4",
-    "@yafu/fantasy-functions": "workspace:^2.0.5",
+    "@yafu/fantasy-functions": "workspace:^2.0.6",
     "@yafu/type-utils": "workspace:^1.0.4",
     "fantasy-land": "^5.0.0"
   },
