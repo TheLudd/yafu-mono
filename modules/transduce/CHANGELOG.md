@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.12](https://github.com/TheLudd/yafu-mono/compare/@yafu/transduce@1.3.11...@yafu/transduce@1.3.12) (2022-11-26)
+
+
+### Bug Fixes
+
+* **transduce:** main field in package.json ([b3f76d1](https://github.com/TheLudd/yafu-mono/commit/b3f76d149d4d81282b55239b273a158c5863aa79))
+
+
+
+
+
 ## [1.3.11](https://github.com/TheLudd/yafu-mono/compare/@yafu/transduce@1.3.10...@yafu/transduce@1.3.11) (2022-11-24)
 
 **Note:** Version bump only for package @yafu/transduce

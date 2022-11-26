@@ -1,6 +1,6 @@
 {
   "name": "@yafu/rollup-plugin-curry",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "type": "module",

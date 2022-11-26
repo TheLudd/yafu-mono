@@ -1,6 +1,6 @@
 {
   "name": "@yafu/fantasy-functions",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "type": "module",
@@ -29,11 +29,11 @@
     "unit": "mocha"
   },
   "dependencies": {
-    "@yafu/curry": "^1.2.4",
-    "@yafu/fantasy-types": "^1.0.5",
+    "@yafu/curry": "^1.2.5",
+    "@yafu/fantasy-types": "^1.0.6",
     "@yafu/type-utils": "^1.0.4",
     "fantasy-land": "^5.0.0",
-    "yafu": "^2.0.11"
+    "yafu": "^2.0.12"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
@@ -43,7 +43,7 @@
     "@rollup/plugin-replace": "^5.0.1",
     "@types/node": "^18.11.9",
     "@yafu/eslint-config-yafu": "^1.1.3",
-    "@yafu/rollup-plugin-curry": "^1.0.4",
+    "@yafu/rollup-plugin-curry": "^1.0.5",
     "babel-plugin-add-module-exports": "^1.0.4",
     "chai": "^4.3.7",
     "mocha": "^10.1.0",

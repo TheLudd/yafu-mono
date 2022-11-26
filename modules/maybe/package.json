@@ -1,6 +1,6 @@
 {
   "name": "@yafu/maybe",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Maybe monad",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
@@ -19,8 +19,8 @@
     "unit": "mocha"
   },
   "dependencies": {
-    "@yafu/curry": "^1.2.4",
-    "@yafu/fantasy-functions": "^2.0.8",
+    "@yafu/curry": "^1.2.5",
+    "@yafu/fantasy-functions": "^2.0.9",
     "@yafu/type-utils": "^1.0.4",
     "fantasy-land": "^5.0.0"
   },
@@ -29,7 +29,7 @@
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.0",
     "@types/node": "^18.11.9",
-    "@yafu/create-rollup-config": "^1.1.0",
+    "@yafu/create-rollup-config": "^1.1.1",
     "@yafu/eslint-config-yafu": "^1.1.3",
     "chai": "^4.3.7",
     "mocha": "^10.1.0",
