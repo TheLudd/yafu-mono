@@ -14,8 +14,8 @@
       "require": "./dist/cjs/polyfills/*.cjs"
     }
   },
-  "main": "dist/cjs/transduce.js",
-  "module": "index.js",
+  "main": "./dist/cjs/transduce.cjs",
+  "module": "./index.js",
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "lint-yafu",
