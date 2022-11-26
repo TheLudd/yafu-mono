@@ -9,7 +9,7 @@
   },
   "main": "./create-rollup-config.js",
   "dependencies": {
-    "@yafu/rollup-plugin-curry": "workspace:^1.0.4",
+    "@yafu/rollup-plugin-curry": "^1.0.4",
     "esbuild": "^0.15.13",
     "rollup": "^2.79.1",
     "rollup-plugin-dts": "^4.0.0",

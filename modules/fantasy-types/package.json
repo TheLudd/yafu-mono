@@ -19,14 +19,14 @@
     "transpile": "rollup -c rollup.script.config.js && pnpm generate && rollup -c"
   },
   "dependencies": {
-    "@yafu/curry": "workspace:^1.2.4",
-    "@yafu/type-utils": "workspace:^1.0.4",
+    "@yafu/curry": "^1.2.4",
+    "@yafu/type-utils": "^1.0.4",
     "fantasy-land": "^5.0.0"
   },
   "devDependencies": {
     "@types/node": "^18.11.9",
-    "@yafu/create-rollup-config": "workspace:^1.1.0",
-    "@yafu/rollup-plugin-curry": "workspace:^1.0.4",
+    "@yafu/create-rollup-config": "^1.1.0",
+    "@yafu/rollup-plugin-curry": "^1.0.4",
     "rollup": "^2.79.1",
     "rollup-plugin-ts": "^3.0.2",
     "typescript": "^4.8.4"

@@ -26,13 +26,13 @@
     "unit": "mocha --esm"
   },
   "dependencies": {
-    "@yafu/curry": "workspace:^1.2.4",
-    "yafu": "workspace:^2.0.11"
+    "@yafu/curry": "^1.2.4",
+    "yafu": "^2.0.11"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@types/node": "^18.11.9",
-    "@yafu/eslint-config-yafu": "workspace:^1.1.3",
+    "@yafu/eslint-config-yafu": "^1.1.3",
     "chai": "^4.3.7",
     "glob": "^8.0.3",
     "mocha": "^10.1.0",
