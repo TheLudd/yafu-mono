@@ -6,7 +6,7 @@ export default {
     ts({
       tsconfig: {
         declaration: false,
-      }
+      },
     }),
   ],
   output: {
@@ -14,4 +14,3 @@ export default {
     format: 'es',
   },
 }
-

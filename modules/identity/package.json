@@ -4,9 +4,10 @@
   "description": "Identity monad",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
+  "type": "module",
   "exports": {
-    "import": "./dist/es/identity.mjs",
-    "require": "./dist/cjs/identity.js"
+    "import": "./dist/es/identity.js",
+    "require": "./dist/cjs/identity.cjs"
   },
   "main": "./dist/cjs/identity.js",
   "scripts": {
@@ -18,13 +19,13 @@
   },
   "dependencies": {
     "@yafu/fantasy-types": "^1.0.6",
-    "fantasy-land": "^5.0.0"
+    "fantasy-land": "^5.0.1"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@yafu/create-rollup-config": "^1.1.1",
     "@yafu/eslint-config-yafu": "^1.1.3",
-    "rollup": "^2.79.1"
+    "rollup": "^3.8.0"
   },
   "publishConfig": {
     "access": "public"

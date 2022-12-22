@@ -1,5 +1,5 @@
 import { assert } from 'chai'
-import { PrintResultType } from 'recast/lib/printer'
+import { PrintResultType } from 'recast/lib/printer.js'
 import curryCode from '../lib/curry-code.js'
 
 const { equal, isNull } = assert

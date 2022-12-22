@@ -1,3 +1,4 @@
+import * as FL from 'fantasy-land'
 import { definitions, FantasyDefinition } from '../lib/definitions'
 
 const parameterNames = [ 'a', 'b', 'c' ]
@@ -114,7 +115,7 @@ const allDefs = Object.entries(definitions).filter(notTraversable).map(([ fn, sp
   const methodGenericsList = allGenerics.filter((x) => generics.indexOf(x) === -1)
   const methodGenerics = methodGenericsList.length ? `<${methodGenericsList.join(', ')}>` : ''
 
-  const method = `[${fn}]: ${methodGenerics}(${args.map(formatArgument).join(', ')})`
+  const method = `['${FL[fn]}']: ${methodGenerics}(${args.map(formatArgument).join(', ')})`
   const extendStatement = extending.length ? ` extends ${extendWithGenerics.join(', ')}` : ''
   const lines = [
     isStatic ? '// static' : '',
@@ -126,15 +127,10 @@ const allDefs = Object.entries(definitions).filter(notTraversable).map(([ fn, sp
   return lines.join('\n').trim()
 })
 
-process.stdout.write('import {')
-Object.keys(definitions).forEach((fn, i) => {
-  process.stdout.write(`${i === 0 ? '' : ',' } ${fn}`)
-})
-process.stdout.write(" } from 'fantasy-land'\n")
 process.stdout.write("import { Fold, HKT, HKT2, Kind, Kind2, Predicate, Unary } from '@yafu/type-utils'\n\n")
 process.stdout.write(allDefs.join('\n\n'))
 process.stdout.write(`\n
 export interface Traversable<T, Type extends HKT> extends HKT, Functor<T, Type>, Foldable<T> {
-  [traverse]: <U, X extends HKT>(a: Applicable<X>, b: Unary<T, Kind<X, U>>) => Kind<X, Kind<Type, U>>
+  ['${FL.traverse}']: <U, X extends HKT>(a: Applicable<X>, b: Unary<T, Kind<X, U>>) => Kind<X, Kind<Type, U>>
 }
 `)

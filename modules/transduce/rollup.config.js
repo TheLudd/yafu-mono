@@ -1,6 +1,7 @@
 import { basename, extname } from 'path'
-import { sync as glob } from 'glob'
+import Glob from 'glob'
 
+const { sync: glob } = Glob
 const polyfills = glob('./lib/polyfills/*')
 
 export default [ {

@@ -1,6 +1,6 @@
 import { PluginHooks, OutputAsset, OutputChunk } from 'rollup'
-import curryDefinition from './curry-definition'
-import curryCode from './curry-code'
+import curryDefinition from './curry-definition.js'
+import curryCode from './curry-code.js'
 
 function isOutputAsset (v: OutputAsset | OutputChunk): v is OutputAsset {
   return (v as OutputAsset).source !== undefined

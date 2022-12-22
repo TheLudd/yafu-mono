@@ -1,8 +1,8 @@
-import typescript from 'rollup-plugin-ts'
+import esbuild from 'rollup-plugin-esbuild'
 
 export default {
   input: './lib/plugin.ts',
-  plugins: [ typescript() ],
+  plugins: [ esbuild() ],
   output: [ {
     file: 'dist/es/plugin.mjs',
     format: 'es',

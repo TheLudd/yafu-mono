@@ -19,7 +19,7 @@ import {
   isExportDeclaration,
 } from '@babel/types'
 import { traverse } from './traverse.js'
-import { Definition, Parameter } from './types'
+import { Definition, Parameter } from './types.js'
 
 const options = {
   filename: 'fake.ts',

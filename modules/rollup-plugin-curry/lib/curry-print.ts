@@ -7,7 +7,7 @@ import {
   map,
   chain,
 } from 'ramda'
-import { Definition, Parameter } from './types'
+import { Definition, Parameter } from './types.js'
 
 interface CurryStruct {
   inParams: Parameter[],

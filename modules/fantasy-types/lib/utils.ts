@@ -1,4 +1,4 @@
-import { FantasyDefinition } from './definitions'
+import { FantasyDefinition } from './definitions.js'
 
 export function needsHigherKind (spec: FantasyDefinition) {
   const { returnType, name, generics = [], extending = [] } = spec
