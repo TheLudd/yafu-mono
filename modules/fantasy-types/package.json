@@ -25,7 +25,7 @@
     "fantasy-land": "^5.0.1"
   },
   "devDependencies": {
-    "@types/node": "^18.11.9",
+    "@types/node": "^18.11.17",
     "@yafu/create-rollup-config": "^1.1.1",
     "@yafu/rollup-plugin-curry": "^1.0.5",
     "rollup": "^3.8.0",
