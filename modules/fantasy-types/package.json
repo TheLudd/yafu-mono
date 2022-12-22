@@ -15,8 +15,9 @@
   "scripts": {
     "clean": "rm -rf dist",
     "generate": "node dist/generate-ts-modules.js > dist/types.ts",
+    "lint": "tsc --noEmit dist/*.ts",
     "prepublishOnly": "pnpm clean && pnpm transpile && pnpm test",
-    "test": "tsc --noEmit dist/*.ts",
+    "test": "echo testless",
     "transpile": "rollup -c rollup.script.config.js && pnpm generate && rollup -c"
   },
   "dependencies": {

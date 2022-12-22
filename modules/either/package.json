@@ -16,7 +16,7 @@
     "clean": "rm -rf dist",
     "lint": "lint-yafu",
     "prepublishOnly": "pnpm clean && pnpm transpile",
-    "test": "pnpm lint && pnpm unit",
+    "test": "pnpm unit",
     "transpile": "rollup -c",
     "unit": "mocha"
   },

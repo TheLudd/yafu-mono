@@ -7,8 +7,9 @@
     "lint-yafu": "./lint-yafu"
   },
   "scripts": {
+    "lint": "lint-yafu",
     "pretest": "pnpm i",
-    "test": "lint-yafu"
+    "test": "echo testless"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.47.0",

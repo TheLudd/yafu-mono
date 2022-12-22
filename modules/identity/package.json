@@ -14,7 +14,7 @@
     "clean": "rm -rf dist",
     "lint": "lint-yafu",
     "prepublishOnly": "pnpm clean && pnpm transpile",
-    "test": "pnpm lint",
+    "test": "echo testless",
     "transpile": "rollup -c"
   },
   "dependencies": {
