@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.6](https://github.com/TheLudd/yafu-mono/compare/@yafu/curry@1.2.5...@yafu/curry@1.2.6) (2022-12-22)
+
+**Note:** Version bump only for package @yafu/curry
+
+
+
+
+
 ## [1.2.5](https://github.com/TheLudd/yafu-mono/compare/@yafu/curry@1.2.4...@yafu/curry@1.2.5) (2022-11-26)
 
 **Note:** Version bump only for package @yafu/curry

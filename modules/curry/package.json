@@ -1,6 +1,6 @@
 {
   "name": "@yafu/curry",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Yafu's curry implementation",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@types/node": "^18.11.17",
-    "@yafu/eslint-config-yafu": "^1.1.3",
+    "@yafu/eslint-config-yafu": "^1.1.4",
     "chai": "^4.3.7",
     "mocha": "^10.2.0",
     "rollup": "^3.8.0",

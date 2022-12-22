@@ -1,6 +1,6 @@
 {
   "name": "@yafu/transduce",
-  "version": "1.3.12",
+  "version": "1.3.13",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "type": "module",
@@ -26,13 +26,13 @@
     "unit": "mocha --esm"
   },
   "dependencies": {
-    "@yafu/curry": "^1.2.5",
-    "yafu": "^2.0.12"
+    "@yafu/curry": "^1.2.6",
+    "yafu": "^2.0.13"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@types/node": "^18.11.17",
-    "@yafu/eslint-config-yafu": "^1.1.3",
+    "@yafu/eslint-config-yafu": "^1.1.4",
     "chai": "^4.3.7",
     "glob": "^8.0.3",
     "mocha": "^10.2.0",

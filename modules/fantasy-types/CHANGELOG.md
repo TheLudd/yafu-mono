@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/TheLudd/yafu-mono/compare/@yafu/fantasy-types@1.0.6...@yafu/fantasy-types@1.0.7) (2022-12-22)
+
+**Note:** Version bump only for package @yafu/fantasy-types
+
+
+
+
+
 ## [1.0.6](https://github.com/TheLudd/yafu-mono/compare/@yafu/fantasy-types@1.0.5...@yafu/fantasy-types@1.0.6) (2022-11-26)
 
 **Note:** Version bump only for package @yafu/fantasy-types

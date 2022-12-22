@@ -1,6 +1,6 @@
 {
   "name": "@yafu/type-utils",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Utilities for working with typescript",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
