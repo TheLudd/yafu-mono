@@ -14,7 +14,7 @@
           "generateEs",
           "generateTs",
           "tsgen",
-          "build",
+          "transpile",
           "inst",
           "verify",
           "verifyCJS",
@@ -28,13 +28,15 @@
   },
   "targetDefaults": {
     "transpile": {
-      "dependsOn": ["^transpile"]
+      "dependsOn": ["^transpile"],
+      "outputs": ["{projectRoot}/dist"]
     },
     "lint": {
       "dependsOn": ["transpile"]
     },
     "test": {
-      "dependsOn": ["transpile"]
+      "dependsOn": ["transpile"],
+      "inputs": [{ "runtime": "node -v" }]
     }
   },
   "affected": {
