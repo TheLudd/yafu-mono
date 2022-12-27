@@ -14,7 +14,7 @@
   "types": "./dist/types.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
-    "generate": "node dist/generate-ts-modules.js > dist/types.ts",
+    "generate": "node dist/generate-ts-modules.js > dist/fantasy-types.ts",
     "lint": "tsc --noEmit dist/*.ts",
     "prepublishOnly": "pnpm clean && pnpm transpile && pnpm test",
     "test": "echo testless",

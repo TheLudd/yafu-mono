@@ -1,6 +1,6 @@
 import { Fold, HKT, HKTMark, Kind, Unary } from '@yafu/type-utils'
 import { ap, chain, equals, extend, extract, map, of, reduce, traverse } from 'fantasy-land'
-import { Applicable, Chain, Comonad, Functor, Setoid, Traversable } from '../dist/types.js'
+import { Applicable, Chain, Comonad, Functor, Setoid, Traversable } from '../dist/fantasy-types.js'
 
 interface IdentityHKTMark extends HKTMark {
   Type: Identity<this['T']>
