@@ -11,12 +11,8 @@ import { Unary, HKTMark, HKT2Mark, HKT2 } from '@yafu/type-utils'
 import '@yafu/fantasy-functions'
 
 declare module '@yafu/fantasy-functions' {
-  export function ap <T, U, L>(f: Either<L, Unary<T, U>>): (either: Either<L, T>) => Either<L, U>
   export function ap <T, U, L>(f: Either<L, Unary<T, U>>, either: Either<L, T>): Either<L, U>
-  export function chain <T, U, L>(f: Unary<T, Either<L, U>>): (either: Either<L, T>) => Either<L, U>
   export function chain <T, U, L>(f: Unary<T, Either<L, U>>, either: Either<L, T>): Either<L, U>
-  export function map <T, U, L>(f: Unary<T, U>): (either: Either<L, T>) => Either<L, U>
-  export function map <T, U, L>(f: Unary<T, U>, either: Either<L, T>): Either<L, U>
 }
 
 export function eitherOf <R>(v: R): Either<never, R> {
@@ -63,7 +59,7 @@ class Right<R> extends AbstractEither {
   }
 
   [AP] <U, L> (b: Either<L, (x: R) => U>): Either<L, U> {
-    return b[CHAIN]((f) => this[MAP](f)) as Either<L, U>
+    return b[CHAIN]((f) => this[MAP](f))
   }
 
   [CHAIN] <U, L> (f: (x: R) => Either<L, U>) {
