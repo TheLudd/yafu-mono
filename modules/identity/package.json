@@ -6,10 +6,12 @@
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "type": "module",
   "exports": {
+    "types": "./dist/types.d.ts",
     "import": "./dist/es/identity.js",
     "require": "./dist/cjs/identity.cjs"
   },
   "main": "./dist/cjs/identity.js",
+  "types": "./dist/types.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "lint-yafu",

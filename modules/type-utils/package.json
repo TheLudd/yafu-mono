@@ -5,7 +5,7 @@
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "exports": "./index.js",
-  "main": "./index",
+  "main": "./index.js",
   "types": "./index.d.ts",
   "scripts": {
     "test": "pnpm typecheck",

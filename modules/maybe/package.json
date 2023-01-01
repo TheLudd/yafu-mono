@@ -6,10 +6,12 @@
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "type": "module",
   "exports": {
+    "types": "./dist/types.d.ts",
     "import": "./dist/es/maybe.js",
     "require": "./dist/cjs/maybe.cjs"
   },
   "main": "./dist/cjs/maybe.cjs",
+  "types": "./dist/types.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "lint-yafu",
