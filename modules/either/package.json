@@ -1,6 +1,6 @@
 {
   "name": "@yafu/either",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Either monad",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
@@ -22,9 +22,9 @@
   },
   "dependencies": {
     "@yafu/curry": "^1.2.6",
-    "@yafu/fantasy-functions": "^2.0.10",
-    "@yafu/fantasy-types": "^1.0.7",
-    "@yafu/type-utils": "^1.0.5",
+    "@yafu/fantasy-functions": "^2.0.11",
+    "@yafu/fantasy-types": "^1.0.8",
+    "@yafu/type-utils": "^1.0.6",
     "fantasy-land": "^5.0.1"
   },
   "devDependencies": {
@@ -32,7 +32,7 @@
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
     "@types/node": "^18.11.17",
-    "@yafu/create-rollup-config": "^1.1.2",
+    "@yafu/create-rollup-config": "^1.1.3",
     "@yafu/eslint-config-yafu": "^1.1.4",
     "chai": "^4.3.7",
     "mocha": "^10.2.0",

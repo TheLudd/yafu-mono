@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.8](https://github.com/TheLudd/yafu-mono/compare/@yafu/identity@2.0.7...@yafu/identity@2.0.8) (2023-01-01)
+
+
+### Bug Fixes
+
+* add type exports to all eligable modules ([8edca19](https://github.com/TheLudd/yafu-mono/commit/8edca192cf02cb1547a5b6287484e7593bac587f))
+
+
+
+
+
 ## [2.0.7](https://github.com/TheLudd/yafu-mono/compare/@yafu/identity@2.0.6...@yafu/identity@2.0.7) (2022-12-22)
 
 **Note:** Version bump only for package @yafu/identity

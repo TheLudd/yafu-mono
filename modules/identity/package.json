@@ -1,6 +1,6 @@
 {
   "name": "@yafu/identity",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Identity monad",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
@@ -20,12 +20,12 @@
     "transpile": "rollup -c"
   },
   "dependencies": {
-    "@yafu/fantasy-types": "^1.0.7",
+    "@yafu/fantasy-types": "^1.0.8",
     "fantasy-land": "^5.0.1"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.0.1",
-    "@yafu/create-rollup-config": "^1.1.2",
+    "@yafu/create-rollup-config": "^1.1.3",
     "@yafu/eslint-config-yafu": "^1.1.4",
     "rollup": "^3.8.0"
   },

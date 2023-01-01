@@ -1,6 +1,6 @@
 {
   "name": "yafu",
-  "version": "2.0.13",
+  "version": "2.0.14",
   "description": "Functional programming experimentation",
   "homepage": "https://github.com/TheLudd/yafu#readme",
   "bugs": {
@@ -51,7 +51,7 @@
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@types/node": "^18.11.17",
     "@yafu/eslint-config-yafu": "^1.1.4",
-    "@yafu/rollup-plugin-curry": "^1.0.6",
+    "@yafu/rollup-plugin-curry": "^1.0.7",
     "babel-plugin-add-module-exports": "^1.0.4",
     "camel-case": "^4.1.2",
     "chai": "^4.3.7",
