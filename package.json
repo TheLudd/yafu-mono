@@ -13,8 +13,8 @@
   },
   "devDependencies": {
     "@yafu/eslint-config-yafu": "^1.1.2",
-    "lerna": "^6.1.0",
-    "nx": "15.3.3",
-    "yaml": "^2.2.0"
+    "lerna": "^6.4.1",
+    "nx": "15.5.3",
+    "yaml": "^2.2.1"
   }
 }
