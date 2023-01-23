@@ -4,10 +4,9 @@
   "private": true,
   "license": "MIT",
   "exports": {
-    "import": "./create-rollup-config.mjs",
-    "require": "./create-rollup-config.js"
+    "import": "./create-rollup-config.mjs"
   },
-  "main": "./create-rollup-config.js",
+  "main": "./create-rollup-config.mjs",
   "dependencies": {
     "@yafu/rollup-plugin-curry": "^1.0.7",
     "esbuild": "^0.17.4",
