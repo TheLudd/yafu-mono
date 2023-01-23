@@ -3,10 +3,29 @@ import esbuild from 'rollup-plugin-esbuild'
 import dts from 'rollup-plugin-dts'
 import curry from '@yafu/rollup-plugin-curry'
 
-export const createRollupConfig = (input, pkgURL) => {
+export const createRollupConfig = (input, pkgURL, ...otherPlugins) => {
   const pkgContent = readFileSync(new URL('./package.json', pkgURL))
-  const { exports: { import: esFile, require: cjsFile } } = JSON.parse(pkgContent)
-  return [ {
+  const { exports: { import: esFile, require: cjsFile, types: typesFile } } = JSON.parse(pkgContent)
+
+  const mainOutputs = []
+
+  if (esFile && !esFile.startsWith('./lib')) {
+    mainOutputs.push({
+      file: esFile,
+      format: 'es',
+      sourcemap: true,
+    })
+  }
+
+  if (cjsFile && !cjsFile.startsWith('./lib')) {
+    mainOutputs.push({
+      file: cjsFile,
+      format: 'cjs',
+      sourcemap: true,
+    })
+  }
+
+  const bundles = [ {
     input,
     treeshake: {
       moduleSideEffects: false,
@@ -14,25 +33,26 @@ export const createRollupConfig = (input, pkgURL) => {
     plugins: [
       esbuild(),
       curry(),
+      ...otherPlugins,
     ],
-    output: [ {
-      file: esFile,
-      format: 'es',
-      sourcemap: true,
-    }, {
-      file: cjsFile,
-      format: 'cjs',
-      sourcemap: true,
-    } ],
-  }, {
-    input,
-    plugins: [
-      dts(),
-      curry({ onlyDefinitions: true }),
-    ],
-    output: {
-      file: 'dist/types.d.ts',
-      format: 'es',
-    },
+    output: mainOutputs,
   } ]
+
+  if (typesFile) {
+    bundles.push(
+      {
+        input,
+        plugins: [
+          dts(),
+          curry({ onlyDefinitions: true }),
+        ],
+        output: {
+          file: 'dist/types.d.ts',
+          format: 'es',
+        },
+      },
+    )
+  }
+
+  return bundles
 }
