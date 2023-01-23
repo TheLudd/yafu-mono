@@ -372,6 +372,7 @@ importers:
   modules/sort-dependencies:
     specifiers:
       '@rollup/plugin-node-resolve': ^15.0.1
+      '@yafu/create-rollup-config': ^1.1.3
       '@yafu/eslint-config-yafu': ^1.1.4
       minimist: ^1.2.7
       ramda: ^0.28.0
@@ -381,6 +382,7 @@ importers:
       ramda: 0.28.0
     devDependencies:
       '@rollup/plugin-node-resolve': 15.0.1_rollup@3.10.1
+      '@yafu/create-rollup-config': link:../create-rollup-config
       '@yafu/eslint-config-yafu': link:../eslint-config-yafu
       rollup: 3.10.1
 

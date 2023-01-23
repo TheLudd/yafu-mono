@@ -1,4 +1,3 @@
-import resolve from '@rollup/plugin-node-resolve'
 import esbuild from 'rollup-plugin-ts'
 import dts from 'rollup-plugin-dts'
 import globPkg from 'glob'
@@ -36,7 +35,6 @@ export default [
   transpileFiles([ curry() ], jsFiles),
   {
     input: 'dist/index.js',
-    plugins: [ resolve() ],
     output: [ {
       file: 'dist/es/yafu.js',
       format: 'es',

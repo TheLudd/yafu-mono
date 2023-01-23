@@ -1,5 +1,4 @@
 import typescript from 'rollup-plugin-ts'
-// eslint-disable-next-line
 import curry from '@yafu/rollup-plugin-curry'
 import replace from '@rollup/plugin-replace'
 
