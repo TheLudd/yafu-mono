@@ -1,9 +1,7 @@
 const config = {
   reporter: 'dot',
   recursive: true,
-  require: 'ts-node/register',
   extension: [ 'ts', 'js', 'mjs' ],
-  require: 'ts-node/register',
   loader: 'ts-node/esm',
 }
 
