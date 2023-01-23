@@ -2,7 +2,7 @@ const config = {
   reporter: 'dot',
   recursive: true,
   extension: [ 'ts', 'js', 'mjs' ],
-  loader: 'ts-node/esm',
+  loader: '@esbuild-kit/esm-loader',
 }
 
 if (process.env.CI === 'true') {
