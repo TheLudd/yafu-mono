@@ -18,7 +18,7 @@ function generate (name, path) {
 
 function generateMain () {
   const lines = names.map((n) => (
-    `export const ${n} = fantasyFunctions.${n}`
+    `  ${n},`
   ))
 
   return [
@@ -27,7 +27,9 @@ function generateMain () {
     '',
     "const fantasyFunctions = process.env.NODE_ENV === 'production' ? production : debug",
     '',
+    'export const {',
     ...lines,
+    '} = fantasyFunctions\n',
   ].join('\n')
 }
 
