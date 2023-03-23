@@ -51,8 +51,7 @@ commands:
           name: Install sort-package-json
       - run:
           command: |
-            pnpm -r exec sort-package-json --check
-            pnpm sort-package-json --check
+            git ls-files | grep package.json | xargs sort-package-json --check
           name: Verify package jsons sorted
 jobs:
   test:
