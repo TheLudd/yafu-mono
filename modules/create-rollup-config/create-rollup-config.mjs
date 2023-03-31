@@ -47,7 +47,7 @@ export const createRollupConfig = (input, pkgURL, ...otherPlugins) => {
           curry({ onlyDefinitions: true }),
         ],
         output: {
-          file: 'dist/types.d.ts',
+          file: typesFile,
           format: 'es',
         },
       },
