@@ -1,0 +1,44 @@
+{
+  "name": "@yafu/io",
+  "version": "1.0.0",
+  "description": "IO monad",
+  "license": "MIT",
+  "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
+  "type": "module",
+  "exports": {
+    "types": "./dist/io.d.ts",
+    "import": "./dist/io.js",
+    "require": "./dist/io.cjs"
+  },
+  "main": "./dist/cjs/io.cjs",
+  "types": "./dist/io.d.ts",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "lint": "eslint lib/*.ts test/*.ts",
+    "prepublishOnly": "yarn clean && yarn transpile",
+    "test": "yarn lint && yarn unit",
+    "transpile": "rollup -c",
+    "unit": "mocha"
+  },
+  "dependencies": {
+    "@yafu/curry": "^1.2.6",
+    "@yafu/fantasy-functions": "^2.0.3",
+    "@yafu/fantasy-types": "^1.0.3",
+    "@yafu/type-utils": "^1.0.5",
+    "fantasy-land": "^5.0.0"
+  },
+  "devDependencies": {
+    "@esbuild-kit/esm-loader": "^2.5.4",
+    "@types/chai": "^4.3.4",
+    "@types/mocha": "^10.0.1",
+    "@yafu/create-rollup-config": "^1.0.3",
+    "chai": "^4.3.7",
+    "eslint": "^8.13.0",
+    "mocha": "^10.2.0",
+    "rollup": "^3.8.1",
+    "typescript": "^5.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
