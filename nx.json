@@ -2,7 +2,7 @@
   "extends": "nx/presets/npm.json",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "nx/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
         "parallel": 15,
         "cacheableOperations": [
@@ -23,25 +23,49 @@
           "typecheck",
           "acceptance",
           "jsdoc"
-        ]
+        ],
+        "accessToken": "MDE1YzFjMzItNDMyZC00OWM4LWE4Y2QtMmM2ZTA5YjJkZWEwfHJlYWQtd3JpdGU="
       }
     }
   },
   "namedInputs": {
-    "source": ["{projectRoot}/package.json", "{projectRoot}/*", "{projectRoot}/lib/*"],
-    "tests": ["{projectRoot}/package.json", "{projectRoot}/*", "{projectRoot}/test/**/*"]
+    "source": [
+      "{projectRoot}/package.json",
+      "{projectRoot}/*",
+      "{projectRoot}/lib/*"
+    ],
+    "tests": [
+      "{projectRoot}/package.json",
+      "{projectRoot}/*",
+      "{projectRoot}/test/**/*"
+    ]
   },
   "targetDefaults": {
     "transpile": {
-      "dependsOn": ["^transpile"],
-      "outputs": ["{projectRoot}/dist"]
+      "dependsOn": [
+        "^transpile"
+      ],
+      "outputs": [
+        "{projectRoot}/dist"
+      ]
     },
     "lint": {
-      "dependsOn": ["transpile"]
+      "dependsOn": [
+        "transpile"
+      ]
     },
     "test": {
-      "dependsOn": ["transpile"],
-      "inputs": [{ "runtime": "node -v" }, "source", "^source", "tests"]
+      "dependsOn": [
+        "transpile"
+      ],
+      "inputs": [
+        {
+          "runtime": "node -v"
+        },
+        "source",
+        "^source",
+        "tests"
+      ]
     }
   },
   "affected": {

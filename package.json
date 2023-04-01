@@ -12,6 +12,7 @@
     "transpile": "nx run-many --target=transpile --all"
   },
   "devDependencies": {
+    "@nrwl/nx-cloud": "^15.3.5",
     "@yafu/eslint-config-yafu": "^1.1.2",
     "lerna": "^6.4.1",
     "nx": "15.5.3",
