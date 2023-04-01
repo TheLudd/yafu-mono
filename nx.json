@@ -28,7 +28,8 @@
     }
   },
   "namedInputs": {
-    "source": ["{projectRoot}/lib/*"]
+    "source": ["{projectRoot}/package.json", "{projectRoot}/*", "{projectRoot}/lib/*"],
+    "tests": ["{projectRoot}/package.json", "{projectRoot}/*", "{projectRoot}/test/**/*"]
   },
   "targetDefaults": {
     "transpile": {
@@ -40,7 +41,7 @@
     },
     "test": {
       "dependsOn": ["transpile"],
-      "inputs": [{ "runtime": "node -v" }, "source", "^source"]
+      "inputs": [{ "runtime": "node -v" }, "source", "^source", "tests"]
     }
   },
   "affected": {
