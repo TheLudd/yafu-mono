@@ -9,6 +9,9 @@ commands:
   install:
     steps:
       - run:
+          name: Print node version
+          command: node -v
+      - run:
           name: Set auth token
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
       - restore_cache:
