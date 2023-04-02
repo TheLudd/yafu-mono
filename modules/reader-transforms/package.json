@@ -1,17 +1,16 @@
 {
-  "name": "@yafu/reader",
+  "name": "@yafu/reader-transforms",
   "version": "1.0.0",
-  "description": "Reader monad",
+  "description": "Reader Transform monads",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "type": "module",
   "exports": {
-    "types": "./dist/reader.d.ts",
-    "import": "./dist/reader.js",
-    "require": "./dist/reader.cjs"
+    "types": "./dist/reader-transforms.d.ts",
+    "import": "./dist/reader-transforms.js",
+    "require": "./dist/reader-transforms.cjs"
   },
-  "main": "./dist/cjs/reader.cjs",
-  "types": "./dist/reader.d.ts",
+  "main": "./dist/cjs/reader-transforms.cjs",
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "eslint lib/*.ts test/*.ts",
@@ -22,9 +21,12 @@
   },
   "dependencies": {
     "@yafu/curry": "^1.2.6",
+    "@yafu/either": "^1.0.0",
     "@yafu/fantasy-functions": "^2.0.3",
     "@yafu/fantasy-types": "^1.0.3",
-    "@yafu/identity": "^2.0.7",
+    "@yafu/io": "^1.0.0",
+    "@yafu/parallel": "^1.0.0",
+    "@yafu/reader": "^1.0.0",
     "@yafu/type-utils": "^1.0.5",
     "fantasy-land": "^5.0.0"
   },

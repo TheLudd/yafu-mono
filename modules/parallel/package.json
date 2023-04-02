@@ -1,36 +1,36 @@
 {
-  "name": "@yafu/reader",
+  "name": "@yafu/parallel",
   "version": "1.0.0",
-  "description": "Reader monad",
+  "description": "Future monad that works in parallel. So actually not a true monad, but a monad-like thing.",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "type": "module",
   "exports": {
-    "types": "./dist/reader.d.ts",
-    "import": "./dist/reader.js",
-    "require": "./dist/reader.cjs"
+    "types": "./dist/parallel.d.ts",
+    "import": "./dist/parallel.js",
+    "require": "./dist/parallel.cjs"
   },
-  "main": "./dist/cjs/reader.cjs",
-  "types": "./dist/reader.d.ts",
+  "main": "./dist/cjs/parallel.cjs",
+  "types": "./dist/parallel.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
-    "lint": "eslint lib/*.ts test/*.ts",
+    "lint": "eslint lib test",
     "prepublishOnly": "yarn clean && yarn transpile",
     "test": "yarn lint && yarn unit",
     "transpile": "rollup -c",
     "unit": "mocha"
   },
   "dependencies": {
+    "@types/node": "^18.11.18",
+    "@types/sinon": "^10.0.13",
     "@yafu/curry": "^1.2.6",
     "@yafu/fantasy-functions": "^2.0.3",
     "@yafu/fantasy-types": "^1.0.3",
-    "@yafu/identity": "^2.0.7",
     "@yafu/type-utils": "^1.0.5",
     "fantasy-land": "^5.0.0"
   },
   "devDependencies": {
     "@esbuild-kit/esm-loader": "^2.5.4",
-    "@rollup/plugin-node-resolve": "^15.0.1",
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
     "@yafu/create-rollup-config": "^1.0.3",
@@ -38,7 +38,9 @@
     "eslint": "^8.13.0",
     "mocha": "^10.2.0",
     "rollup": "^3.8.1",
-    "typescript": "^4.9.3"
+    "sinon": "^15.0.3",
+    "typescript": "^4.9.3",
+    "yafu": "^2.0.14"
   },
   "publishConfig": {
     "access": "public"
