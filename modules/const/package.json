@@ -23,7 +23,7 @@
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@yafu/eslint-config-yafu": "^1.1.4",
-    "rollup": "^3.10.1"
+    "rollup": "^3.20.2"
   },
   "publishConfig": {
     "access": "public"
