@@ -16,6 +16,7 @@
     "@yafu/eslint-config-yafu": "^1.1.2",
     "lerna": "^6.4.1",
     "nx": "15.5.3",
+    "prettier": "^2.8.7",
     "yaml": "^2.2.1"
   },
   "engines": {
