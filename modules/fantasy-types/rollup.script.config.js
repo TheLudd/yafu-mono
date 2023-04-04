@@ -1,14 +1,8 @@
-import ts from 'rollup-plugin-ts'
+import esbuild from 'rollup-plugin-esbuild'
 
 export default {
   input: './scripts/tsgen.ts',
-  plugins: [
-    ts({
-      tsconfig: {
-        declaration: false,
-      },
-    }),
-  ],
+  plugins: [ esbuild() ],
   output: {
     file: 'dist/generate-ts-modules.js',
     format: 'es',

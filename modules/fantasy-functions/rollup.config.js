@@ -1,4 +1,5 @@
-import typescript from 'rollup-plugin-ts'
+import esbuild from 'rollup-plugin-esbuild'
+import dts from 'rollup-plugin-dts'
 import curry from '@yafu/rollup-plugin-curry'
 import replace from '@rollup/plugin-replace'
 
@@ -8,11 +9,22 @@ export default [
   {
     input: './dist/ts/fantasy-functions.ts',
     plugins: [
-      typescript(),
+      esbuild(),
       curry(),
     ],
     output: {
       file: 'dist/ts/fantasy-functions.js',
+      format: 'es',
+    },
+  },
+  {
+    input: './dist/ts/fantasy-functions.ts',
+    plugins: [
+      dts(),
+      curry({ onlyDefinitions: true }),
+    ],
+    output: {
+      file: 'dist/ts/fantasy-functions.d.ts',
       format: 'es',
     },
   },
@@ -22,7 +34,10 @@ export default [
       moduleSideEffects: false,
     },
     plugins: [
-      replace({ 'process.env.NODE_ENV': `'${environment}'` }),
+      replace({
+        preventAssignment: true,
+        values: { 'process.env.NODE_ENV': `'${environment}'` },
+      }),
       // resolve(),
     ],
     output: {
