@@ -288,6 +288,9 @@ importers:
         specifier: ^5.0.1
         version: 5.0.1
     devDependencies:
+      '@esbuild-kit/esm-loader':
+        specifier: ^2.5.4
+        version: 2.5.4
       '@types/node':
         specifier: ^18.11.18
         version: 18.11.18
@@ -297,15 +300,9 @@ importers:
       '@yafu/rollup-plugin-curry':
         specifier: ^1.0.7
         version: link:../rollup-plugin-curry
-      esbuild:
-        specifier: ^0.17.15
-        version: 0.17.15
       rollup:
         specifier: ^3.20.2
         version: 3.20.2
-      rollup-plugin-esbuild:
-        specifier: ^5.0.0
-        version: 5.0.0(esbuild@0.17.15)(rollup@3.20.2)
       typescript:
         specifier: ^5.0.3
         version: 5.0.3
