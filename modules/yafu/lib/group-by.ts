@@ -10,7 +10,10 @@
  * @arg {Array} list The list to values to group
  * @return {Object} An object with keys mapped to lists of elements.
  */
-export function groupBy <A>(fn: (a: A) => string, list: A[]): Record<string, A[]> {
+export function groupBy<A>(
+  fn: (a: A) => string,
+  list: A[],
+): Record<string, A[]> {
   const out: Record<string, A[]> = {}
   for (let i = 0; i < list.length; i++) {
     const item = list[i]
@@ -19,7 +22,7 @@ export function groupBy <A>(fn: (a: A) => string, list: A[]): Record<string, A[]
     if (group !== undefined) {
       group.push(item)
     } else {
-      out[key] = [ item ]
+      out[key] = [item]
     }
   }
   return out

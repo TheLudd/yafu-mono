@@ -12,7 +12,7 @@
  * @return {Array} A new list of unique elements
  */
 
-export function unionBy <A, B>(fn: (a: A) => B, list1: A[], list2: A[]): A[] {
+export function unionBy<A, B>(fn: (a: A) => B, list1: A[], list2: A[]): A[] {
   const set = new Set()
   const out = []
   for (let i = 0; i < list1.length; i++) {

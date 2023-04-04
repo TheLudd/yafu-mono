@@ -11,7 +11,7 @@ import { setToArray } from '../dist/_setToArray.js'
  * @return {Array} The list of elements common to both list
  *
  */
-export function intersection <A>(list1: A[], list2: A[]): A[] {
+export function intersection<A>(list1: A[], list2: A[]): A[] {
   let listToIterate
   let lookupSet
   if (list1.length >= list2.length) {

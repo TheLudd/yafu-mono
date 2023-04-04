@@ -6,6 +6,6 @@
  * @arg g {function} The function that will be apply `x` and pass the result to `f`
  * @arg x {any} The value to pass to `g`
  */
-export function compose <A, B, C> (f: (b: B) => C, g: (a: A) => B, x: A): C {
+export function compose<A, B, C>(f: (b: B) => C, g: (a: A) => B, x: A): C {
   return f(g(x))
 }

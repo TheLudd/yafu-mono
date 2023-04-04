@@ -7,7 +7,7 @@
  * @arg list {array} The array to reduce.
  *
  */
-export function reduce <A, B> (f: (acc: A, item: B) => A, x: A, list: B[]): A {
+export function reduce<A, B>(f: (acc: A, item: B) => A, x: A, list: B[]): A {
   let i
   let acc = x
   for (i = 0; i < list.length; ++i) {

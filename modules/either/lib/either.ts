@@ -11,17 +11,23 @@ import { Unary, HKTMark, HKT2Mark, HKT2 } from '@yafu/type-utils'
 import '@yafu/fantasy-functions'
 
 declare module '@yafu/fantasy-functions' {
-  export function ap <T, U, L>(f: Either<L, Unary<T, U>>, either: Either<L, T>): Either<L, U>
-  export function chain <T, U, L>(f: Unary<T, Either<L, U>>, either: Either<L, T>): Either<L, U>
+  export function ap<T, U, L>(
+    f: Either<L, Unary<T, U>>,
+    either: Either<L, T>,
+  ): Either<L, U>
+  export function chain<T, U, L>(
+    f: Unary<T, Either<L, U>>,
+    either: Either<L, T>,
+  ): Either<L, U>
 }
 
-export function eitherOf <R>(v: R): Either<never, R> {
+export function eitherOf<R>(v: R): Either<never, R> {
   return new Right(v)
 }
 
 interface Cata<L, R, U> {
-  Left: (l: L) => U,
-  Right: (r: R) => U,
+  Left: (l: L) => U
+  Right: (r: R) => U
 }
 
 export type Either<L, R> = Left<L> | Right<R>
@@ -37,7 +43,7 @@ interface EitherHKTMark extends HKT2Mark {
 class AbstractEither implements HKT2 {
   hkt!: EitherHKT1Mark
   hkt2!: EitherHKTMark
-  static [OF] <T> (v: T) {
+  static [OF]<T>(v: T) {
     return new Right(v)
   }
 }
@@ -45,37 +51,37 @@ class AbstractEither implements HKT2 {
 class Right<R> extends AbstractEither {
   v: R
 
-  constructor (v: R) {
+  constructor(v: R) {
     super()
     this.v = v
   }
 
-  [EQUALS] (b: unknown): boolean {
+  [EQUALS](b: unknown): boolean {
     return b instanceof Right && this.v === b.v
   }
 
-  [MAP] <U> (f: (x: R) => U) {
+  [MAP]<U>(f: (x: R) => U) {
     return eitherOf(f(this.v))
   }
 
-  [AP] <U, L> (b: Either<L, (x: R) => U>): Either<L, U> {
+  [AP]<U, L>(b: Either<L, (x: R) => U>): Either<L, U> {
     return b[CHAIN]((f) => this[MAP](f))
   }
 
-  [CHAIN] <U, L> (f: (x: R) => Either<L, U>) {
+  [CHAIN]<U, L>(f: (x: R) => Either<L, U>) {
     return f(this.v)
   }
 
-  [REDUCE] <U> (f: (acc: U, item: R) => U, init: U) {
+  [REDUCE]<U>(f: (acc: U, item: R) => U, init: U) {
     return f(init, this.v)
   }
 
-  cata <U> (c: Cata<never, R, U>) {
+  cata<U>(c: Cata<never, R, U>) {
     const { Right: rightFn } = c
     return rightFn(this.v)
   }
 
-  toString (): string {
+  toString(): string {
     return `Right[${this.v}]`
   }
 }
@@ -83,49 +89,49 @@ class Right<R> extends AbstractEither {
 class Left<L> extends AbstractEither {
   v: L
 
-  constructor (v: L) {
+  constructor(v: L) {
     super()
     this.v = v
   }
 
-  [EQUALS] (b: unknown): boolean {
+  [EQUALS](b: unknown): boolean {
     return b instanceof Left && this.v === b.v
   }
 
-  [MAP] (_f: unknown) {
+  [MAP](_f: unknown) {
     return this
   }
 
-  [AP] (_b: unknown) {
+  [AP](_b: unknown) {
     return this
   }
 
-  [CHAIN] (_f: unknown) {
+  [CHAIN](_f: unknown) {
     return this
   }
 
   // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-explicit-any
-  [REDUCE] <U> (_f: (acc: U, item: any) => U, init: U): U {
+  [REDUCE]<U>(_f: (acc: U, item: any) => U, init: U): U {
     return init
   }
 
-  cata <U> (c: Cata<L, never, U>) {
+  cata<U>(c: Cata<L, never, U>) {
     const { Left: leftFn } = c
     return leftFn(this.v)
   }
 
-  toString (): string {
+  toString(): string {
     return `Left[${this.v}]`
   }
 }
 
-export function left <L> (x: L): Either<L, never> {
+export function left<L>(x: L): Either<L, never> {
   return new Left(x)
 }
 
 export const right = eitherOf
 
-export function cata <L, T, U> (
+export function cata<L, T, U>(
   ifLeft: (l: L) => U,
   ifRight: (r: T) => U,
   either: Either<L, T>,

@@ -1,19 +1,8 @@
 import { assert } from 'chai'
 import { ap, chain, equals, map, reduce } from '@yafu/fantasy-functions'
-import {
-  cata,
-  Either,
-  eitherOf,
-  left,
-  right
-} from '../lib/either.js'
+import { cata, Either, eitherOf, left, right } from '../lib/either.js'
 
-const {
-  equal,
-  isTrue,
-  isFalse,
-  deepEqual
-} = assert
+const { equal, isTrue, isFalse, deepEqual } = assert
 const e1 = eitherOf(1) as Either<number, number>
 const l = left(1) as Either<number, number>
 
@@ -43,7 +32,6 @@ describe('setoid', () => {
     isFalse(equals(left(1), right(1)))
     isFalse(equals(right(1), left(1)))
   })
-
 })
 
 describe('functor', () => {
@@ -76,7 +64,7 @@ describe('chain', () => {
     const result = chain(incEither, e1)
     deepEqual(result, right(2))
   })
-  
+
   it('returns the same instance for lefts', () => {
     const result = chain(incEither, l)
     equal(result, l)

@@ -5,6 +5,6 @@
  * @arg x {any} The agument to the unary function
  * @arg f {function} A unary function
  */
-export function callWith <A, B> (x: A, f: (a: A) => B): B {
+export function callWith<A, B>(x: A, f: (a: A) => B): B {
   return f(x)
 }

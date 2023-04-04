@@ -5,6 +5,9 @@
  * @arg predicate {Function} The predicate function
  * @arg list {Array} The list of elements to check
  */
-export function all <A> (predicate: (a: A) => boolean, list: A[]): boolean {
-  return list.length === 0 || (predicate(list[0]) === true && all(predicate, list.slice(1)))
+export function all<A>(predicate: (a: A) => boolean, list: A[]): boolean {
+  return (
+    list.length === 0 ||
+    (predicate(list[0]) === true && all(predicate, list.slice(1)))
+  )
 }

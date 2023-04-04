@@ -10,6 +10,6 @@ import { uniq } from '../dist/uniq.js'
  * @return {Array} A new list of unique elements
  *
  */
-export function union <A>(x: A[], y: A[]): A[] {
+export function union<A>(x: A[], y: A[]): A[] {
   return uniq(x.concat(y))
 }

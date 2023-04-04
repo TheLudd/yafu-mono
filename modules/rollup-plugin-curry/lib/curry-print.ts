@@ -1,20 +1,16 @@
 /* eslint-disable no-param-reassign */
-import {
-  isEmpty,
-  propOr,
-  compose,
-  join,
-  map,
-  chain,
-} from 'ramda'
+import { isEmpty, propOr, compose, join, map, chain } from 'ramda'
 import { Definition, Parameter } from './types.js'
 
 interface CurryStruct {
-  inParams: Parameter[],
-  outParams: string | CurryStruct[],
+  inParams: Parameter[]
+  outParams: string | CurryStruct[]
 }
 
-function recursiveGenerateCurryStruct (parameters: Parameter[], type: string): CurryStruct[] | string {
+function recursiveGenerateCurryStruct(
+  parameters: Parameter[],
+  type: string,
+): CurryStruct[] | string {
   if (parameters.length === 0) {
     return type
   }
@@ -24,24 +20,33 @@ function recursiveGenerateCurryStruct (parameters: Parameter[], type: string): C
   }))
 }
 
-function getSpaces (n: number) {
+function getSpaces(n: number) {
   return new Array(n + 1).join(' ')
 }
 
-function printParameter ({ name, type }: Parameter) {
+function printParameter({ name, type }: Parameter) {
   return `${name}: ${type}`
 }
 
 const printParameters = compose(join(', '), map(printParameter))
-const printGenerics = (list: string[]) => (isEmpty(list) ? '' : `<${join(', ', list)}>`)
+const printGenerics = (list: string[]) =>
+  isEmpty(list) ? '' : `<${join(', ', list)}>`
 
-const findParamsGenerics: (s: Parameter[]) => string[] = chain(propOr([], 'generics'))
+const findParamsGenerics: (s: Parameter[]) => string[] = chain(
+  propOr([], 'generics'),
+)
 
-function subPrintFromFunctionObj (out: StringBuilder, functionObj: CurryStruct, numberOfSpaces: number) {
+function subPrintFromFunctionObj(
+  out: StringBuilder,
+  functionObj: CurryStruct,
+  numberOfSpaces: number,
+) {
   const { inParams, outParams } = functionObj
   const generics = findParamsGenerics(inParams)
 
-  out.outputString = `${out.outputString}${getSpaces(numberOfSpaces)}${printGenerics(generics)}`
+  out.outputString = `${out.outputString}${getSpaces(
+    numberOfSpaces,
+  )}${printGenerics(generics)}`
   out.outputString = `${out.outputString}(${printParameters(inParams)})`
 
   if (Array.isArray(outParams)) {
@@ -49,7 +54,9 @@ function subPrintFromFunctionObj (out: StringBuilder, functionObj: CurryStruct, 
       const lastParam = outParams[0].inParams[0]
       const { generics: lastGenerics = [] } = lastParam
       out.outputString = `${out.outputString}: ${printGenerics(lastGenerics)}`
-      out.outputString = `${out.outputString}(${printParameter(lastParam)}) => ${outParams[0].outParams}\n`
+      out.outputString = `${out.outputString}(${printParameter(
+        lastParam,
+      )}) => ${outParams[0].outParams}\n`
     } else {
       out.outputString = `${out.outputString}: {\n`
       outParams.forEach((subObj) => {
@@ -66,7 +73,13 @@ interface StringBuilder {
   outputString: string
 }
 
-function NamedPrintFromFunctionObj (isExported: boolean, isDeclared: boolean, functionName: string, out: StringBuilder, functionObj: CurryStruct) {
+function NamedPrintFromFunctionObj(
+  isExported: boolean,
+  isDeclared: boolean,
+  functionName: string,
+  out: StringBuilder,
+  functionObj: CurryStruct,
+) {
   const { inParams, outParams } = functionObj
   const generics = findParamsGenerics(inParams)
 
@@ -77,7 +90,11 @@ function NamedPrintFromFunctionObj (isExported: boolean, isDeclared: boolean, fu
   // a better more generic solution would be nice.
   const space = !isDeclared && !isExported ? '  ' : ''
 
-  out.outputString = `${out.outputString}${exportStatement}${declareStatement}${space}function ${functionName} ${printGenerics(generics)}`
+  out.outputString = `${
+    out.outputString
+  }${exportStatement}${declareStatement}${space}function ${functionName} ${printGenerics(
+    generics,
+  )}`
   out.outputString = `${out.outputString}(${printParameters(inParams)})`
 
   if (Array.isArray(outParams)) {
@@ -85,7 +102,9 @@ function NamedPrintFromFunctionObj (isExported: boolean, isDeclared: boolean, fu
       const lastParam = outParams[0].inParams[0]
       const { generics: lastGenerics = [] } = lastParam
       out.outputString = `${out.outputString}: ${printGenerics(lastGenerics)}`
-      out.outputString = `${out.outputString}(${printParameter(lastParam)}) => ${outParams[0].outParams}\n`
+      out.outputString = `${out.outputString}(${printParameter(
+        lastParam,
+      )}) => ${outParams[0].outParams}\n`
     } else {
       out.outputString = `${out.outputString}: {\n`
       outParams.forEach((subObj) => {
@@ -100,7 +119,7 @@ function NamedPrintFromFunctionObj (isExported: boolean, isDeclared: boolean, fu
 
 type CurryPrintInput = Omit<Definition, 'line' | 'indent'>
 
-export default function curryPrint ({
+export default function curryPrint({
   isExported = true,
   isDeclared = true,
   name,
@@ -112,7 +131,10 @@ export default function curryPrint ({
     const functionObj = { inParams: [], outParams: type }
     NamedPrintFromFunctionObj(isExported, isDeclared, name, out, functionObj)
   } else {
-    const functionObjs = recursiveGenerateCurryStruct(parameters, type) as CurryStruct[]
+    const functionObjs = recursiveGenerateCurryStruct(
+      parameters,
+      type,
+    ) as CurryStruct[]
     functionObjs.forEach((obj) => {
       NamedPrintFromFunctionObj(isExported, isDeclared, name, out, obj)
     })

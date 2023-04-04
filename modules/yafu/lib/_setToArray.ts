@@ -1,4 +1,4 @@
-export function setToArray <A>(set: Set<A>): A[] {
+export function setToArray<A>(set: Set<A>): A[] {
   const array: A[] = []
   set.forEach((item) => {
     array.push(item)

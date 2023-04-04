@@ -5,7 +5,7 @@
  * @arg pred {function} A predicate function
  * @arg list {Array} The list to find the element in.
  */
-export function findIndex <T> (pred: (a: T) => boolean, list: T[]): number {
+export function findIndex<T>(pred: (a: T) => boolean, list: T[]): number {
   let i
   for (i = 0; i < list.length; i++) {
     if (pred(list[i])) {

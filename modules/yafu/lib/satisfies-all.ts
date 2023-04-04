@@ -8,7 +8,12 @@ import { isEmpty } from '../dist/is-empty.js'
  * @arg predicates {[Function]} The list of predicate functions to apply to the value
  * @arg val {any} The value to check
  */
-export function satisfiesAll <T, P extends (a: T) => boolean> (predicates: P[], val: T): boolean {
-  return isEmpty(predicates)
-    || (predicates[0](val) === true && satisfiesAll(drop(1, predicates), val))
+export function satisfiesAll<T, P extends (a: T) => boolean>(
+  predicates: P[],
+  val: T,
+): boolean {
+  return (
+    isEmpty(predicates) ||
+    (predicates[0](val) === true && satisfiesAll(drop(1, predicates), val))
+  )
 }

@@ -10,7 +10,7 @@ import { arrayToSet } from '../dist/_arrayToSet.js'
  * @return {Array} A list of unique elements in list1 that are not in list2
  *
  */
-export function difference <T> (list1: T[], list2: T[]): T[] {
+export function difference<T>(list1: T[], list2: T[]): T[] {
   const lookupSet = arrayToSet(list2)
   const out = []
   for (let i = 0; i < list1.length; i++) {

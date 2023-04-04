@@ -9,7 +9,7 @@
  * @arg x {any} The first agument to the binary function
  * @arg y {any} The second agument to the binary function
  */
-export function modArgs <A, B, C, D, E> (
+export function modArgs<A, B, C, D, E>(
   f: (c: C, d: D) => E,
   g: (a: A) => C,
   h: (b: B) => D,

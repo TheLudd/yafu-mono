@@ -6,6 +6,6 @@
  * @arg y {any} The second agument to the binary function
  * @arg f {function} A unary function
  */
-export function callBinaryWith <A, B, C> (x: A, y: B, f: (a: A, b: B) => C): C {
+export function callBinaryWith<A, B, C>(x: A, y: B, f: (a: A, b: B) => C): C {
   return f(x, y)
 }

@@ -6,6 +6,6 @@
  * @arg y {any} The first argument to pass to the function.
  *
  */
-export function flip <A, B, C> (f: (a: A, b: B) => C, x: B, y: A): C {
+export function flip<A, B, C>(f: (a: A, b: B) => C, x: B, y: A): C {
   return f(y, x)
 }

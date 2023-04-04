@@ -22,50 +22,58 @@ import {
 } from '@babel/types'
 import { traverse } from './traverse.js'
 
-function createCurryCall (fnName: string) {
-  return callExpression(identifier('curry'), [ identifier(fnName) ])
+function createCurryCall(fnName: string) {
+  return callExpression(identifier('curry'), [identifier(fnName)])
 }
 
-function curryExpression (expression: Expression) {
-  return callExpression(identifier('curry'), [ expression ])
+function curryExpression(expression: Expression) {
+  return callExpression(identifier('curry'), [expression])
 }
 
-function createImport () {
+function createImport() {
   return importDeclaration(
-    [ importSpecifier(identifier('curry'), identifier('curry')) ],
+    [importSpecifier(identifier('curry'), identifier('curry'))],
     stringLiteral('@yafu/curry'),
   )
 }
 
-function modVariableDeclaration (declaration: VariableDeclaration) {
+function modVariableDeclaration(declaration: VariableDeclaration) {
   declaration.declarations.forEach((d) => {
     assertExpression(d.init)
     d.init = curryExpression(d.init)
   })
 }
 
-function hasArguments (declaration: FunctionDeclaration | ArrowFunctionExpression): boolean {
+function hasArguments(
+  declaration: FunctionDeclaration | ArrowFunctionExpression,
+): boolean {
   return declaration.params.length > 0
 }
 
-export default function curryCode (code: string) {
+export default function curryCode(code: string) {
   const ast = parse(code, { sourceFileName: 'dummy.js' })
   let found = false
 
   traverse(ast, {
-    ExportNamedDeclaration (path) {
-      const { node: original, node: { declaration } } = path
+    ExportNamedDeclaration(path) {
+      const {
+        node: original,
+        node: { declaration },
+      } = path
       const { body } = path.parent as Program
       const index = body.findIndex((n) => n === original)
 
       if (
-        isVariableDeclaration(declaration)
-        && isArrowFunctionExpression(declaration.declarations[0].init)
-        && hasArguments(declaration.declarations[0].init)
+        isVariableDeclaration(declaration) &&
+        isArrowFunctionExpression(declaration.declarations[0].init) &&
+        hasArguments(declaration.declarations[0].init)
       ) {
         found = true
         modVariableDeclaration(declaration)
-      } else if (isFunctionDeclaration(declaration) && hasArguments(declaration)) {
+      } else if (
+        isFunctionDeclaration(declaration) &&
+        hasArguments(declaration)
+      ) {
         found = true
         const originalName = declaration.id?.name
         if (typeof originalName !== 'string') return
@@ -74,13 +82,16 @@ export default function curryCode (code: string) {
         declaration.id.name = innerName
         body.splice(index, 0, declaration)
         const curryDeclaration: Declaration = variableDeclaration('const', [
-          variableDeclarator(identifier(originalName), createCurryCall(innerName)),
+          variableDeclarator(
+            identifier(originalName),
+            createCurryCall(innerName),
+          ),
         ])
         path.node.declaration = curryDeclaration
       }
     },
 
-    ExportDefaultDeclaration (path) {
+    ExportDefaultDeclaration(path) {
       const { node: original, parent } = path
       const { body } = parent as Program
 

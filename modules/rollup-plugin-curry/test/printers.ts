@@ -6,10 +6,12 @@ const { equal } = assert
 it('printUnary', () => {
   const definition = {
     name: 'inc',
-    parameters: [ {
-      name: 'n',
-      type: 'number',
-    } ],
+    parameters: [
+      {
+        name: 'n',
+        type: 'number',
+      },
+    ],
     type: 'number',
   }
   const result = curryPrint(definition)
@@ -20,11 +22,13 @@ it('printUnary', () => {
 it('printUnary - with generics', () => {
   const definition = {
     name: 'I',
-    parameters: [ {
-      name: 'a',
-      type: 'A',
-      generics: [ 'A' ],
-    } ],
+    parameters: [
+      {
+        name: 'a',
+        type: 'A',
+        generics: ['A'],
+      },
+    ],
     type: 'A',
   }
   const result = curryPrint(definition)
@@ -35,14 +39,17 @@ it('printUnary - with generics', () => {
 it('printBinary', () => {
   const definition = {
     name: 'map',
-    parameters: [ {
-      name: 'f',
-      type: 'Unary<A, B>',
-      generics: [ 'A', 'B' ],
-    }, {
-      name: 'functor',
-      type: 'A[]',
-    } ],
+    parameters: [
+      {
+        name: 'f',
+        type: 'Unary<A, B>',
+        generics: ['A', 'B'],
+      },
+      {
+        name: 'functor',
+        type: 'A[]',
+      },
+    ],
     type: 'B[]',
   }
   const result = curryPrint(definition)
@@ -56,15 +63,18 @@ export declare function map <A, B>(f: Unary<A, B>, functor: A[]): B[]
 it('printBinary - later generics', () => {
   const definition = {
     name: 'K',
-    parameters: [ {
-      name: 'a',
-      type: 'A',
-      generics: [ 'A' ],
-    }, {
-      name: 'b',
-      type: 'B',
-      generics: [ 'B' ],
-    } ],
+    parameters: [
+      {
+        name: 'a',
+        type: 'A',
+        generics: ['A'],
+      },
+      {
+        name: 'b',
+        type: 'B',
+        generics: ['B'],
+      },
+    ],
     type: 'A',
   }
   const result = curryPrint(definition)
@@ -78,17 +88,21 @@ export declare function K <A, B>(a: A, b: B): A
 it('printTernary', () => {
   const definition = {
     name: 'reduce',
-    parameters: [ {
-      name: 'fn',
-      type: '(acc: B, item: A) => B',
-      generics: [ 'A', 'B' ],
-    }, {
-      name: 'init',
-      type: 'B',
-    }, {
-      name: 'list',
-      type: 'A[]',
-    } ],
+    parameters: [
+      {
+        name: 'fn',
+        type: '(acc: B, item: A) => B',
+        generics: ['A', 'B'],
+      },
+      {
+        name: 'init',
+        type: 'B',
+      },
+      {
+        name: 'list',
+        type: 'A[]',
+      },
+    ],
     type: 'A',
   }
   const result = curryPrint(definition)
@@ -106,18 +120,22 @@ export declare function reduce <A, B>(fn: (acc: B, item: A) => B, init: B, list:
 it('printTernary - later generics', () => {
   const definition = {
     name: 'aFun',
-    parameters: [ {
-      name: 'fn',
-      type: '(acc: B, item: A) => B',
-      generics: [ 'A', 'B' ],
-    }, {
-      name: 'c',
-      type: 'C',
-      generics: [ 'C' ],
-    }, {
-      name: 'list',
-      type: 'A[]',
-    } ],
+    parameters: [
+      {
+        name: 'fn',
+        type: '(acc: B, item: A) => B',
+        generics: ['A', 'B'],
+      },
+      {
+        name: 'c',
+        type: 'C',
+        generics: ['C'],
+      },
+      {
+        name: 'list',
+        type: 'A[]',
+      },
+    ],
     type: 'C',
   }
   const result = curryPrint(definition)
@@ -137,7 +155,7 @@ it('printQuaternary', () => {
     name: 'someName',
     type: 'D',
     parameters: [
-      { name: 'a', type: 'A', generics: [ 'A', 'B', 'C', 'D' ] },
+      { name: 'a', type: 'A', generics: ['A', 'B', 'C', 'D'] },
       { name: 'b', type: 'B' },
       { name: 'c', type: 'C' },
       { name: 'd', type: 'D' },
@@ -168,10 +186,10 @@ it('printQuaternary - with later generics', () => {
     name: 'someName',
     type: 'D',
     parameters: [
-      { name: 'a', type: 'A', generics: [ 'A' ] },
-      { name: 'b', type: 'B', generics: [ 'B' ] },
-      { name: 'c', type: 'C', generics: [ 'C' ] },
-      { name: 'd', type: 'D', generics: [ 'D' ] },
+      { name: 'a', type: 'A', generics: ['A'] },
+      { name: 'b', type: 'B', generics: ['B'] },
+      { name: 'c', type: 'C', generics: ['C'] },
+      { name: 'd', type: 'D', generics: ['D'] },
     ],
   }
   const result = curryPrint(definition)
@@ -199,10 +217,10 @@ it('printQuaternary - with later generics version 2', () => {
     name: 'someName',
     type: 'D',
     parameters: [
-      { name: 'a', type: 'A', generics: [ 'A' ] },
-      { name: 'b', type: 'B', generics: [ 'B' ] },
+      { name: 'a', type: 'A', generics: ['A'] },
+      { name: 'b', type: 'B', generics: ['B'] },
       { name: 'c', type: 'B' },
-      { name: 'd', type: 'Unary<C, D>', generics: [ 'C', 'D' ] },
+      { name: 'd', type: 'Unary<C, D>', generics: ['C', 'D'] },
     ],
   }
   const result = curryPrint(definition)

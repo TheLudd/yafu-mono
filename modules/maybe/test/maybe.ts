@@ -7,12 +7,7 @@ const inc = (a: number) => a + 1
 const maybeOf = of(Maybe)
 const m1 = maybeOf(1)
 
-const {
-  isTrue,
-  isFalse,
-  deepEqual,
-  equal,
-} = assert
+const { isTrue, isFalse, deepEqual, equal } = assert
 
 describe('setoid', () => {
   it('returns true if values are equal', () => {
@@ -61,8 +56,7 @@ describe('apply', () => {
 })
 
 describe('chain', () => {
-  const incPositive
-    = (v: number) => (v > 0 ? maybeOf(v + 1) : nothing)
+  const incPositive = (v: number) => (v > 0 ? maybeOf(v + 1) : nothing)
   it('applies the function to the encapsulated value', () => {
     deepEqual(chain(incPositive, m1), maybeOf(2))
   })
@@ -79,7 +73,7 @@ describe('chain', () => {
 })
 
 describe('foldable', () => {
-  const add = (a: number, b:number) => a + b
+  const add = (a: number, b: number) => a + b
   it('folds the value with the seed using the accumulator', () => {
     equal(reduce(add, 10, maybeOf(2)), 12)
   })

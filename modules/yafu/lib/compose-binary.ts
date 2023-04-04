@@ -7,6 +7,11 @@
  * @arg x {Any} The first value to pass to the binary function
  * @arg y {Any} The second value to pass to the binary function
  */
-export function composeBinary <A, B, C, D> (f: (c: C) => D, g: (a: A, b: B) => C, x: A, y: B): D {
+export function composeBinary<A, B, C, D>(
+  f: (c: C) => D,
+  g: (a: A, b: B) => C,
+  x: A,
+  y: B,
+): D {
   return f(g(x, y))
 }

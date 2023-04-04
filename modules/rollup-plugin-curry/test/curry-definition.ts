@@ -68,7 +68,7 @@ declare function binary (a: number, b: string): number
   })
 
   it('works', () => {
-   const code = `
+    const code = `
 export declare function ap<T, U, Type extends Apply<T, HKT>>(f: Kind<Type, Unary<T, U>>, apply: Type): Kind<Type, U>
 `
     const result = curryDefinition(code)
