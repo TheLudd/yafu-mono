@@ -48,6 +48,8 @@ class AbstractEither implements HKT2 {
   }
 }
 
+export const Either = AbstractEither
+
 class Right<R> extends AbstractEither {
   v: R
 
