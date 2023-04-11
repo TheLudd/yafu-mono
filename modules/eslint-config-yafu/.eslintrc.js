@@ -12,6 +12,7 @@ module.exports = {
   },
   overrides: [ {
     files: [ '*.js', '*.jsx', '*.mjs' ],
+    plugins: [ 'import' ],
     extends: [
       'airbnb-base',
       'eslint:recommended',
@@ -38,6 +39,7 @@ module.exports = {
           ],
         },
       ],
+      'import/no-unresolved': 'off',
       'import/prefer-default-export': 'off',
       indent: [
         'warn',
