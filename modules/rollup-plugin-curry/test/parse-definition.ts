@@ -224,4 +224,31 @@ describe('parseDefinition', () => {
       },
     ])
   })
+
+  it('handles constraints that are arrays', () => {
+    const result = parseDefinition(
+      'declare function map<T, U, Args extends unknown[]>(f: Unary<T, U>, io: IO<Args, T>): IO<Args, U>',
+    )
+    deepEqual(result, [
+      {
+        isExported: false,
+        isDeclared: true,
+        name: 'map',
+        type: 'IO<Args, U>',
+        parameters: [
+          {
+            name: 'f',
+            type: 'Unary<T, U>',
+            generics: ['T', 'U'],
+          },
+          {
+            name: 'io',
+            type: 'IO<Args, T>',
+            generics: ['Args extends unknown[]'],
+          },
+        ],
+        line: 1,
+      },
+    ])
+  })
 })

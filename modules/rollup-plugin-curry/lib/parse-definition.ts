@@ -17,6 +17,8 @@ import {
   isTSTypeReference,
   SourceLocation,
   isExportDeclaration,
+  isTSArrayType,
+  TSType,
 } from '@babel/types'
 import { traverse } from './traverse.js'
 import { Definition, Parameter } from './types.js'
@@ -25,8 +27,11 @@ const options = {
   filename: 'fake.ts',
   presets: ['@babel/preset-typescript'],
 }
+
 const genericToString = (node: TSTypeParameter): string => {
   const { constraint, name } = node
+  if (isTSArrayType(constraint))
+    return `${name} extends ${getTypeName(constraint.elementType)}[]`
   if (!isTSTypeReference(constraint)) return name
   const { typeParameters, typeName } = constraint
   // eslint-disable-next-line
@@ -43,7 +48,7 @@ function getFunctionName(node: TSDeclareFunction): string {
   return node.id?.name || ''
 }
 
-function getTypeName(node: TSTypeAnnotation): string {
+function getTypeName(node: TSType | TSTypeAnnotation): string {
   return print(node).code.replace(/^: /, '')
 }
 

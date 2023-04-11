@@ -98,4 +98,16 @@ declare module 'someModule' {
 `
     equal(result, expected)
   })
+
+  it('handles generics that extend arrays', () => {
+    const code = `
+export declare function map<T, U, Args extends unknown[]>(f: Unary<T, U>, io: IO<Args, T>): IO<Args, U>
+`
+    const result = curryDefinition(code)
+    const expeced = `
+export declare function map <T, U>(f: Unary<T, U>): <Args extends unknown[]>(io: IO<Args, T>) => IO<Args, U>
+export declare function map <T, U, Args extends unknown[]>(f: Unary<T, U>, io: IO<Args, T>): IO<Args, U>
+`
+    equal(result, expeced)
+  })
 })
