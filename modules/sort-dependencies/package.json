@@ -6,23 +6,13 @@
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig@mediatool.com>",
   "type": "module",
-  "exports": {
-    "import": "./lib/sort-dependencies.js",
-    "require": "./dist/cjs/sort-dependencies.cjs"
-  },
-  "main": "./dist/cjs/sort-dependencies.cjs",
-  "scripts": {
-    "clean": "rm -rf dist",
-    "transpile": "pnpm rollup -c"
-  },
+  "exports": "./lib/sort-dependencies.js",
+  "main": "./lib/sort-dependencies.js",
   "dependencies": {
     "minimist": "^1.2.7",
     "ramda": "^0.28.0"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "@yafu/create-rollup-config": "^1.1.3",
-    "@yafu/eslint-config-yafu": "^1.1.4",
-    "rollup": "^3.10.1"
+    "@yafu/eslint-config-yafu": "^1.1.4"
   }
 }
