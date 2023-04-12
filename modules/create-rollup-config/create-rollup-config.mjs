@@ -3,7 +3,9 @@ import esbuild from 'rollup-plugin-esbuild'
 import dts from 'rollup-plugin-dts'
 import curry from '@yafu/rollup-plugin-curry'
 
-export const createRollupConfig = (input, pkgURL) => {
+export const createRollupConfig = (input, pkgURL, {
+  curry: useCurry = true,
+} = {}) => {
   const pkgContent = readFileSync(new URL('./package.json', pkgURL))
   const { exports: { import: esFile, require: cjsFile, types: typesFile } } = JSON.parse(pkgContent)
 
@@ -25,26 +27,29 @@ export const createRollupConfig = (input, pkgURL) => {
     })
   }
 
+  const plugins = [ esbuild() ]
+  if (useCurry) {
+    plugins.push(curry())
+  }
+
   const bundles = [ {
     input,
     treeshake: {
       moduleSideEffects: false,
     },
-    plugins: [
-      esbuild(),
-      curry(),
-    ],
+    plugins,
     output: mainOutputs,
   } ]
 
   if (typesFile) {
+    const typeFiesPlugins = [ dts() ]
+    if (useCurry) {
+      typeFiesPlugins.push(curry({ onlyDefinitions: true }))
+    }
     bundles.push(
       {
         input,
-        plugins: [
-          dts(),
-          curry({ onlyDefinitions: true }),
-        ],
+        plugins: typeFiesPlugins,
         output: {
           file: typesFile,
           format: 'es',
