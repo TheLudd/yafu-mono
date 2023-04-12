@@ -1,3 +1,3 @@
 import { createRollupConfig } from '@yafu/create-rollup-config'
 
-export default createRollupConfig('./lib/either.ts', import.meta.url)
+export default createRollupConfig('./lib/either.ts', import.meta.url, { curry: false })
