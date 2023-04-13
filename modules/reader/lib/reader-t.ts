@@ -33,12 +33,16 @@ interface ReaderTransformType<Type extends HKT> {
 export function readerT<Type extends HKT, M extends Applicable<Type>>(
   monad: M,
 ): ReaderTransformType<M> {
-  return class R<T, Env = unknown> implements ReaderTransform<T, M, Env> {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const type = `ReaderT(${monad.name})`
+
+  class R<T, Env = unknown> implements ReaderTransform<T, M, Env> {
     static ask = new R(of(monad))
     static lift = <A>(m: Kind<M, A>) => new R(() => m)
 
     static [OF]<A>(a: A): ReaderTransform<A, M> {
-      return new R(() => monad[OF](a))
+      return new ResolvedR(a)
     }
 
     constructor(public readonly run: Unary<Env, Kind<M, T>>) {}
@@ -65,6 +69,22 @@ export function readerT<Type extends HKT, M extends Applicable<Type>>(
       })
     }
   }
+
+  class ResolvedR<T> extends R<T> {
+    constructor(private v: T) {
+      super(() => monad[OF](v))
+    }
+
+    [MAP]<U>(f: Unary<T, U>): R<U> {
+      return new ResolvedR(f(this.v))
+    }
+
+    toString() {
+      return `${type}[${this.v}]`
+    }
+  }
+
+  return R
 }
 
 declare module '@yafu/fantasy-functions' {
