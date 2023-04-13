@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/TheLudd/yafu-mono/compare/@yafu/either@1.0.11...@yafu/either@1.1.0) (2023-04-13)
+
+
+### Bug Fixes
+
+* **either:** export main either value ([cb0e2eb](https://github.com/TheLudd/yafu-mono/commit/cb0e2ebfe2533e62e2af175dea7804256b1e775a))
+
+
+### Features
+
+* **parallel:** add parallel type ([0336d2b](https://github.com/TheLudd/yafu-mono/commit/0336d2b6ad60a6c2948d88b8efdf412da3d3ee0f))
+
+
+
+
+
 ## [1.0.11](https://github.com/TheLudd/yafu-mono/compare/@yafu/either@1.0.10...@yafu/either@1.0.11) (2023-01-01)
 
 **Note:** Version bump only for package @yafu/either

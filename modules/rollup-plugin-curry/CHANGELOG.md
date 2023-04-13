@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/TheLudd/yafu-mono/compare/@yafu/rollup-plugin-curry@1.0.7...@yafu/rollup-plugin-curry@1.1.0) (2023-04-13)
+
+
+### Bug Fixes
+
+* **rollup-plugin-curry:** handle arrays in constraints ([81b1453](https://github.com/TheLudd/yafu-mono/commit/81b1453d1466c11617c653e8ba9f6cc4952e8827))
+
+
+### Features
+
+* **parallel:** add parallel type ([0336d2b](https://github.com/TheLudd/yafu-mono/commit/0336d2b6ad60a6c2948d88b8efdf412da3d3ee0f))
+
+
+
+
+
 ## [1.0.7](https://github.com/TheLudd/yafu-mono/compare/@yafu/rollup-plugin-curry@1.0.6...@yafu/rollup-plugin-curry@1.0.7) (2023-01-01)
 
 

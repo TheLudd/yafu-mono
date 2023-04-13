@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/TheLudd/yafu-mono/compare/test-all-exports@1.1.0...test-all-exports@1.1.1) (2023-04-13)
+
+**Note:** Version bump only for package test-all-exports
+
+
+
+
+
 # [1.1.0](https://github.com/TheLudd/yafu-mono/compare/test-all-exports@1.0.3...test-all-exports@1.1.0) (2022-12-22)
 
 

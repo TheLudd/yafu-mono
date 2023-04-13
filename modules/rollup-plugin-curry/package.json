@@ -1,6 +1,6 @@
 {
   "name": "@yafu/rollup-plugin-curry",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "type": "module",
@@ -37,7 +37,7 @@
     "@types/babel__traverse": "^7.18.3",
     "@types/node": "^18.11.18",
     "@types/ramda": "^0.28.21",
-    "@yafu/eslint-config-yafu": "^1.1.4",
+    "@yafu/eslint-config-yafu": "^1.2.0",
     "chai": "^4.3.7",
     "esbuild": "^0.17.15",
     "mocha": "^10.2.0",

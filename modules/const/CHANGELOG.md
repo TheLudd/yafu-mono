@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.8](https://github.com/TheLudd/yafu-mono/compare/@yafu/const@1.1.7...@yafu/const@1.1.8) (2023-04-13)
+
+**Note:** Version bump only for package @yafu/const
+
+
+
+
+
 ## [1.1.7](https://github.com/TheLudd/yafu-mono/compare/@yafu/const@1.1.6...@yafu/const@1.1.7) (2022-12-22)
 
 **Note:** Version bump only for package @yafu/const

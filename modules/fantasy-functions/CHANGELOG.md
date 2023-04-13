@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/TheLudd/yafu-mono/compare/@yafu/fantasy-functions@2.0.11...@yafu/fantasy-functions@2.1.0) (2023-04-13)
+
+
+### Features
+
+* **parallel:** add parallel type ([0336d2b](https://github.com/TheLudd/yafu-mono/commit/0336d2b6ad60a6c2948d88b8efdf412da3d3ee0f))
+
+
+
+
+
 ## [2.0.11](https://github.com/TheLudd/yafu-mono/compare/@yafu/fantasy-functions@2.0.10...@yafu/fantasy-functions@2.0.11) (2023-01-01)
 
 **Note:** Version bump only for package @yafu/fantasy-functions
