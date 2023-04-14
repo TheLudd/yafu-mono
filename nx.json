@@ -24,7 +24,8 @@
           "acceptance",
           "jsdoc"
         ],
-        "accessToken": "MDE1YzFjMzItNDMyZC00OWM4LWE4Y2QtMmM2ZTA5YjJkZWEwfHJlYWQtd3JpdGU="
+        "accessToken": "MDE1YzFjMzItNDMyZC00OWM4LWE4Y2QtMmM2ZTA5YjJkZWEwfHJlYWQtd3JpdGU=",
+        "cacheDirectory": "./.cache/nx"
       }
     }
   },
