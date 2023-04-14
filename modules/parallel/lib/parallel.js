@@ -109,9 +109,11 @@ export class Parallel {
       let applyFn
       let val
       let wasRejected = false
+      let wasResolved = false
+      let fnResolved = false
 
       function resolveIfDone () {
-        if (applyFn != null && val != null) {
+        if (fnResolved && wasResolved) {
           resolve(applyFn(val))
         }
       }
@@ -124,11 +126,13 @@ export class Parallel {
       }
 
       function handleValueResolve (v) {
+        wasResolved = true
         val = v
         resolveIfDone()
       }
 
       function handeFnResolve (fn) {
+        fnResolved = true
         applyFn = fn
         resolveIfDone()
       }

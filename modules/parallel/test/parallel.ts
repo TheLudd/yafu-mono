@@ -181,6 +181,13 @@ describe('parallel', () => {
       assertParallelValue(11, result)
     })
 
+    it('handles null values', () => {
+      const a = parallelOf(null)
+      const b = parallelOf((v: unknown) => v === null)
+      const result = ap(b, a)
+      assertParallelValue(true, result)
+    })
+
     it('should return return the error in a if a is rejected', () => {
       const a = Parallel.reject('error') as Parallel<string, number>
       const b = parallelOf(inc)
