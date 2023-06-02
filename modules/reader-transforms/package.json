@@ -1,6 +1,6 @@
 {
   "name": "@yafu/reader-transforms",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Reader Transform monads",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
@@ -21,12 +21,12 @@
   },
   "dependencies": {
     "@yafu/curry": "^1.3.0",
-    "@yafu/either": "^1.1.0",
-    "@yafu/fantasy-functions": "^2.1.0",
+    "@yafu/either": "^1.1.1",
+    "@yafu/fantasy-functions": "^2.1.1",
     "@yafu/fantasy-types": "^1.1.0",
-    "@yafu/io": "^1.1.0",
-    "@yafu/parallel": "^1.1.1",
-    "@yafu/reader": "^1.1.1",
+    "@yafu/io": "^1.1.1",
+    "@yafu/parallel": "^1.1.2",
+    "@yafu/reader": "^1.1.2",
     "@yafu/type-utils": "^1.1.0",
     "fantasy-land": "^5.0.0"
   },
