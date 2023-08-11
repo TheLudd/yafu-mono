@@ -1,5 +1,5 @@
 import { Applicable, Apply } from '@yafu/fantasy-types'
-import { Fold, Unary, Kind, HKT } from '@yafu/type-utils'
+import { Fold, Unary, Kind, HKT, Predicate } from '@yafu/type-utils'
 import * as FL from 'fantasy-land'
 
 function of<T>(v: T): T[] {
@@ -50,6 +50,14 @@ function concat<T>(this: T[], b: T[]): T[] {
   return this.concat(b)
 }
 
+function filter<T>(this: T[], predicate: Predicate<T>): T[] {
+  const out = []
+  for (let i = 0, len = this.length; i < len; i++) {
+    if (predicate(this[i])) out.push(this[i])
+  }
+  return out
+}
+
 function appendTo<T>(arr: T[]) {
   return (e: T) => arr.concat([e])
 }
@@ -71,6 +79,7 @@ function traverse<T, U, X extends HKT>(
 const methods = {
   [FL.equals]: equals,
   [FL.concat]: concat,
+  [FL.filter]: filter,
   [FL.map]: map,
   [FL.ap]: ap,
   [FL.chain]: chain,

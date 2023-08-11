@@ -7,6 +7,7 @@ import {
   ap,
   reduce,
   traverse,
+  filter,
 } from '@yafu/fantasy-functions'
 import { Identity, identityOf } from '@yafu/fantasy-types'
 import polyfill from '../lib/polyfill.js'
@@ -48,6 +49,14 @@ describe('semigroup', () => {
     assertConcat([], ['b'], ['b'])
     assertConcat(['a'], [], ['a'])
     assertConcat([], [], [])
+  })
+})
+
+describe('filterable', () => {
+  it('filters the array', () => {
+    const isEven = (x: number) => x % 2 === 0
+    const result = filter(isEven, oneTwo)
+    deepEqual(result, [2])
   })
 })
 

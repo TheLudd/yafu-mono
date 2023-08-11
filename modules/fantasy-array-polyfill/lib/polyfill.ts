@@ -1,4 +1,4 @@
-import { Fold, HKT, Unary, Kind } from '@yafu/type-utils'
+import { Fold, HKT, Unary, Kind, Predicate } from '@yafu/type-utils'
 import { Applicable } from '@yafu/fantasy-types'
 import * as FL from 'fantasy-land'
 import { methods, statics } from './methods.js'
@@ -19,6 +19,7 @@ declare module '@yafu/fantasy-functions' {
   export function concat<T>(a: Array<T>, b: Array<T>): Array<T>
   export function ap<T, U>(a: Array<Unary<T, U>>, apply: Array<T>): Array<U>
   export function chain<T, U>(f: Unary<T, Array<U>>, m: Array<T>): Array<U>
+  export function filter<T>(f: Predicate<T>, m: Array<T>): Array<T>
   export function map<T, U>(f: Unary<T, U>, m: Array<T>): Array<U>
   export function reduce<T, U>(f: Fold<T, U>, seed: U, m: Array<T>): U
   export function traverse<X extends HKT, T, U>(
