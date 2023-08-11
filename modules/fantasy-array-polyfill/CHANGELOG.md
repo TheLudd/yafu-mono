@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/TheLudd/yafu-mono/compare/@yafu/fantasy-array-polyfill@1.2.1...@yafu/fantasy-array-polyfill@1.3.0) (2023-08-11)
+
+### Features
+
+- **fantasy-array-polyfill:** add filter ([bb4f3d9](https://github.com/TheLudd/yafu-mono/commit/bb4f3d9e486c1bda2c79448e82a4274e3ade397f))
+
 ## [1.2.1](https://github.com/TheLudd/yafu-mono/compare/@yafu/fantasy-array-polyfill@1.2.0...@yafu/fantasy-array-polyfill@1.2.1) (2023-06-02)
 
 **Note:** Version bump only for package @yafu/fantasy-array-polyfill
