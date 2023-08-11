@@ -21,11 +21,11 @@ export class RI<T, Env = unknown> {
   static lift: <T>(identity: Identity<T>) => RI<T>
   static ask: Ask<unknown>
 
-  constructor(public readonly run: Unary<Env, Identity<T>>)
+  constructor(run: Unary<Env, Identity<T>>)
 
   [map]<U>(f: Unary<T, U>): RI<U, Env>
   [ap]<U>(f: RI<Unary<T, U>>): RI<U, Env>
-  [chain]<U>(f: Unary<T, Identity<U, Env>>): Identity<U, Env>
+  [chain]<U>(f: Unary<T, RI<U, Env>>): RI<U, Env>
 }
 
 type Ask<Env = unknown> = RI<Env, Env>
