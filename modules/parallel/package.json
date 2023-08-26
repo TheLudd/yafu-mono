@@ -1,6 +1,6 @@
 {
   "name": "@yafu/parallel",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Future monad that works in parallel. So actually not a true monad, but a monad-like thing.",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
@@ -24,7 +24,7 @@
     "@types/node": "^18.11.18",
     "@types/sinon": "^10.0.13",
     "@yafu/curry": "^1.3.0",
-    "@yafu/fantasy-functions": "^2.1.1",
+    "@yafu/fantasy-functions": "^2.1.2",
     "@yafu/fantasy-types": "^1.1.0",
     "@yafu/type-utils": "^1.1.0",
     "fantasy-land": "^5.0.0"
@@ -40,7 +40,7 @@
     "rollup": "^3.8.1",
     "sinon": "^15.0.3",
     "typescript": "^4.9.3",
-    "yafu": "^2.1.1"
+    "yafu": "^2.1.2"
   },
   "publishConfig": {
     "access": "public"
