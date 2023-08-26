@@ -7,8 +7,12 @@
  * @arg g {Function} A function of length n
  * @arg args {Any} n number of arguments
  */
-export function composeN (n, f, g) {
-  function composed (...args) {
+export function composeN<Args extends unknown[], T, U>(
+  n: number,
+  f: (a: T) => U,
+  g: (...args: Args) => T,
+): (...args: Args) => U {
+  function composed(...args: Args) {
     return f(g(...args))
   }
   Object.defineProperty(composed, 'length', { value: n })
