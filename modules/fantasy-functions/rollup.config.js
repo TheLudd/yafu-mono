@@ -5,6 +5,13 @@ import replace from '@rollup/plugin-replace'
 
 const setups = [ 'production', 'development' ]
 
+const prefixExport = (s) => s.replace(/^declare/mg, 'export declare')
+const removeMainExport = (s) => s.replace(/^export.*/mg, '')
+
+function isOutputChunk (v) {
+  return v.code !== undefined
+}
+
 export default [
   {
     input: './dist/ts/fantasy-functions.ts',
@@ -21,6 +28,18 @@ export default [
     input: './dist/ts/fantasy-functions.ts',
     plugins: [
       dts(),
+      {
+        generateBundle (_, files) {
+          Object.values(files).forEach((value) => {
+            if (isOutputChunk(value)) {
+              const { code } = value
+              const newSource = prefixExport(removeMainExport(code)).trim()
+              // eslint-disable-next-line no-param-reassign
+              value.code = newSource
+            }
+          })
+        },
+      },
       curry({ onlyDefinitions: true }),
     ],
     output: {

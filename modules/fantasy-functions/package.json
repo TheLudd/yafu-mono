@@ -25,7 +25,7 @@
     "lint": "lint-yafu",
     "prepublishOnly": "pnpm clean && pnpm transpile && pnpm test",
     "test": "pnpm unit",
-    "transpile": "pnpm tsgen && rollup -c",
+    "transpile": "pnpm clean && pnpm tsgen && rollup -c",
     "tsgen": "mkdir -p dist/ts && pnpm generate > dist/ts/fantasy-functions.ts",
     "unit": "mocha"
   },
