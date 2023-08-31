@@ -62,7 +62,7 @@ commands:
     steps:
       - run:
           command: |
-            git ls-files | grep '.ts$' | xargs prettier --check
+            prettier **/*.ts --check 
           name: Run prettier
 jobs:
   test:
