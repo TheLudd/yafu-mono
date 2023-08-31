@@ -17,14 +17,90 @@ describe('curryCode', () => {
     isNull(result)
   })
 
-  it('ignores nullary functions', () => {
-    const original = `
+  describe('ignores nullary functions', () => {
+    it('for arrow functions', () => {
+      const original = `
+export const impure = () => null
+`
+      const result = curryCode(original)
+      isNull(result)
+    })
+
+    it('for named functions', () => {
+      const original = `
 export function impure() {
 }
-const anotherImpure = () => null
 `
-    const result = curryCode(original)
-    isNull(result)
+      const result = curryCode(original)
+      isNull(result)
+    })
+
+    it('for default export named functions', () => {
+      const original = `
+export default function impure() {
+}
+`
+      const result = curryCode(original)
+      isNull(result)
+    })
+
+    it('for default export arrow functions', () => {
+      const original = `
+export default () => null
+`
+      const result = curryCode(original)
+      isNull(result)
+    })
+  })
+
+  describe('ignores functions that return instantiations', () => {
+    it('for arrow functions', () => {
+      const original = `
+export const instantiateArrowStyle = (somevar) => {
+  return new SomeClass(somevar)
+}
+`
+      const result = curryCode(original)
+      isNull(result)
+    })
+
+    it('for inline arrow functions', () => {
+      const original = `
+export const instantiateArrowStyle = (somevar) => new SomeClass(somevar)
+`
+      const result = curryCode(original)
+      isNull(result)
+    })
+
+    it('for named functions', () => {
+      const original = `
+export function instantiateNamedStyle(somevar) {
+  return new SomeClass(somevar)
+}
+`
+      const result = curryCode(original)
+      isNull(result)
+    })
+
+    it('for default export named functions', () => {
+      const original = `
+export default function instantiateNamedStyle(somevar) {
+  return new SomeClass(somevar)
+}
+`
+      const result = curryCode(original)
+      isNull(result)
+    })
+
+    it('for default export arrow functions', () => {
+      const original = `
+export default (somevar) => {
+  return new SomeClass(somevar)
+}
+`
+      const result = curryCode(original)
+      isNull(result)
+    })
   })
 
   it('curries default function exports', () => {
@@ -47,6 +123,7 @@ export default curry(a => a);
     `.trim()
     equal(code, expected)
   })
+
   it('curries named function exports', () => {
     const original = 'export function identity (a) { return a }'
     const { code } = curryCode(original) as PrintResultType

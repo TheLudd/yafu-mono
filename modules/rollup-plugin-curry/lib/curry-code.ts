@@ -6,6 +6,8 @@ import {
   assertIdentifier,
   callExpression,
   Declaration,
+  ExportDefaultDeclaration,
+  ExportNamedDeclaration,
   Expression,
   FunctionDeclaration,
   identifier,
@@ -13,6 +15,7 @@ import {
   importSpecifier,
   isArrowFunctionExpression,
   isFunctionDeclaration,
+  isReturnStatement,
   isVariableDeclaration,
   Program,
   stringLiteral,
@@ -21,6 +24,7 @@ import {
   variableDeclarator,
 } from '@babel/types'
 import { traverse } from './traverse.js'
+import { NodePath } from '@babel/traverse'
 
 function createCurryCall(fnName: string) {
   return callExpression(identifier('curry'), [identifier(fnName)])
@@ -50,6 +54,19 @@ function hasArguments(
   return declaration.params.length > 0
 }
 
+function doesNotReturnInstantiation(
+  path: NodePath<ExportNamedDeclaration | ExportDefaultDeclaration>,
+): boolean {
+  let found = false
+  path.traverse({
+    NewExpression(p) {
+      const { parent } = p
+      found = isReturnStatement(parent) || isArrowFunctionExpression(parent)
+    },
+  })
+  return !found
+}
+
 export default function curryCode(code: string) {
   const ast = parse(code, { sourceFileName: 'dummy.js' })
   let found = false
@@ -66,13 +83,15 @@ export default function curryCode(code: string) {
       if (
         isVariableDeclaration(declaration) &&
         isArrowFunctionExpression(declaration.declarations[0].init) &&
-        hasArguments(declaration.declarations[0].init)
+        hasArguments(declaration.declarations[0].init) &&
+        doesNotReturnInstantiation(path)
       ) {
         found = true
         modVariableDeclaration(declaration)
       } else if (
         isFunctionDeclaration(declaration) &&
-        hasArguments(declaration)
+        hasArguments(declaration) &&
+        doesNotReturnInstantiation(path)
       ) {
         found = true
         const originalName = declaration.id?.name
@@ -95,10 +114,18 @@ export default function curryCode(code: string) {
       const { node: original, parent } = path
       const { body } = parent as Program
 
-      if (isArrowFunctionExpression(original.declaration)) {
+      if (
+        isArrowFunctionExpression(original.declaration) &&
+        hasArguments(original.declaration) &&
+        doesNotReturnInstantiation(path)
+      ) {
         found = true
         path.node.declaration = curryExpression(original.declaration)
-      } else if (isFunctionDeclaration(original.declaration)) {
+      } else if (
+        isFunctionDeclaration(original.declaration) &&
+        hasArguments(original.declaration) &&
+        doesNotReturnInstantiation(path)
+      ) {
         found = true
         const index = body.findIndex((n) => n === original)
         body.splice(index, 0, original.declaration)
