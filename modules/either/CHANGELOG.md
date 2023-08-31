@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/TheLudd/yafu-mono/compare/@yafu/either@1.1.2...@yafu/either@1.1.3) (2023-08-31)
+
+**Note:** Version bump only for package @yafu/either
+
 ## [1.1.2](https://github.com/TheLudd/yafu-mono/compare/@yafu/either@1.1.1...@yafu/either@1.1.2) (2023-08-26)
 
 **Note:** Version bump only for package @yafu/either

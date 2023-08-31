@@ -1,6 +1,6 @@
 {
   "name": "@yafu/lens",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Lenses to brighten up your functional programming",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
@@ -23,11 +23,11 @@
   "dependencies": {
     "@yafu/const": "^1.1.8",
     "@yafu/curry": "^1.3.0",
-    "@yafu/either": "^1.1.2",
-    "@yafu/fantasy-functions": "^2.1.2",
-    "@yafu/fantasy-types": "^1.1.0",
-    "@yafu/identity": "^2.0.9",
-    "yafu": "^2.1.2"
+    "@yafu/either": "^1.1.3",
+    "@yafu/fantasy-functions": "^2.1.3",
+    "@yafu/fantasy-types": "^1.1.1",
+    "@yafu/identity": "^2.0.10",
+    "yafu": "^2.1.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -38,7 +38,7 @@
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
     "@types/node": "^18.11.18",
-    "@yafu/create-rollup-config": "^1.2.0",
+    "@yafu/create-rollup-config": "^1.2.1",
     "@yafu/eslint-config-yafu": "^1.2.0",
     "chai": "^4.3.7",
     "mocha": "^10.2.0",

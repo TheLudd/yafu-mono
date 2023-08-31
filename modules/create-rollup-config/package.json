@@ -1,6 +1,6 @@
 {
   "name": "@yafu/create-rollup-config",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": true,
   "license": "MIT",
   "exports": {
@@ -8,7 +8,7 @@
   },
   "main": "./create-rollup-config.mjs",
   "dependencies": {
-    "@yafu/rollup-plugin-curry": "^1.1.0",
+    "@yafu/rollup-plugin-curry": "^1.1.1",
     "esbuild": "^0.17.15",
     "rollup": "^3.20.2",
     "rollup-plugin-dts": "^5.3.0",

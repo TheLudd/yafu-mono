@@ -45,7 +45,7 @@ importers:
   modules/create-rollup-config:
     dependencies:
       '@yafu/rollup-plugin-curry':
-        specifier: ^1.1.0
+        specifier: ^1.1.1
         version: link:../rollup-plugin-curry
       esbuild:
         specifier: ^0.17.15
@@ -93,10 +93,10 @@ importers:
         specifier: ^1.3.0
         version: link:../curry
       '@yafu/fantasy-functions':
-        specifier: ^2.1.2
+        specifier: ^2.1.3
         version: link:../fantasy-functions
       '@yafu/fantasy-types':
-        specifier: ^1.1.0
+        specifier: ^1.1.1
         version: link:../fantasy-types
       '@yafu/type-utils':
         specifier: ^1.1.0
@@ -121,7 +121,7 @@ importers:
         specifier: ^18.11.18
         version: 18.11.18
       '@yafu/create-rollup-config':
-        specifier: ^1.2.0
+        specifier: ^1.2.1
         version: link:../create-rollup-config
       '@yafu/eslint-config-yafu':
         specifier: ^1.2.0
@@ -163,10 +163,10 @@ importers:
   modules/fantasy-array-polyfill:
     dependencies:
       '@yafu/fantasy-functions':
-        specifier: ^2.1.2
+        specifier: ^2.1.3
         version: link:../fantasy-functions
       '@yafu/fantasy-types':
-        specifier: ^1.1.0
+        specifier: ^1.1.1
         version: link:../fantasy-types
       '@yafu/type-utils':
         specifier: ^1.1.0
@@ -191,7 +191,7 @@ importers:
         specifier: ^18.11.18
         version: 18.11.18
       '@yafu/create-rollup-config':
-        specifier: ^1.2.0
+        specifier: ^1.2.1
         version: link:../create-rollup-config
       chai:
         specifier: ^4.3.6
@@ -215,7 +215,7 @@ importers:
         specifier: ^1.3.0
         version: link:../curry
       '@yafu/fantasy-types':
-        specifier: ^1.1.0
+        specifier: ^1.1.1
         version: link:../fantasy-types
       '@yafu/type-utils':
         specifier: ^1.1.0
@@ -224,7 +224,7 @@ importers:
         specifier: ^5.0.1
         version: 5.0.1
       yafu:
-        specifier: ^2.1.2
+        specifier: ^2.1.3
         version: link:../yafu
     devDependencies:
       '@babel/core':
@@ -252,7 +252,7 @@ importers:
         specifier: ^1.2.0
         version: link:../eslint-config-yafu
       '@yafu/rollup-plugin-curry':
-        specifier: ^1.1.0
+        specifier: ^1.1.1
         version: link:../rollup-plugin-curry
       babel-plugin-add-module-exports:
         specifier: ^1.0.4
@@ -298,10 +298,10 @@ importers:
         specifier: ^18.11.18
         version: 18.11.18
       '@yafu/create-rollup-config':
-        specifier: ^1.2.0
+        specifier: ^1.2.1
         version: link:../create-rollup-config
       '@yafu/rollup-plugin-curry':
-        specifier: ^1.1.0
+        specifier: ^1.1.1
         version: link:../rollup-plugin-curry
       rollup:
         specifier: ^3.20.2
@@ -313,7 +313,7 @@ importers:
   modules/identity:
     dependencies:
       '@yafu/fantasy-types':
-        specifier: ^1.1.0
+        specifier: ^1.1.1
         version: link:../fantasy-types
       fantasy-land:
         specifier: ^5.0.1
@@ -323,7 +323,7 @@ importers:
         specifier: ^15.0.1
         version: 15.0.1(rollup@3.20.2)
       '@yafu/create-rollup-config':
-        specifier: ^1.2.0
+        specifier: ^1.2.1
         version: link:../create-rollup-config
       '@yafu/eslint-config-yafu':
         specifier: ^1.2.0
@@ -338,10 +338,10 @@ importers:
         specifier: ^1.3.0
         version: link:../curry
       '@yafu/fantasy-functions':
-        specifier: ^2.1.2
+        specifier: ^2.1.3
         version: link:../fantasy-functions
       '@yafu/fantasy-types':
-        specifier: ^1.1.0
+        specifier: ^1.1.1
         version: link:../fantasy-types
       '@yafu/type-utils':
         specifier: ^1.1.0
@@ -360,7 +360,7 @@ importers:
         specifier: ^10.0.1
         version: 10.0.1
       '@yafu/create-rollup-config':
-        specifier: ^1.2.0
+        specifier: ^1.2.1
         version: link:../create-rollup-config
       chai:
         specifier: ^4.3.7
@@ -387,19 +387,19 @@ importers:
         specifier: ^1.3.0
         version: link:../curry
       '@yafu/either':
-        specifier: ^1.1.2
+        specifier: ^1.1.3
         version: link:../either
       '@yafu/fantasy-functions':
-        specifier: ^2.1.2
+        specifier: ^2.1.3
         version: link:../fantasy-functions
       '@yafu/fantasy-types':
-        specifier: ^1.1.0
+        specifier: ^1.1.1
         version: link:../fantasy-types
       '@yafu/identity':
-        specifier: ^2.0.9
+        specifier: ^2.0.10
         version: link:../identity
       yafu:
-        specifier: ^2.1.2
+        specifier: ^2.1.3
         version: link:../yafu
     devDependencies:
       '@babel/core':
@@ -427,7 +427,7 @@ importers:
         specifier: ^18.11.18
         version: 18.11.18
       '@yafu/create-rollup-config':
-        specifier: ^1.2.0
+        specifier: ^1.2.1
         version: link:../create-rollup-config
       '@yafu/eslint-config-yafu':
         specifier: ^1.2.0
@@ -451,7 +451,7 @@ importers:
         specifier: ^1.3.0
         version: link:../curry
       '@yafu/fantasy-functions':
-        specifier: ^2.1.2
+        specifier: ^2.1.3
         version: link:../fantasy-functions
       '@yafu/type-utils':
         specifier: ^1.1.0
@@ -476,7 +476,7 @@ importers:
         specifier: ^18.11.18
         version: 18.11.18
       '@yafu/create-rollup-config':
-        specifier: ^1.2.0
+        specifier: ^1.2.1
         version: link:../create-rollup-config
       '@yafu/eslint-config-yafu':
         specifier: ^1.2.0
@@ -506,10 +506,10 @@ importers:
         specifier: ^1.3.0
         version: link:../curry
       '@yafu/fantasy-functions':
-        specifier: ^2.1.2
+        specifier: ^2.1.3
         version: link:../fantasy-functions
       '@yafu/fantasy-types':
-        specifier: ^1.1.0
+        specifier: ^1.1.1
         version: link:../fantasy-types
       '@yafu/type-utils':
         specifier: ^1.1.0
@@ -528,7 +528,7 @@ importers:
         specifier: ^10.0.1
         version: 10.0.1
       '@yafu/create-rollup-config':
-        specifier: ^1.2.0
+        specifier: ^1.2.1
         version: link:../create-rollup-config
       chai:
         specifier: ^4.3.7
@@ -549,7 +549,7 @@ importers:
         specifier: ^4.9.3
         version: 4.9.4
       yafu:
-        specifier: ^2.1.2
+        specifier: ^2.1.3
         version: link:../yafu
 
   modules/reader:
@@ -558,13 +558,13 @@ importers:
         specifier: ^1.3.0
         version: link:../curry
       '@yafu/fantasy-functions':
-        specifier: ^2.1.2
+        specifier: ^2.1.3
         version: link:../fantasy-functions
       '@yafu/fantasy-types':
-        specifier: ^1.1.0
+        specifier: ^1.1.1
         version: link:../fantasy-types
       '@yafu/identity':
-        specifier: ^2.0.9
+        specifier: ^2.0.10
         version: link:../identity
       '@yafu/type-utils':
         specifier: ^1.1.0
@@ -586,7 +586,7 @@ importers:
         specifier: ^10.0.1
         version: 10.0.1
       '@yafu/create-rollup-config':
-        specifier: ^1.2.0
+        specifier: ^1.2.1
         version: link:../create-rollup-config
       chai:
         specifier: ^4.3.7
@@ -610,22 +610,22 @@ importers:
         specifier: ^1.3.0
         version: link:../curry
       '@yafu/either':
-        specifier: ^1.1.2
+        specifier: ^1.1.3
         version: link:../either
       '@yafu/fantasy-functions':
-        specifier: ^2.1.2
+        specifier: ^2.1.3
         version: link:../fantasy-functions
       '@yafu/fantasy-types':
-        specifier: ^1.1.0
+        specifier: ^1.1.1
         version: link:../fantasy-types
       '@yafu/io':
-        specifier: ^1.1.2
+        specifier: ^1.1.3
         version: link:../io
       '@yafu/parallel':
-        specifier: ^1.1.3
+        specifier: ^1.1.4
         version: link:../parallel
       '@yafu/reader':
-        specifier: ^1.1.4
+        specifier: ^1.1.5
         version: link:../reader
       '@yafu/type-utils':
         specifier: ^1.1.0
@@ -647,7 +647,7 @@ importers:
         specifier: ^10.0.1
         version: 10.0.1
       '@yafu/create-rollup-config':
-        specifier: ^1.2.0
+        specifier: ^1.2.1
         version: link:../create-rollup-config
       chai:
         specifier: ^4.3.7
@@ -776,7 +776,7 @@ importers:
         specifier: ^1.3.0
         version: link:../curry
       yafu:
-        specifier: ^2.1.2
+        specifier: ^2.1.3
         version: link:../yafu
     devDependencies:
       '@esbuild-kit/esm-loader':
@@ -845,7 +845,7 @@ importers:
         specifier: ^1.2.0
         version: link:../eslint-config-yafu
       '@yafu/rollup-plugin-curry':
-        specifier: ^1.1.0
+        specifier: ^1.1.1
         version: link:../rollup-plugin-curry
       babel-plugin-add-module-exports:
         specifier: ^1.0.4
