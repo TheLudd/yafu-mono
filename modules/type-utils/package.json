@@ -4,7 +4,11 @@
   "description": "Utilities for working with typescript",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
-  "exports": "./index.js",
+  "type": "module",
+  "exports": {
+    "import": "./index.js",
+    "types": "./index.d.ts"
+  },
   "main": "./index.js",
   "types": "./index.d.ts",
   "scripts": {

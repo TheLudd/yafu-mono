@@ -3,9 +3,8 @@
   "version": "1.2.1",
   "private": true,
   "license": "MIT",
-  "exports": {
-    "import": "./create-rollup-config.mjs"
-  },
+  "type": "module",
+  "exports": "./create-rollup-config.mjs",
   "main": "./create-rollup-config.mjs",
   "dependencies": {
     "@yafu/rollup-plugin-curry": "^1.1.1",
