@@ -9,17 +9,7 @@ import {
 } from 'fantasy-land'
 import { Unary, HKTMark, HKT2Mark, HKT2 } from '@yafu/type-utils'
 import '@yafu/fantasy-functions'
-
-declare module '@yafu/fantasy-functions' {
-  export function ap<T, U, L>(
-    f: Either<L, Unary<T, U>>,
-    either: Either<L, T>,
-  ): Either<L, U>
-  export function chain<T, U, L>(
-    f: Unary<T, Either<L, U>>,
-    either: Either<L, T>,
-  ): Either<L, U>
-}
+import './extensions.d.ts'
 
 export function eitherOf<R>(v: R): Either<never, R> {
   return new Right(v)
@@ -62,7 +52,7 @@ class Right<R> extends AbstractEither {
     return b instanceof Right && this.v === b.v
   }
 
-  [MAP]<U>(f: (x: R) => U) {
+  [MAP]<U>(f: Unary<R, U>) {
     return eitherOf(f(this.v))
   }
 
@@ -113,8 +103,8 @@ class Left<L> extends AbstractEither {
   }
 
   // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-explicit-any
-  [REDUCE]<U>(_f: (acc: U, item: any) => U, init: U): U {
-    return init
+  [REDUCE]<U>(_f: (acc: U, item: any) => U, seed: U): U {
+    return seed
   }
 
   cata<U>(c: Cata<L, never, U>) {

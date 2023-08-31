@@ -1,3 +1,3 @@
 import { createRollupConfig } from '@yafu/create-rollup-config'
 
-export default createRollupConfig('./lib/parallel.js', import.meta.url, { curry: false })
+export default createRollupConfig('./lib/parallel.js', import.meta.url)

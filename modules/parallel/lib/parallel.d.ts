@@ -7,18 +7,9 @@ export type Fork<E, T> = Binary<Callback<E>, Callback<T>, void>
 
 declare module '@yafu/fantasy-functions' {
   export function of<T>(t: typeof Parallel, value: T): Parallel<never, T>
-  export function map<E, T, U>(
-    f: Unary<T, U>,
-    p: Parallel<E, T>,
-  ): Parallel<E, U>
-  export function ap<E, T, U>(
-    f: Parallel<E, Unary<T, U>>,
-    p: Parallel<E, T>,
-  ): Parallel<E, U>
-  export function chain<E, T, U>(
-    f: Unary<T, Parallel<E, U>>,
-    p: Parallel<E, T>,
-  ): Parallel<E, U>
+  export function map<E, T, U>(f: Unary<T, U>, p: Parallel<E, T>): Parallel<E, U>
+  export function ap<E, T, U>(f: Parallel<E, Unary<T, U>>, p: Parallel<E, T>): Parallel<E, U>
+  export function chain<E, T, U>(f: Unary<T, Parallel<E, U>>, p: Parallel<E, T>): Parallel<E, U>
 }
 
 export class Parallel<E, T> {

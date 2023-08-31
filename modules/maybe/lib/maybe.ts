@@ -9,17 +9,7 @@ import {
 import '@yafu/fantasy-functions'
 import { map } from '@yafu/fantasy-functions'
 import { Fold, Unary, HKTMark } from '@yafu/type-utils'
-
-declare module '@yafu/fantasy-functions' {
-  export function ap<T, U>(a: Maybe<(x: T) => U>, apply: Maybe<T>): Maybe<U>
-  export function chain<T, U>(f: (a: T) => Maybe<U>, m: Maybe<T>): Maybe<U>
-  export function map<T, U>(f: (a: T) => U, m: Maybe<T>): Maybe<U>
-  export function reduce<T, U>(
-    f: (acc: U, item: T) => U,
-    seed: U,
-    m: Maybe<T>,
-  ): U
-}
+import './extensions.d.ts'
 
 export type Maybe<T> = Just<T> | Nothing
 

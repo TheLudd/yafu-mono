@@ -5,18 +5,9 @@ import '@yafu/fantasy-functions'
 
 declare module '@yafu/fantasy-functions' {
   export function of<T>(t: typeof RTE, value: T): RTE<never, T>
-  export function map<E, T, U, Env>(
-    f: Unary<T, U>,
-    rte: RTE<E, T, Env>,
-  ): RTE<E, U, Env>
-  export function ap<E, T, U, Env>(
-    f: RTE<E, Unary<T, U>, Env>,
-    rte: RTE<E, T, Env>,
-  ): RTE<E, U, Env>
-  export function chain<E, T, U, Env>(
-    f: Unary<T, RTE<E, U, Env>>,
-    rte: RTE<E, T, Env>,
-  ): RTE<E, U, Env>
+  export function map<E, T, U, Env>(f: Unary<T, U>, rte: RTE<E, T, Env>): RTE<E, U, Env>
+  export function ap<E, T, U, Env>(f: RTE<E, Unary<T, U>, Env>, rte: RTE<E, T, Env>): RTE<E, U, Env>
+  export function chain<E, T, U, Env>(f: Unary<T, RTE<E, U, Env>>, rte: RTE<E, T, Env>): RTE<E, U, Env>
 }
 
 export namespace RTE {

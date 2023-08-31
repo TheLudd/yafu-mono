@@ -20,7 +20,7 @@ export interface ReaderTransform<T, Type extends HKT, Env = unknown> {
 
 type Ask<Type extends HKT, T = unknown> = ReaderTransform<T, Type, T>
 
-interface ReaderTransformType<Type extends HKT> {
+export interface ReaderTransformType<Type extends HKT> {
   ask: Ask<Type>
 
   new <T, Env>(run: Unary<Env, Kind<Type, T>>): ReaderTransform<T, Type, Env>
@@ -38,7 +38,7 @@ export function readerT<Type extends HKT, M extends Applicable<Type>>(
   const type = `ReaderT(${monad.name})`
 
   class R<T, Env = unknown> implements ReaderTransform<T, M, Env> {
-    static ask = new R(of(monad))
+    static ask = new R((env) => of(monad, env))
     static lift = <A>(m: Kind<M, A>) => new R(() => m)
 
     static [OF]<A>(a: A): ReaderTransform<A, M> {
@@ -85,26 +85,4 @@ export function readerT<Type extends HKT, M extends Applicable<Type>>(
   }
 
   return R
-}
-
-declare module '@yafu/fantasy-functions' {
-  export function of<A, Type extends HKT>(
-    rt: ReaderTransformType<Type>,
-    a: A,
-  ): ReaderTransform<A, Type>
-
-  export function ap<T, U, Type extends HKT>(
-    f: ReaderTransform<Unary<T, U>, Type>,
-    reader: ReaderTransform<T, Type>,
-  ): ReaderTransform<U, Type>
-
-  export function chain<T, U, Type extends HKT>(
-    f: Unary<T, ReaderTransform<U, Type>>,
-    reader: ReaderTransform<T, Type>,
-  ): ReaderTransform<U, Type>
-
-  export function map<T, U, Type extends HKT>(
-    f: Unary<T, U>,
-    reader: ReaderTransform<T, Type>,
-  ): ReaderTransform<U, Type>
 }

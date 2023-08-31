@@ -5,18 +5,9 @@ import '@yafu/fantasy-functions'
 
 declare module '@yafu/fantasy-functions' {
   export function of<T>(t: typeof RTF, value: T): RTF<never, T>
-  export function map<E, T, U, Env>(
-    f: Unary<T, U>,
-    rtf: RTF<E, T, Env>,
-  ): RTF<E, U, Env>
-  export function ap<E, T, U, Env>(
-    f: RTF<E, Unary<T, U>, Env>,
-    rtf: RTF<E, T, Env>,
-  ): RTF<E, U, Env>
-  export function chain<E, T, U, Env>(
-    f: Unary<T, RTF<E, U, Env>>,
-    rtf: RTF<E, T, Env>,
-  ): RTF<E, U, Env>
+  export function map<E, T, U, Env>(f: Unary<T, U>, rtf: RTF<E, T, Env>): RTF<E, U, Env>
+  export function ap<E, T, U, Env>(f: RTF<E, Unary<T, U>, Env>, rtf: RTF<E, T, Env>): RTF<E, U, Env>
+  export function chain<E, T, U, Env>(f: Unary<T, RTF<E, U, Env>>, rtf: RTF<E, T, Env>): RTF<E, U, Env>
 }
 
 export namespace RTF {
