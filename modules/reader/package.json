@@ -29,15 +29,15 @@
     "fantasy-land": "^5.0.0"
   },
   "devDependencies": {
-    "@esbuild-kit/esm-loader": "^2.5.4",
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "@types/chai": "^4.3.4",
+    "@esbuild-kit/esm-loader": "^2.5.5",
+    "@rollup/plugin-node-resolve": "^15.2.1",
+    "@types/chai": "^4.3.5",
     "@types/mocha": "^10.0.1",
     "@yafu/create-rollup-config": "^1.2.1",
-    "chai": "^4.3.7",
+    "chai": "^4.3.8",
     "eslint": "^8.48.0",
     "mocha": "^10.2.0",
-    "rollup": "^3.8.1"
+    "rollup": "^3.28.1"
   },
   "publishConfig": {
     "access": "public"

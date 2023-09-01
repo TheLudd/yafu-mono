@@ -193,6 +193,9 @@ function groupGenerics(scope: Scope, node: TSTypeParameterDeclaration) {
 
 export function parseDefinition(code: string): Definition[] {
   const ast = parse(code, options)
+  if (ast == null) {
+    throw new Error('Could not parse code')
+  }
   const definitions: Definition[] = []
   traverse(ast, {
     TSDeclareFunction(path) {

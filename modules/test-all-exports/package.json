@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "camel-case": "^4.1.2",
-    "glob": "^8.1.0",
-    "yaml": "^2.2.1"
+    "glob": "^10.3.4",
+    "yaml": "^2.3.2"
   },
   "devDependencies": {
     "@yafu/eslint-config-yafu": "^1.2.0"

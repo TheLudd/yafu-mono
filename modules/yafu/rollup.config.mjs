@@ -1,11 +1,10 @@
 import esbuild from 'rollup-plugin-ts'
 import dts from 'rollup-plugin-dts'
-import globPkg from 'glob'
-import { terser } from 'rollup-plugin-terser'
+import { sync as glob } from 'glob'
+import terser from '@rollup/plugin-terser'
 import curry from '@yafu/rollup-plugin-curry'
 import sortDependencies from 'sort-dependencies'
 
-const { sync: glob } = globPkg
 const tsFiles = glob('lib/*.ts')
 const tsFileGroups = sortDependencies({
   distFolderPath: 'dist',

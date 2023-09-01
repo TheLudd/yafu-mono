@@ -21,12 +21,12 @@
     "unit": "mocha"
   },
   "devDependencies": {
-    "@esbuild-kit/esm-loader": "^2.5.4",
-    "@types/node": "^18.11.18",
+    "@esbuild-kit/esm-loader": "^2.5.5",
+    "@types/node": "^20.5.7",
     "@yafu/eslint-config-yafu": "^1.2.0",
-    "chai": "^4.3.7",
+    "chai": "^4.3.8",
     "mocha": "^10.2.0",
-    "rollup": "^3.20.2"
+    "rollup": "^3.28.1"
   },
   "publishConfig": {
     "access": "public"

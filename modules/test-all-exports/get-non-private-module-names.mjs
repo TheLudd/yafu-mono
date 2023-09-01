@@ -1,9 +1,7 @@
-import { default as Glob } from 'glob'
+import { sync as glob } from 'glob'
 import { parse as parseYAML } from 'yaml'
 import { resolve } from 'path'
 import { readFileSync } from 'fs'
-
-const { sync: glob } = Glob
 
 function parsePackageJSON (path) {
   const mainPackageContent = readFileSync(path, 'utf-8')

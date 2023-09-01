@@ -9,7 +9,7 @@
   "exports": "./lib/sort-dependencies.js",
   "main": "./lib/sort-dependencies.js",
   "dependencies": {
-    "minimist": "^1.2.7",
+    "minimist": "^1.2.8",
     "ramda": "^0.28.0"
   },
   "devDependencies": {
