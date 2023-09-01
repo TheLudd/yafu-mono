@@ -146,7 +146,7 @@ describe('parallel', () => {
     })
 
     it('should return independent parallels', () => {
-      const original = map(inc, new Parallel((_, res) => res(0)))
+      const original = map(inc, new Parallel<never, number>((_, res) => res(0)))
       const plus2 = map(inc, original)
       const plus3 = map(inc, map(inc, original))
       assertParallelValue(2, plus2)

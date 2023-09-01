@@ -1,5 +1,5 @@
 import * as FL from 'fantasy-land'
-import { definitions, FantasyDefinition } from '../lib/definitions'
+import { definitions, FantasyDefinition } from '../lib/definitions.js'
 
 const parameterNames = ['a', 'b', 'c']
 const innerParameterNames = ['x', 'y', 'z']
@@ -26,7 +26,7 @@ const defsByName = Object.values(definitions).reduce((acc, item) => {
   return acc
 }, initial)
 
-function notTraversable([fn]: any[]) {
+function notTraversable([fn]: unknown[]) {
   return fn !== 'traverse'
 }
 
@@ -120,7 +120,7 @@ const allDefs = Object.entries(definitions)
       ? `<${methodGenericsList.join(', ')}>`
       : ''
 
-    const method = `['${FL[fn]}']: ${methodGenerics}(${args
+    const method = `['${FL[fn as keyof typeof FL]}']: ${methodGenerics}(${args
       .map(formatArgument)
       .join(', ')})`
     const extendStatement = extending.length

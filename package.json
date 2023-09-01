@@ -13,10 +13,12 @@
   },
   "devDependencies": {
     "@nrwl/nx-cloud": "^15.3.5",
+    "@types/node": "^18.11.18",
     "@yafu/eslint-config-yafu": "^1.1.2",
     "lerna": "^6.4.1",
     "nx": "15.5.3",
     "prettier": "^2.8.7",
+    "typescript": "^5.2.2",
     "yaml": "^2.2.1"
   },
   "engines": {

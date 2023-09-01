@@ -6,6 +6,8 @@ import {
   normalize,
 } from 'path'
 
+const curryImport = "import { curry } from '@yafu/curry'"
+
 function createIndex (projectPath) {
   function getFileBaseName (fullName) {
     const ext = extname(fullName)
@@ -23,15 +25,18 @@ function createIndex (projectPath) {
   const imports = jsFiles.map((item) => {
     const pathName = `./${item}`
     return `export * from '${pathName}.js'`
-  }).join('\n')
+  })
 
   const types = jsFiles.map((item) => {
     const pathName = `./${item}`
-    return `export * from '${pathName}'`
-  }).join('\n')
+    return `export * from '${pathName}.js'`
+  })
 
-  writeFileSync(getAbsolute('dist/index.js'), imports)
-  writeFileSync(getAbsolute('dist/index.d.ts'), types)
+  imports.unshift(curryImport)
+  types.unshift('export declare function curry (fn: Function): Function')
+
+  writeFileSync(getAbsolute('dist/index.js'), imports.join('\n'))
+  writeFileSync(getAbsolute('dist/index.d.ts'), types.join('\n'))
 }
 
 createIndex(process.cwd())

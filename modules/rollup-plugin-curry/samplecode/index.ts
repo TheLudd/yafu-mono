@@ -1,2 +1,2 @@
-export * from './i'
-export * from './k'
+export * from './i.js'
+export * from './k.js'

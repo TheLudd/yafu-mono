@@ -12,7 +12,7 @@ function getValue<T, Args extends unknown[]>(
   env = 0,
   ...args: Args
 ): T {
-  return ri.run(env).run(...args)
+  return ri.run(env).runIO(...args)
 }
 
 it('implements functor', () => {

@@ -7,7 +7,6 @@ import sortDependencies from 'sort-dependencies'
 
 const { sync: glob } = globPkg
 const tsFiles = glob('lib/*.ts')
-const jsFiles = glob('lib/*.js')
 const tsFileGroups = sortDependencies({
   distFolderPath: 'dist',
   files: tsFiles,
@@ -32,7 +31,6 @@ const tsTranspilations = tsFileGroups
 
 export default [
   ...tsTranspilations,
-  transpileFiles([ curry() ], jsFiles),
   {
     input: 'dist/index.js',
     output: [ {

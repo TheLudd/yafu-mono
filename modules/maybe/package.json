@@ -36,8 +36,7 @@
     "@yafu/eslint-config-yafu": "^1.2.0",
     "chai": "^4.3.7",
     "mocha": "^10.2.0",
-    "rollup": "^3.20.2",
-    "typescript": "^4.9.3"
+    "rollup": "^3.20.2"
   },
   "publishConfig": {
     "access": "public"

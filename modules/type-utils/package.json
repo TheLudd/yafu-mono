@@ -14,9 +14,6 @@
   "dependencies": {
     "fantasy-land": "^5.0.1"
   },
-  "devDependencies": {
-    "typescript": "^4.9.3"
-  },
   "publishConfig": {
     "access": "public"
   },
