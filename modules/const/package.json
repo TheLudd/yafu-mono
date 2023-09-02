@@ -1,6 +1,6 @@
 {
   "name": "@yafu/const",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "Const monad",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.2.1",
-    "@yafu/eslint-config-yafu": "^1.2.0",
+    "@yafu/eslint-config-yafu": "^1.2.1",
     "rollup": "^3.28.1"
   },
   "publishConfig": {

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/TheLudd/yafu-mono/compare/@yafu/maybe@1.1.3...@yafu/maybe@1.1.4) (2023-09-02)
+
+### Bug Fixes
+
+- fix all type errors ([aa14550](https://github.com/TheLudd/yafu-mono/commit/aa14550f3c1b5ee1e0c2bb9df996792d8da87214))
+
 ## [1.1.3](https://github.com/TheLudd/yafu-mono/compare/@yafu/maybe@1.1.2...@yafu/maybe@1.1.3) (2023-08-31)
 
 **Note:** Version bump only for package @yafu/maybe

@@ -1,6 +1,6 @@
 {
   "name": "@yafu/fantasy-types",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "TypeScript defenitions of fantasy-land types",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
@@ -21,15 +21,15 @@
     "transpile": "pnpm generate && rollup -c"
   },
   "dependencies": {
-    "@yafu/curry": "^1.3.0",
-    "@yafu/type-utils": "^1.1.0",
+    "@yafu/curry": "^1.3.1",
+    "@yafu/type-utils": "^1.1.1",
     "fantasy-land": "^5.0.1"
   },
   "devDependencies": {
     "@esbuild-kit/esm-loader": "^2.5.5",
     "@types/node": "^20.5.7",
-    "@yafu/create-rollup-config": "^1.2.1",
-    "@yafu/rollup-plugin-curry": "^1.1.1",
+    "@yafu/create-rollup-config": "^1.2.2",
+    "@yafu/rollup-plugin-curry": "^1.1.2",
     "rollup": "^3.28.1"
   },
   "publishConfig": {

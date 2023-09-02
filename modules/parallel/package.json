@@ -1,6 +1,6 @@
 {
   "name": "@yafu/parallel",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Future monad that works in parallel. So actually not a true monad, but a monad-like thing.",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
@@ -23,23 +23,23 @@
   "dependencies": {
     "@types/node": "^20.5.7",
     "@types/sinon": "^10.0.16",
-    "@yafu/curry": "^1.3.0",
-    "@yafu/fantasy-functions": "^2.1.3",
-    "@yafu/fantasy-types": "^1.1.1",
-    "@yafu/type-utils": "^1.1.0",
+    "@yafu/curry": "^1.3.1",
+    "@yafu/fantasy-functions": "^2.1.5",
+    "@yafu/fantasy-types": "^1.1.2",
+    "@yafu/type-utils": "^1.1.1",
     "fantasy-land": "^5.0.0"
   },
   "devDependencies": {
     "@esbuild-kit/esm-loader": "^2.5.5",
     "@types/chai": "^4.3.5",
     "@types/mocha": "^10.0.1",
-    "@yafu/create-rollup-config": "^1.2.1",
+    "@yafu/create-rollup-config": "^1.2.2",
     "chai": "^4.3.8",
     "eslint": "^8.48.0",
     "mocha": "^10.2.0",
     "rollup": "^3.28.1",
     "sinon": "^15.2.0",
-    "yafu": "^2.1.3"
+    "yafu": "^2.1.4"
   },
   "publishConfig": {
     "access": "public"

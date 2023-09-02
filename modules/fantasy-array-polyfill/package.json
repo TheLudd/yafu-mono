@@ -1,6 +1,6 @@
 {
   "name": "@yafu/fantasy-array-polyfill",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "type": "module",
@@ -25,9 +25,9 @@
     "unit": "mocha"
   },
   "dependencies": {
-    "@yafu/fantasy-functions": "^2.1.3",
-    "@yafu/fantasy-types": "^1.1.1",
-    "@yafu/type-utils": "^1.1.0",
+    "@yafu/fantasy-functions": "^2.1.5",
+    "@yafu/fantasy-types": "^1.1.2",
+    "@yafu/type-utils": "^1.1.1",
     "fantasy-land": "^5.0.1"
   },
   "devDependencies": {
@@ -36,7 +36,7 @@
     "@types/chai": "^4.3.5",
     "@types/mocha": "^10.0.1",
     "@types/node": "^20.5.7",
-    "@yafu/create-rollup-config": "^1.2.1",
+    "@yafu/create-rollup-config": "^1.2.2",
     "chai": "^4.3.8",
     "eslint": "^8.48.0",
     "mocha": "^10.0.0",

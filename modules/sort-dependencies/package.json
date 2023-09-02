@@ -1,6 +1,6 @@
 {
   "name": "sort-dependencies",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "private": true,
   "description": "Internal utility",
   "license": "MIT",
@@ -13,6 +13,6 @@
     "ramda": "^0.28.0"
   },
   "devDependencies": {
-    "@yafu/eslint-config-yafu": "^1.2.0"
+    "@yafu/eslint-config-yafu": "^1.2.1"
   }
 }
