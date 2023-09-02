@@ -42,6 +42,11 @@ commands:
       - run:
           name: Lint
           command: pnpm lint
+  check-types:
+    steps:
+      - run:
+          name: Check types
+          command: pnpm tsc --noEmit
   verify-exports:
     steps:
       - run:
@@ -78,6 +83,7 @@ jobs:
       - transpile
       - lint
       - run-tests
+      - check-types
       - verify-exports
   checks:
     resource_class: small
