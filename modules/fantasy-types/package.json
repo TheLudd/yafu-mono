@@ -15,7 +15,7 @@
   "scripts": {
     "clean": "rm -rf dist",
     "generate": "mkdir -p dist && node --loader @esbuild-kit/esm-loader scripts/tsgen.ts > dist/fantasy-types.ts",
-    "lint": "tsc --noEmit dist/*.ts",
+    "lint": "lint-yafu",
     "prepublishOnly": "pnpm clean && pnpm transpile && pnpm test",
     "test": "echo testless",
     "transpile": "pnpm generate && rollup -c"

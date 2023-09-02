@@ -14,7 +14,7 @@
   "types": "./dist/reader.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
-    "lint": "eslint lib/*.ts test/*.ts",
+    "lint": "lint-yafu",
     "prepublishOnly": "yarn clean && yarn transpile",
     "test": "yarn lint && yarn unit",
     "transpile": "rollup -c",

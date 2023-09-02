@@ -50,7 +50,7 @@ export class Identity<T>
     this.v = v
   }
 
-  [equals](a: any) {
+  [equals](a: unknown) {
     return a instanceof Identity && this.v === a.v
   }
 

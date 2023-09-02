@@ -1,6 +1,5 @@
-import { HKT, Unary } from '@yafu/type-utils'
+import { Unary } from '@yafu/type-utils'
 import { Reader } from './reader.js'
-import { ReaderTransform, ReaderTransformType } from './reader-t.js'
 
 declare module '@yafu/fantasy-functions' {
   export function of<T>(type: typeof Reader, a: T): Reader<T>
