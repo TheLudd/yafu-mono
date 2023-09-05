@@ -1,4 +1,10 @@
-import { map, chain, ap, of } from 'fantasy-land'
+import {
+  ap,
+  bimap,
+  chain,
+  map,
+  of
+} from 'fantasy-land'
 import { Binary, Unary } from '@yafu/type-utils'
 import '@yafu/fantasy-functions'
 
@@ -10,6 +16,7 @@ declare module '@yafu/fantasy-functions' {
   export function map<E, T, U>(f: Unary<T, U>, p: Parallel<E, T>): Parallel<E, U>
   export function ap<E, T, U>(f: Parallel<E, Unary<T, U>>, p: Parallel<E, T>): Parallel<E, U>
   export function chain<E, T, U>(f: Unary<T, Parallel<E, U>>, p: Parallel<E, T>): Parallel<E, U>
+  export function bimap<E, F, T, U>(leftMap: Unary<E, F>, rightMap: Unary<T, U>, p: Parallel<E, T>): Parallel<F, U>
 }
 
 export class Parallel<E, T> {
@@ -22,8 +29,12 @@ export class Parallel<E, T> {
   [map]<U>(f: Unary<T, U>): Parallel<E, U>
   [ap]<U>(f: Parallel<E, Unary<T, U>>): Parallel<E, U>
   [chain]<U>(f: Unary<T, Parallel<E, U>>): Parallel<E, U>
+  [bimap]<F, U>(leftMap: Unary<E, F>, rightMap: Unary<T, U>): Parallel<F, U>
+  biChain<F, U>(leftMap: Unary<E, Parallel<F, U>>, rightMap: Unary<T, Parallel<F, U>>): Parallel<F, U>
   rejectMap<F>(f: Unary<E, F>): Parallel<F, T>
   rejectChain<F>(f: Unary<E, Parallel<F, T>>): Parallel<F, T>
 }
 
 export function parallelOf<T>(value: T): Parallel<never, T>
+export function bichain<E, F, T, U>(leftMap: Unary<E, Parallel<F, U>>, rightMap: Unary<T, Parallel<F, U>>, p: Parallel<E, T>): Parallel<F, U>
+export function swap<E, T, F, U>(f: Unary<E, U>, g: Unary<T, F>, p: Parallel<E, T>): Parallel<F, U>

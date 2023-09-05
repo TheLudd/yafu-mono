@@ -2,8 +2,14 @@ import { Done, describe, it } from 'mocha'
 import { equal, fail, ifError, ok } from 'assert'
 import { I, K } from 'yafu'
 import sinon from 'sinon'
-import { ap, chain, map } from '@yafu/fantasy-functions'
-import { Parallel, Callback, parallelOf } from '../lib/parallel.js'
+import { ap, bimap, chain, map } from '@yafu/fantasy-functions'
+import {
+  Parallel,
+  Callback,
+  parallelOf,
+  bichain,
+  swap,
+} from '../lib/parallel.js'
 import { Unary } from '@yafu/type-utils'
 
 const { callCount, calledWith } = sinon.assert
@@ -30,7 +36,7 @@ describe('parallel', () => {
         })
       })
 
-  function rejectAsync<T>(e: T): Parallel<T, unknown> {
+  function rejectAsync<T>(e: T): Parallel<T, never> {
     return new Parallel((reject) => {
       process.nextTick(() => {
         reject(e)
@@ -112,6 +118,8 @@ describe('parallel', () => {
 
   const inc = (x: number) => x + 1
   const incChained = (x: number) => parallelOf(x + 1)
+  const lengthChained = (x: string) => parallelOf(x.length)
+  const rejectLength = (x: string) => Parallel.reject(x.length)
   const parallelOf1 = parallelOf(1)
 
   describe('.of', () => {
@@ -266,6 +274,90 @@ describe('parallel', () => {
       assertParallelValue(2, p2, () => {
         assertParallelValue(2, p1, done)
       })
+    })
+  })
+
+  describe('#bimap', () => {
+    it('should map the resolved value', () => {
+      const f1 = parallelOf(1)
+      const f2 = bimap(length, inc, f1)
+      assertParallelValue(2, f2)
+    })
+
+    it('should map the rejected value', () => {
+      const f1 = Parallel.reject('error')
+      const f2 = bimap(length, inc, f1)
+      assertRejectedParallel(5, f2)
+    })
+
+    it('should work with async parallels', (done) => {
+      const parallel = bimap(length, inc, nextTick(1))
+      assertParallelValue(2, parallel, done)
+    })
+
+    it('should work with rejected async parallels', (done) => {
+      const parallel = bimap(length, inc, rejectAsync('error'))
+      assertRejectedParallel(5, parallel, done)
+    })
+  })
+
+  describe('#bichain', () => {
+    it('should chain the resolved value', () => {
+      const f1 = parallelOf(1)
+      const f2 = bichain(lengthChained, incChained, f1)
+      assertParallelValue(2, f2)
+    })
+
+    it('should chain the rejected value', () => {
+      const f1 = Parallel.reject('error')
+      const f2 = bichain(rejectLength, incChained, f1)
+      assertRejectedParallel(5, f2)
+    })
+
+    it('should work with async parallels', (done) => {
+      const parallel = bichain(lengthChained, incChained, nextTick(1))
+      assertParallelValue(2, parallel, done)
+    })
+
+    it('should work with rejected async parallels', (done) => {
+      const parallel = bichain(rejectLength, incChained, rejectAsync('error'))
+      assertRejectedParallel(5, parallel, done)
+    })
+
+    it('should be able to turn rejected parallels to resolved ones', () => {
+      const f1 = Parallel.reject('error')
+      const f2 = bichain(lengthChained, incChained, f1)
+      assertParallelValue(5, f2)
+    })
+
+    it('should be able to turn resolved parallels to rejected ones', () => {
+      const f1 = parallelOf('success')
+      const f2 = bichain(incChained, rejectLength, f1)
+      assertRejectedParallel(7, f2)
+    })
+  })
+
+  describe('#swap', () => {
+    it('should swap a rejected parallel to a resolved one', () => {
+      const f1 = Parallel.reject(1)
+      const f2 = swap(inc, length, f1)
+      assertParallelValue(2, f2)
+    })
+
+    it('should swap a resolved parallel to a rejected one', () => {
+      const f1 = parallelOf('success')
+      const f2 = swap(inc, length, f1)
+      assertRejectedParallel(7, f2)
+    })
+
+    it('should work with async parallels', (done) => {
+      const parallel = swap(length, inc, nextTick(1))
+      assertRejectedParallel(2, parallel, done)
+    })
+
+    it('should work with rejected async parallels', (done) => {
+      const parallel = swap(length, inc, rejectAsync('error'))
+      assertParallelValue(5, parallel, done)
     })
   })
 

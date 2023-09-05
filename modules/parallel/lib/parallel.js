@@ -1,6 +1,7 @@
 /* eslint-disable max-classes-per-file */
 import {
   ap as AP,
+  bimap as BIMAP,
   chain as CHAIN,
   map as MAP,
   of as OF,
@@ -142,6 +143,28 @@ export class Parallel {
     })
   }
 
+  [BIMAP] (f, g) {
+    return createSequence(
+      this,
+      (e) => Parallel.reject(f(e)),
+      // eslint-disable-next-line no-use-before-define
+      (v) => parallelOf(g(v)),
+    )
+  }
+
+  bichain (f, g) {
+    return createSequence(this, f, g)
+  }
+
+  swap (f, g) {
+    return createSequence(
+      this,
+      // eslint-disable-next-line no-use-before-define
+      (e) => parallelOf(f(e)),
+      (v) => Parallel.reject(g(v)),
+    )
+  }
+
   rejectMap (f) {
     return createSequence(this, (e) => Parallel.reject(f(e)), null)
   }
@@ -167,6 +190,19 @@ class ResolvedParallel extends Parallel {
 
   [MAP] (f) {
     return new ResolvedParallel(f(this.value))
+  }
+
+  [BIMAP] (_, g) {
+    return new ResolvedParallel(g(this.value))
+  }
+
+  bichain (_, g) {
+    return g(this.value)
+  }
+
+  swap (_, g) {
+    // eslint-disable-next-line no-use-before-define
+    return new RejectedParallel(g(this.value))
   }
 
   rejectMap () {
@@ -196,6 +232,18 @@ class RejectedParallel extends Parallel {
     return this
   }
 
+  [BIMAP] (f) {
+    return new RejectedParallel(f(this.value))
+  }
+
+  bichain (f) {
+    return f(this.value)
+  }
+
+  swap (f) {
+    return new ResolvedParallel(f(this.value))
+  }
+
   rejectMap (f) {
     return new RejectedParallel(f(this.value))
   }
@@ -209,3 +257,6 @@ Parallel[OF] = (v) => new ResolvedParallel(v)
 Parallel.reject = (v) => new RejectedParallel(v)
 
 export const parallelOf = of(Parallel)
+
+export const bichain = (f, g, p) => p.bichain(f, g)
+export const swap = (f, g, p) => p.swap(f, g)
