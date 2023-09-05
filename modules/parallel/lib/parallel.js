@@ -257,6 +257,7 @@ Parallel[OF] = (v) => new ResolvedParallel(v)
 Parallel.reject = (v) => new RejectedParallel(v)
 
 export const parallelOf = of(Parallel)
+export const reject = (v) => new RejectedParallel(v)
 
 export const bichain = (f, g, p) => p.bichain(f, g)
 export const swap = (f, g, p) => p.swap(f, g)

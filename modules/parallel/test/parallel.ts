@@ -8,6 +8,7 @@ import {
   Callback,
   parallelOf,
   bichain,
+  reject,
   swap,
 } from '../lib/parallel.js'
 import { Unary } from '@yafu/type-utils'
@@ -119,7 +120,7 @@ describe('parallel', () => {
   const inc = (x: number) => x + 1
   const incChained = (x: number) => parallelOf(x + 1)
   const lengthChained = (x: string) => parallelOf(x.length)
-  const rejectLength = (x: string) => Parallel.reject(x.length)
+  const rejectLength = (x: string) => reject(x.length)
   const parallelOf1 = parallelOf(1)
 
   describe('.of', () => {
@@ -130,7 +131,7 @@ describe('parallel', () => {
 
   describe('.reject', () => {
     it('should produce a rejected parallel', () => {
-      assertRejectedParallel('someRejection', Parallel.reject('someRejection'))
+      assertRejectedParallel('someRejection', reject('someRejection'))
     })
   })
 
@@ -140,15 +141,12 @@ describe('parallel', () => {
     })
 
     it('should ignore rejections', () => {
-      const rejected = Parallel.reject('someRejection') as Parallel<
-        string,
-        number
-      >
+      const rejected = reject('someRejection')
       assertRejectedParallel('someRejection', map(inc, rejected))
     })
 
     it('should return chain rejections', () => {
-      const chainFn = (v: string) => Parallel.reject(`error from ${v}`)
+      const chainFn = (v: string) => reject(`error from ${v}`)
       const input = chain(chainFn, parallelOf('input'))
       assertRejectedParallel('error from input', input)
     })
@@ -169,7 +167,7 @@ describe('parallel', () => {
 
     it('should ignore rejections', () => {
       function incAndReject(v: number) {
-        return Parallel.reject(v + 1)
+        return reject(v + 1)
       }
 
       const rejected2 = chain(incAndReject, parallelOf(1)) as Parallel<
@@ -197,7 +195,7 @@ describe('parallel', () => {
     })
 
     it('should return return the error in a if a is rejected', () => {
-      const a = Parallel.reject('error') as Parallel<string, number>
+      const a = reject('error') as Parallel<string, number>
       const b = parallelOf(inc)
       const result = ap(b, a)
       assertRejectedParallel('error', result)
@@ -205,10 +203,7 @@ describe('parallel', () => {
 
     it('should return return the error in b if b is rejected', () => {
       const a = parallelOf(1)
-      const b = Parallel.reject('error') as Parallel<
-        string,
-        Unary<number, number>
-      >
+      const b = reject('error') as Parallel<string, Unary<number, number>>
       const result = ap(b, a)
       assertRejectedParallel('error', result)
     })
@@ -233,7 +228,7 @@ describe('parallel', () => {
     })
 
     it('should return a new parallel mapped to the rejected value', () => {
-      const f1 = Parallel.reject(1)
+      const f1 = reject(1)
       const f2 = f1.rejectMap(inc)
       assertRejectedParallel(2, f2)
     })
@@ -257,13 +252,13 @@ describe('parallel', () => {
     })
 
     it('should return a new parallel chained', () => {
-      const f1 = Parallel.reject(1)
-      const f2 = f1.rejectChain((e) => Parallel.reject(e + 1))
+      const f1 = reject(1)
+      const f2 = f1.rejectChain((e) => reject(e + 1))
       assertRejectedParallel(2, f2)
     })
 
     it('should be able to turn rejected parallels to resolved ones', () => {
-      const f1 = Parallel.reject(1) as Parallel<number, number>
+      const f1 = reject(1) as Parallel<number, number>
       const f2 = f1.rejectChain(incChained)
       assertParallelValue(2, f2)
     })
@@ -285,7 +280,7 @@ describe('parallel', () => {
     })
 
     it('should map the rejected value', () => {
-      const f1 = Parallel.reject('error')
+      const f1 = reject('error')
       const f2 = bimap(length, inc, f1)
       assertRejectedParallel(5, f2)
     })
@@ -309,7 +304,7 @@ describe('parallel', () => {
     })
 
     it('should chain the rejected value', () => {
-      const f1 = Parallel.reject('error')
+      const f1 = reject('error')
       const f2 = bichain(rejectLength, incChained, f1)
       assertRejectedParallel(5, f2)
     })
@@ -325,7 +320,7 @@ describe('parallel', () => {
     })
 
     it('should be able to turn rejected parallels to resolved ones', () => {
-      const f1 = Parallel.reject('error')
+      const f1 = reject('error')
       const f2 = bichain(lengthChained, incChained, f1)
       assertParallelValue(5, f2)
     })
@@ -339,7 +334,7 @@ describe('parallel', () => {
 
   describe('#swap', () => {
     it('should swap a rejected parallel to a resolved one', () => {
-      const f1 = Parallel.reject(1)
+      const f1 = reject(1)
       const f2 = swap(inc, length, f1)
       assertParallelValue(2, f2)
     })
@@ -384,7 +379,7 @@ describe('parallel', () => {
   it('should handle resolved Parallels in the middle of sequences', () => {
     const resolvedParallel1 = parallelOf('resolved1')
     const resolvedParallel2 = parallelOf('resolved2')
-    const rejectedParallel = Parallel.reject('an err')
+    const rejectedParallel = reject('an err')
     const getRejected = K(rejectedParallel)
     const asked = chain(getRejected, resolvedParallel1)
     const twiceChained = chain(K(asked), resolvedParallel2)
