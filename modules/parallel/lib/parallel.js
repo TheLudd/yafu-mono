@@ -261,3 +261,11 @@ export const reject = (v) => new RejectedParallel(v)
 
 export const bichain = (f, g, p) => p.bichain(f, g)
 export const swap = (f, g, p) => p.swap(f, g)
+
+export const promiseToParallel = (promise) => new Parallel((rej, res) => {
+  promise.then(res, rej)
+})
+
+export const parallelToPromise = (parallel) => new Promise((res, rej) => {
+  parallel.fork(rej, res)
+})

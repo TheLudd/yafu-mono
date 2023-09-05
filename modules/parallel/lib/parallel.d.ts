@@ -39,3 +39,6 @@ export function parallelOf<T>(value: T): Parallel<never, T>
 export function reject<E>(value: E): Parallel<E, never>
 export function bichain<E, F, T, U>(leftMap: Unary<E, Parallel<F, U>>, rightMap: Unary<T, Parallel<F, U>>, p: Parallel<E, T>): Parallel<F, U>
 export function swap<E, T, F, U>(f: Unary<E, U>, g: Unary<T, F>, p: Parallel<E, T>): Parallel<F, U>
+
+export function promiseToParallel<T>(promise: Promise<T>): Parallel<unknown, T>
+export function parallelToPromise<T>(parallel: Parallel<unknown, T>): Promise<T>
