@@ -201,7 +201,7 @@ class RejectedParallel extends Parallel {
   }
 
   rejectChain (f) {
-    return createSequence(this, f, null)
+    return f(this.value)
   }
 }
 
