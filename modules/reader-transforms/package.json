@@ -1,6 +1,6 @@
 {
   "name": "@yafu/reader-transforms",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Reader Transform monads",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
