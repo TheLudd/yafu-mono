@@ -10,6 +10,8 @@ export * from './rte.js'
 export * from './rtf.js'
 export * from './run.js'
 
+export * from './rtf-functions.js'
+
 export const rioOf = <T>(value: T) => new RIO(() => ioOf(value))
 export const rteOf = <T>(value: T) => new RTE(() => eitherOf(value))
 export const rtfOf = <T>(value: T) => new RTF(() => parallelOf(value))
