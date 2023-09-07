@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/TheLudd/yafu-mono/compare/@yafu/reader@1.1.6...@yafu/reader@1.2.0) (2023-09-07)
+
+### Features
+
+- **reader,reader-transforms:** add asks to all types ([589d84e](https://github.com/TheLudd/yafu-mono/commit/589d84e01c67539ae97020a8bf4022f434743c1c))
+
 ## [1.1.6](https://github.com/TheLudd/yafu-mono/compare/@yafu/reader@1.1.5...@yafu/reader@1.1.6) (2023-09-02)
 
 ### Bug Fixes

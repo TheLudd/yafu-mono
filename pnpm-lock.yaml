@@ -595,7 +595,7 @@ importers:
         specifier: ^1.2.0
         version: link:../parallel
       '@yafu/reader':
-        specifier: ^1.1.6
+        specifier: ^1.2.0
         version: link:../reader
       '@yafu/type-utils':
         specifier: ^1.1.1
