@@ -18,6 +18,7 @@ export class RTF<E, T, Env = unknown> {
   static [of]<T>(value: T): RTF<never, T>
   static lift: <E, T>(io: Parallel<E, T>) => RTF<E, T>
   static ask: RTF.Ask
+  static asks: <E, Focus>(f: Unary<E, Focus>) => RTF<never, Focus, E>
 
   public run: Unary<Env, Parallel<E, T>>
 

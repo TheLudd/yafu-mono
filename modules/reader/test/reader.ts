@@ -40,3 +40,11 @@ it('exposes ask', () => {
   const result = runReader(chain(multiplyEnvBy, readerOf(2)), 3)
   equal(result, 6)
 })
+
+it('exposes asks', () => {
+  const dbEnv = { db: 'thedburl' }
+  const getDb = ({ db }: typeof dbEnv) => db
+  const askDb = Reader.asks(getDb)
+  const result = runReader(askDb, dbEnv)
+  equal(result, 'thedburl')
+})

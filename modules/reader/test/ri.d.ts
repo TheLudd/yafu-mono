@@ -14,6 +14,7 @@ export class RI<T, Env = unknown> {
   static [of]<T>(value: T): RI<T, never>
   static lift: <T>(identity: Identity<T>) => RI<T>
   static ask: Ask<unknown>
+  static asks: <E, Focus>(f: Unary<E, Focus>) => RI<Focus, E>
 
   run: Unary<Env, Identity<T>>
 

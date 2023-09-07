@@ -20,6 +20,7 @@ export class RIO<T, IOArgs extends unknown[] = unknown[], Env = unknown> {
     io: IO<IOArgs, T>,
   ) => RIO<T, IOArgs>
   static ask: RIO.Ask
+  static asks: <E, Focus>(f: Unary<E, Focus>) => RIO<Focus, [], E>
 
   public run: Unary<Env, IO<IOArgs, T>>
 

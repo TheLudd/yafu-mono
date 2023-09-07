@@ -22,6 +22,7 @@ type Ask<Type extends HKT, T = unknown> = ReaderTransform<T, Type, T>
 
 export interface ReaderTransformType<Type extends HKT> {
   ask: Ask<Type>
+  asks: <Env, Focus>(f: Unary<Env, Focus>) => ReaderTransform<Focus, Type, Env>
 
   new <T, Env>(run: Unary<Env, Kind<Type, T>>): ReaderTransform<T, Type, Env>
 
@@ -39,6 +40,7 @@ export function readerT<Type extends HKT, M extends Applicable<Type>>(
 
   class R<T, Env = unknown> implements ReaderTransform<T, M, Env> {
     static ask = new R((env) => of(monad, env))
+    static asks = <E, Focus>(f: Unary<E, Focus>) => (R.ask as Ask<M, E>)[MAP](f)
     static lift = <A>(m: Kind<M, A>) => new R(() => m)
 
     static [OF]<A>(a: A): ReaderTransform<A, M> {

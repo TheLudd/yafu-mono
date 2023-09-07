@@ -37,3 +37,11 @@ it('exposes ask', () => {
   const result = getValue(chain(incEnvWith, ri1), 1)
   assert.equal(result, 2)
 })
+
+it('exposes asks', () => {
+  const dbEnv = { db: 'thedburl' }
+  const getDb = ({ db }: typeof dbEnv) => db
+  const askDb = RI.asks(getDb)
+  const result = getValue(askDb, dbEnv)
+  assert.equal(result, 'thedburl')
+})

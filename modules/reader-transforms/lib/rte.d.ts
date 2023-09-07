@@ -18,6 +18,7 @@ export class RTE<E, T, Env = unknown> {
   static [of]<T>(value: T): RTE<never, T>
   static lift: <E, T>(io: Either<E, T>) => RTE<E, T>
   static ask: RTE.Ask
+  static asks: <E, Focus>(f: Unary<E, Focus>) => RTE<never, Focus, E>
 
   public run: Unary<Env, Either<E, T>>
 

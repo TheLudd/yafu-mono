@@ -10,6 +10,7 @@ export function readerOf<T>(a: T): Reader<T> {
 export class Reader<T, Env = unknown> {
   static [of] = readerOf
   static ask: Ask = new Reader((env) => env)
+  static asks = <E, Focus>(f: Unary<E, Focus>) => (Reader.ask as Ask<E>)[map](f)
 
   constructor(public readonly run: (env: Env) => T) {}
 
