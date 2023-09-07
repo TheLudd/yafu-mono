@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/TheLudd/yafu-mono/compare/@yafu/reader-transforms@1.1.6...@yafu/reader-transforms@1.2.0) (2023-09-07)
+
+### Features
+
+- **reader-transforms:** add rtf util functions ([4e95097](https://github.com/TheLudd/yafu-mono/commit/4e950979f12422722bd4880667a42ffc5ba37532))
+
 ## [1.1.6](https://github.com/TheLudd/yafu-mono/compare/@yafu/reader-transforms@1.1.5...@yafu/reader-transforms@1.1.6) (2023-09-02)
 
 ### Bug Fixes
