@@ -9,12 +9,12 @@ import {
 import { RTF } from './rtf.js'
 
 export const forkInEnv = <E, T, Env>(
-  onÉrror: Callback<E>,
+  onError: Callback<E>,
   onSuccess: Callback<T>,
   env: Env,
   rtf: RTF<E, T, Env>,
 ) => {
-  rtf.run(env).fork(onÉrror, onSuccess)
+  rtf.run(env).fork(onError, onSuccess)
 }
 
 export const rejectRTF = <E>(e: E) => RTF.lift(reject(e))
@@ -41,11 +41,11 @@ export function rejectChainRTF<E, E2, T, Env>(
   )
 }
 
-export const swapRTF = <E, F, T, U, Env>(
+export function swapRTF<E, F, T, U, Env>(
   leftMap: Unary<E, U>,
   rightMap: Unary<T, F>,
   rtf: RTF<E, T, Env>,
-): RTF<F, U, Env> => {
+): RTF<F, U, Env> {
   return new RTF((env) => {
     const future = rtf.run(env)
     return swap(leftMap, rightMap, future)
