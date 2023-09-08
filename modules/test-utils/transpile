@@ -1,0 +1,3 @@
+#!/bin/bash
+mkdir -p dist
+node --loader @esbuild-kit/esm-loader scripts/generate-assert-types.ts > dist/types.d.ts
