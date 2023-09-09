@@ -16,9 +16,8 @@
     "clean": "rm -rf dist",
     "lint": "lint-yafu",
     "prepublishOnly": "yarn clean && yarn transpile",
-    "test": "echo testless",
-    "transpile": "./transpile && pnpm rollup -c",
-    "unit": "mocha"
+    "test": "mocha",
+    "transpile": "./transpile && pnpm rollup -c"
   },
   "dependencies": {
     "@yafu/reader-transforms": "^1.3.0",
