@@ -5,6 +5,7 @@ import curry from '@yafu/rollup-plugin-curry'
 
 export const createRollupConfig = (input, pkgURL, {
   curry: useCurry = true,
+  skipTypes = false,
 } = {}) => {
   const pkgContent = readFileSync(new URL('./package.json', pkgURL))
   const { exports: { import: esFile, require: cjsFile, types: typesFile } } = JSON.parse(pkgContent)
@@ -41,7 +42,7 @@ export const createRollupConfig = (input, pkgURL, {
     output: mainOutputs,
   } ]
 
-  if (typesFile) {
+  if (typesFile && !skipTypes) {
     const typeFiesPlugins = [ dts() ]
     if (useCurry) {
       typeFiesPlugins.push(curry({ onlyDefinitions: true }))
