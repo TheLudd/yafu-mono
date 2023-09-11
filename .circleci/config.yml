@@ -55,7 +55,7 @@ commands:
   install-utils:
     steps:
       - run:
-          command: npm add -g sort-package-json prettier
+          command: sudo npm add -g sort-package-json prettier
           name: Install sort-package-json and prettier
   sort-package-json:
     steps:
@@ -88,7 +88,7 @@ jobs:
   checks:
     resource_class: small
     docker:
-      - image: cimg/node:14.19
+      - image: cimg/node:lts
     steps:
       - checkout
       - install-pnpm
