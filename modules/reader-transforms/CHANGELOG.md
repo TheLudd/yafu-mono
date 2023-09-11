@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/TheLudd/yafu-mono/compare/@yafu/reader-transforms@1.3.0...@yafu/reader-transforms@1.3.1) (2023-09-11)
+
+### Bug Fixes
+
+- **reader,reader-transforms:** allow combining of environments in chain and ap ([2ad1d9b](https://github.com/TheLudd/yafu-mono/commit/2ad1d9b52a3c719a8271649551ee54edf9715cfe))
+
 # [1.3.0](https://github.com/TheLudd/yafu-mono/compare/@yafu/reader-transforms@1.2.1...@yafu/reader-transforms@1.3.0) (2023-09-07)
 
 ### Features
