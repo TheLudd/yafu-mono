@@ -6,8 +6,8 @@ import '@yafu/fantasy-functions'
 declare module '@yafu/fantasy-functions' {
   export function of<T>(t: typeof RIO, value: T): RIO<T>
   export function map<T, U, IOArgs extends unknown[], Env>(f: Unary<T, U>, ri: RIO<T, IOArgs, Env>): RIO<U, IOArgs, Env>
-  export function ap<T, U, IOArgs extends unknown[], Env>(f: RIO<Unary<T, U>, IOArgs, Env>, ri: RIO<T, IOArgs, Env>): RIO<U, IOArgs, Env>
-  export function chain<T, U, IOArgs extends unknown[], Env>(f: Unary<T, RIO<U, IOArgs, Env>>, ri: RIO<T, IOArgs, Env>): RIO<U, IOArgs, Env>
+  export function ap<T, U, IOArgs extends unknown[], Env, Env2>(f: RIO<Unary<T, U>, IOArgs, Env2>, ri: RIO<T, IOArgs, Env>): RIO<U, IOArgs, Env & Env2>
+  export function chain<T, U, IOArgs extends unknown[], Env, Env2>(f: Unary<T, RIO<U, IOArgs, Env2>>, ri: RIO<T, IOArgs, Env>): RIO<U, IOArgs, Env & Env2>
 }
 
 export namespace RIO {
