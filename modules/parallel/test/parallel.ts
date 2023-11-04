@@ -2,7 +2,7 @@ import { Done, describe, it } from 'mocha'
 import { equal, fail, ifError, ok } from 'assert'
 import { I, K } from 'yafu'
 import sinon from 'sinon'
-import { ap, bimap, chain, map } from '@yafu/fantasy-functions'
+import { alt, ap, bimap, chain, map } from '@yafu/fantasy-functions'
 import {
   Parallel,
   Callback,
@@ -157,6 +157,35 @@ describe('parallel', () => {
       const plus3 = map(inc, map(inc, original))
       assertParallelValue(2, plus2)
       assertParallelValue(3, plus3)
+    })
+  })
+
+  describe('#alt', () => {
+    it('returns the same parallel if it is a resolve one', () => {
+      const parallel = parallelOf(1)
+      const result = alt(parallelOf(2), parallel)
+      equal(parallel, result)
+    })
+
+    it('returns the alternative if the instance is rejected', () => {
+      const parallel = reject('error')
+      const alternative = parallelOf(2)
+      const result = alt(alternative, parallel)
+      equal(alternative, result)
+    })
+
+    it('works for async resolved values', (done) => {
+      const parallel = nextTick(1)
+      const alternative = parallelOf(2)
+      const result = alt(alternative, parallel)
+      assertParallelValue(1, result, done)
+    })
+
+    it('works for async rejected values', (done) => {
+      const parallel = rejectAsync('error')
+      const alternative = parallelOf(2)
+      const result = alt(alternative, parallel)
+      assertParallelValue(2, result, done)
     })
   })
 

@@ -1,5 +1,6 @@
 /* eslint-disable max-classes-per-file */
 import {
+  alt as ALT,
   ap as AP,
   bimap as BIMAP,
   chain as CHAIN,
@@ -143,6 +144,11 @@ export class Parallel {
     })
   }
 
+  [ALT] (b) {
+    // eslint-disable-next-line no-use-before-define
+    return createSequence(this, () => b, parallelOf)
+  }
+
   [BIMAP] (f, g) {
     return createSequence(
       this,
@@ -196,6 +202,10 @@ class ResolvedParallel extends Parallel {
     return new ResolvedParallel(g(this.value))
   }
 
+  [ALT] () {
+    return this
+  }
+
   bichain (_, g) {
     return g(this.value)
   }
@@ -234,6 +244,11 @@ class RejectedParallel extends Parallel {
 
   [BIMAP] (f) {
     return new RejectedParallel(f(this.value))
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  [ALT] (b) {
+    return b
   }
 
   bichain (f) {

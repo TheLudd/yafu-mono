@@ -17,6 +17,7 @@ declare module '@yafu/fantasy-functions' {
   export function ap<E, T, U>(f: Parallel<E, Unary<T, U>>, p: Parallel<E, T>): Parallel<E, U>
   export function chain<E, T, U>(f: Unary<T, Parallel<E, U>>, p: Parallel<E, T>): Parallel<E, U>
   export function bimap<E, F, T, U>(leftMap: Unary<E, F>, rightMap: Unary<T, U>, p: Parallel<E, T>): Parallel<F, U>
+  export function alt<E, T>(alt: Parallel<E, T>, p: Parallel<E, T>): Parallel<E, T>
 }
 
 export class Parallel<E, T> {
