@@ -1,5 +1,5 @@
 import { assert } from 'chai'
-import { ap, chain, equals, map, reduce } from '@yafu/fantasy-functions'
+import { alt, ap, chain, equals, map, reduce } from '@yafu/fantasy-functions'
 import { maybeOf, nothing } from '../lib/maybe.js'
 
 const inc = (a: number) => a + 1
@@ -51,6 +51,18 @@ describe('apply', () => {
   it('retuns nothing if the instance is nothing', () => {
     const m = ap(maybeInc, nothing)
     equal(m, nothing)
+  })
+})
+
+describe('alt', () => {
+  it('returns the original instance if it is a just', () => {
+    const m = alt(maybeOf(2), m1)
+    equal(m, m1)
+  })
+
+  it('it returns the alternative if the instance is nothing', () => {
+    const m = alt(m1, nothing)
+    equal(m, m1)
   })
 })
 

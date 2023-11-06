@@ -1,4 +1,5 @@
 import {
+  alt as ALT,
   ap as AP,
   of as OF,
   chain as CHAIN,
@@ -49,6 +50,10 @@ class Just<T> extends AbstractMaybe {
     return map((f) => f(this.v), a)
   }
 
+  [ALT](): Just<T> {
+    return this
+  }
+
   [CHAIN]<U>(f: Unary<T, Maybe<U>>): Maybe<U> {
     return f(this.v)
   }
@@ -69,6 +74,10 @@ class Nothing extends AbstractMaybe {
 
   [AP](): Nothing {
     return this
+  }
+
+  [ALT]<T>(b: Maybe<T>): Maybe<T> {
+    return b
   }
 
   [CHAIN](): Nothing {
