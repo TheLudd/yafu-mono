@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/TheLudd/yafu-mono/compare/@yafu/reader-transforms@1.3.1...@yafu/reader-transforms@1.4.0) (2023-11-06)
+
+### Features
+
+- **reader,reader-transforms:** implement alt specification ([9154a15](https://github.com/TheLudd/yafu-mono/commit/9154a151cb649c9bb1aa3cc5634de95d79937bd6))
+
 ## [1.3.1](https://github.com/TheLudd/yafu-mono/compare/@yafu/reader-transforms@1.3.0...@yafu/reader-transforms@1.3.1) (2023-09-11)
 
 ### Bug Fixes

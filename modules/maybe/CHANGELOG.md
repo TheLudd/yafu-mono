@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/TheLudd/yafu-mono/compare/@yafu/maybe@1.1.4...@yafu/maybe@1.2.0) (2023-11-06)
+
+### Bug Fixes
+
+- **maybe:** add of to the extensions of fantasy-functions ([1feb851](https://github.com/TheLudd/yafu-mono/commit/1feb8518f69e5422ae57c0858892c6c781ab4b67))
+
+### Features
+
+- **maybe:** implement alt specification ([e2e0ea9](https://github.com/TheLudd/yafu-mono/commit/e2e0ea935b7d2394cf41a7871be36243f9aa0b23))
+
 ## [1.1.4](https://github.com/TheLudd/yafu-mono/compare/@yafu/maybe@1.1.3...@yafu/maybe@1.1.4) (2023-09-02)
 
 ### Bug Fixes

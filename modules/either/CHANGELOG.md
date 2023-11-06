@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/TheLudd/yafu-mono/compare/@yafu/either@1.1.4...@yafu/either@1.2.0) (2023-11-06)
+
+### Bug Fixes
+
+- **either:** add of to the extensions of fantasy-functions ([82b8ef9](https://github.com/TheLudd/yafu-mono/commit/82b8ef9b0c1a462b78239c156c854577bdadef4b))
+
+### Features
+
+- **either:** implement alt specification ([b46ba64](https://github.com/TheLudd/yafu-mono/commit/b46ba641998cdbc179643bfa0ec123bffdd31ae7))
+
 ## [1.1.4](https://github.com/TheLudd/yafu-mono/compare/@yafu/either@1.1.3...@yafu/either@1.1.4) (2023-09-02)
 
 ### Bug Fixes

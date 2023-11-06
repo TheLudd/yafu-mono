@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/TheLudd/yafu-mono/compare/@yafu/parallel@1.2.0...@yafu/parallel@1.3.0) (2023-11-06)
+
+### Features
+
+- **parallel:** implement alt specification ([0eb8dc8](https://github.com/TheLudd/yafu-mono/commit/0eb8dc8341118a7dfc47994e35f9467a94f5e11d))
+
 # [1.2.0](https://github.com/TheLudd/yafu-mono/compare/@yafu/parallel@1.1.5...@yafu/parallel@1.2.0) (2023-09-07)
 
 ### Features
