@@ -1,5 +1,6 @@
 /* eslint-disable max-classes-per-file */
 import {
+  alt as ALT,
   ap as AP,
   chain as CHAIN,
   equals as EQUALS,
@@ -60,6 +61,10 @@ class Right<R> extends AbstractEither {
     return b[CHAIN]((f) => this[MAP](f))
   }
 
+  [ALT](): Either<never, R> {
+    return this
+  }
+
   [CHAIN]<U, L>(f: (x: R) => Either<L, U>) {
     return f(this.v)
   }
@@ -96,6 +101,10 @@ class Left<L> extends AbstractEither {
 
   [AP](_b: unknown) {
     return this
+  }
+
+  [ALT]<R>(b: Either<L, R>): Either<L, R> {
+    return b
   }
 
   [CHAIN](_f: unknown) {

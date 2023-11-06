@@ -1,5 +1,5 @@
 import { assert } from 'chai'
-import { ap, chain, equals, map, reduce } from '@yafu/fantasy-functions'
+import { alt, ap, chain, equals, map, reduce } from '@yafu/fantasy-functions'
 import { cata, Either, eitherOf, left, right } from '../lib/either.js'
 
 const { equal, isTrue, isFalse, deepEqual } = assert
@@ -55,6 +55,18 @@ describe('apply', () => {
   it('returns the same instance for lefts', () => {
     const result = ap(eitherOf(inc), l)
     equal(result, l)
+  })
+})
+
+describe('alt', () => {
+  it('returns the original value if it is a right', () => {
+    const result = alt(right(2), e1)
+    deepEqual(result, e1)
+  })
+
+  it('returns the alternative value if the original is a left', () => {
+    const result = alt(e1, l)
+    deepEqual(result, e1)
   })
 })
 
