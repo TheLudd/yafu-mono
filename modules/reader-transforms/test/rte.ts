@@ -1,14 +1,14 @@
 import { it } from 'mocha'
-import { ap, chain, map, of } from '@yafu/fantasy-functions'
+import { alt, ap, chain, map, of } from '@yafu/fantasy-functions'
 import { assert } from 'chai'
 import { RTE, rteOf } from '../lib/index.js'
-import { cata } from '@yafu/either'
+import { cata, left } from '@yafu/either'
 
 const rte1 = of(RTE, 1)
 
 const inc = (x: number) => x + 1
 
-function getValue(ri: RTE<never, number, number>, env = 0): number {
+function getValue(ri: RTE<unknown, number, number>, env = 0): number {
   return cata(
     () => NaN,
     (x) => x,
@@ -25,6 +25,12 @@ it('implements applicative', () => {
   const riInc = rteOf(inc)
   const result = getValue(ap(riInc, rte1))
   assert.equal(result, 2)
+})
+
+it('implements alt', () => {
+  const failing = RTE.lift(left('error'))
+  const result = getValue(alt(rte1, failing))
+  assert.equal(result, 1)
 })
 
 it('implements chain', () => {

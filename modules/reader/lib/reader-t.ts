@@ -1,6 +1,12 @@
 import { HKT, Kind, Unary } from '@yafu/type-utils'
-import { Applicable, Apply, Chain, Functor } from '@yafu/fantasy-types'
-import { ap as AP, chain as CHAIN, map as MAP, of as OF } from 'fantasy-land'
+import { Alt, Applicable, Apply, Chain, Functor } from '@yafu/fantasy-types'
+import {
+  alt as ALT,
+  ap as AP,
+  chain as CHAIN,
+  map as MAP,
+  of as OF,
+} from 'fantasy-land'
 import { of } from '@yafu/fantasy-functions'
 import '@yafu/fantasy-functions'
 
@@ -10,6 +16,8 @@ export interface ReaderTransform<T, Type extends HKT, Env = unknown> {
   ) => ReaderTransform<U, Type, Env>
 
   [MAP]: <U>(f: Unary<T, U>) => ReaderTransform<U, Type, Env>
+
+  [ALT]: (alt: ReaderTransform<T, Type, Env>) => ReaderTransform<T, Type, Env>
 
   [CHAIN]: <U>(
     f: Unary<T, ReaderTransform<U, Type, Env>>,
@@ -61,6 +69,14 @@ export function readerT<Type extends HKT, M extends Applicable<Type>>(
       return new R((env) => {
         const m = this.run(env) as Functor<T, M>
         return m[MAP](f)
+      })
+    }
+
+    [ALT](b: R<T, Env>): R<T, Env> {
+      return new R((env) => {
+        const inner = b.run(env)
+        const val = this.run(env) as Alt<T, Type>
+        return val[ALT](inner)
       })
     }
 

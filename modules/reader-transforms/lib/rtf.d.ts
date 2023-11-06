@@ -8,6 +8,7 @@ declare module '@yafu/fantasy-functions' {
   export function map<E, T, U, Env>(f: Unary<T, U>, rtf: RTF<E, T, Env>): RTF<E, U, Env>
   export function ap<E, T, U, Env, Env2>(f: RTF<E, Unary<T, U>, Env2>, rtf: RTF<E, T, Env>): RTF<E, U, Env & Env2>
   export function chain<E, T, U, Env, Env2>(f: Unary<T, RTF<E, U, Env2>>, rtf: RTF<E, T, Env>): RTF<E, U, Env & Env2>
+  export function alt<E, T, Env>(alt: RTF<E, T, Env>, rtf: RTF<E, T, Env>): RTF<E, T, Env>
 }
 
 export namespace RTF {
