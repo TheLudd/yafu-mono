@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/TheLudd/yafu-mono/compare/@yafu/reader-transforms@1.4.0...@yafu/reader-transforms@1.4.1) (2024-01-27)
+
+### Bug Fixes
+
+- **reader-transforms:** combine envs in rejectChainRTF ([adb531b](https://github.com/TheLudd/yafu-mono/commit/adb531bda2c7700606a1cfcfa28074c1bb7e62d7))
+
 # [1.4.0](https://github.com/TheLudd/yafu-mono/compare/@yafu/reader-transforms@1.3.1...@yafu/reader-transforms@1.4.0) (2023-11-06)
 
 ### Features

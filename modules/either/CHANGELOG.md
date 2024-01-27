@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/TheLudd/yafu-mono/compare/@yafu/either@1.2.0...@yafu/either@1.3.0) (2024-01-27)
+
+### Features
+
+- **either:** add leftMap and leftChain ([9480884](https://github.com/TheLudd/yafu-mono/commit/948088435a03f0d0cf6b22ce94a961af5102261e))
+
 # [1.2.0](https://github.com/TheLudd/yafu-mono/compare/@yafu/either@1.1.4...@yafu/either@1.2.0) (2023-11-06)
 
 ### Bug Fixes
