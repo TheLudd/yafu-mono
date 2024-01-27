@@ -26,10 +26,10 @@ export function rejectMapRTF<E, E2, T, Env>(
   return new RTF((env) => rtf.run(env).rejectMap(fn))
 }
 
-export function rejectChainRTF<E, E2, T, Env>(
-  f: Unary<E, RTF<E2, T, Env>>,
+export function rejectChainRTF<E, E2, T, Env, Env2>(
+  f: Unary<E, RTF<E2, T, Env2>>,
   rtf: RTF<E, T, Env>,
-): RTF<E2, T, Env> {
+): RTF<E2, T, Env & Env2> {
   return new RTF(
     (env) =>
       new Future((reject, resolve) => {
