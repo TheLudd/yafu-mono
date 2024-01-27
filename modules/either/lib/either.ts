@@ -78,6 +78,14 @@ class Right<R> extends AbstractEither {
     return rightFn(this.v)
   }
 
+  leftMap() {
+    return this
+  }
+
+  leftChain() {
+    return this
+  }
+
   toString(): string {
     return `Right[${this.v}]`
   }
@@ -121,6 +129,14 @@ class Left<L> extends AbstractEither {
     return leftFn(this.v)
   }
 
+  leftMap<U>(map: Unary<L, U>) {
+    return left(map(this.v))
+  }
+
+  leftChain<U, R>(chain: Unary<L, Either<U, R>>) {
+    return chain(this.v)
+  }
+
   toString(): string {
     return `Left[${this.v}]`
   }
@@ -142,3 +158,13 @@ export function cata<L, T, U>(
     Right: ifRight,
   })
 }
+
+export const leftMap = <L, M, R>(
+  map: Unary<L, M>,
+  either: Either<L, R>,
+): Either<M, R> => either.leftMap(map)
+
+export const leftChain = <L, M, R>(
+  map: Unary<L, Either<M, R>>,
+  either: Either<L, R>,
+): Either<M, R> => either.leftChain(map)

@@ -1,6 +1,14 @@
 import { assert } from 'chai'
 import { alt, ap, chain, equals, map, reduce } from '@yafu/fantasy-functions'
-import { cata, Either, eitherOf, left, right } from '../lib/either.js'
+import {
+  cata,
+  Either,
+  eitherOf,
+  left,
+  leftChain,
+  leftMap,
+  right,
+} from '../lib/either.js'
 
 const { equal, isTrue, isFalse, deepEqual } = assert
 const e1 = eitherOf(1) as Either<number, number>
@@ -107,5 +115,30 @@ describe('cata', () => {
     cataEither = left('1')
     const result = cata(Number, inc, cataEither)
     equal(result, 1)
+  })
+})
+
+describe('leftMap', () => {
+  it('maps a left', () => {
+    const result = leftMap(inc, left(1))
+    deepEqual(result, left(2))
+  })
+
+  it('returns the same instance for rights', () => {
+    const result = leftMap(inc, e1)
+    equal(result, e1)
+  })
+})
+
+describe('leftChain', () => {
+  const leftIsEven = (x: number) => left(x % 2 === 0)
+  it('chains a left', () => {
+    const result = leftChain(leftIsEven, l)
+    deepEqual(result, left(false))
+  })
+
+  it('returns the same instance for right', () => {
+    const result = leftChain(leftIsEven, e1)
+    equal(result, e1 as Either<boolean, number>)
   })
 })
