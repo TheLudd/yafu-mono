@@ -25,5 +25,6 @@
   "engines": {
     "pnpm": "^8.0.0",
     "yarn": "none"
-  }
+  },
+  "packageManager": "pnpm@8.15.9"
 }
