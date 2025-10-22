@@ -61,3 +61,24 @@ export function rtfToPromise<T, Env>(env: Env, rtf: RTF<unknown, T, Env>) {
 export function promiseToRTF<T>(promise: Promise<T>): RTF<unknown, T> {
   return new RTF(() => promiseToParallel(promise))
 }
+
+/**
+ * Modifies the environment expected by an RTF by applying a transformation function.
+ */
+export const localRTF =
+  <Original, Target>(modify: Unary<Original, Target>) =>
+  <E, T>(rtf: RTF<E, T, Target>): RTF<E, T, Original> => {
+    return new RTF((env: Original) => rtf.run(modify(env)))
+  }
+
+/**
+ * Wraps a function that returns an RTF, modifying the environment it expects.
+ */
+export const withRTFEnv =
+  <Original, Target>(modify: Unary<Original, Target>) =>
+  <Args extends unknown[], E, T>(f: (...args: Args) => RTF<E, T, Target>) =>
+  (...args: Args): RTF<E, T, Original> => {
+    const local = localRTF(modify)
+    const rtf = f(...args)
+    return local(rtf)
+  }
