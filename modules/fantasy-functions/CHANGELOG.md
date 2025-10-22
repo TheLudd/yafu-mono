@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.6](https://github.com/TheLudd/yafu-mono/compare/@yafu/fantasy-functions@2.1.5...@yafu/fantasy-functions@2.1.6) (2025-10-22)
+
+**Note:** Version bump only for package @yafu/fantasy-functions
+
 ## [2.1.5](https://github.com/TheLudd/yafu-mono/compare/@yafu/fantasy-functions@2.1.4...@yafu/fantasy-functions@2.1.5) (2023-09-02)
 
 ### Bug Fixes

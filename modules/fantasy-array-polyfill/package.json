@@ -1,6 +1,6 @@
 {
   "name": "@yafu/fantasy-array-polyfill",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
   "type": "module",
@@ -25,8 +25,8 @@
     "unit": "mocha"
   },
   "dependencies": {
-    "@yafu/fantasy-functions": "^2.1.5",
-    "@yafu/fantasy-types": "^1.1.2",
+    "@yafu/fantasy-functions": "^2.1.6",
+    "@yafu/fantasy-types": "^1.1.3",
     "@yafu/type-utils": "^1.1.1",
     "fantasy-land": "^5.0.1"
   },

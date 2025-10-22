@@ -1,6 +1,6 @@
 {
   "name": "@yafu/either",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Either monad",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
@@ -22,8 +22,8 @@
   },
   "dependencies": {
     "@yafu/curry": "^1.3.1",
-    "@yafu/fantasy-functions": "^2.1.5",
-    "@yafu/fantasy-types": "^1.1.2",
+    "@yafu/fantasy-functions": "^2.1.6",
+    "@yafu/fantasy-types": "^1.1.3",
     "@yafu/type-utils": "^1.1.1",
     "fantasy-land": "^5.0.1"
   },

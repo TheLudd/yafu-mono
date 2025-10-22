@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/TheLudd/yafu-mono/compare/@yafu/parallel@1.3.0...@yafu/parallel@1.3.1) (2025-10-22)
+
+**Note:** Version bump only for package @yafu/parallel
+
 # [1.3.0](https://github.com/TheLudd/yafu-mono/compare/@yafu/parallel@1.2.0...@yafu/parallel@1.3.0) (2023-11-06)
 
 ### Features
