@@ -15,8 +15,8 @@
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "lint-yafu",
-    "prepublishOnly": "yarn clean && yarn transpile",
-    "test": "yarn lint && yarn unit",
+    "prepublishOnly": "pnpm clean && pnpm transpile",
+    "test": "pnpm lint && pnpm unit",
     "transpile": "rollup -c",
     "unit": "mocha"
   },
