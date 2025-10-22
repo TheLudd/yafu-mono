@@ -30,12 +30,7 @@ export function identityOf<A>(a: A): Identity<A> {
 type Self = Identity<never>
 
 export class Identity<T>
-  implements
-    HKT,
-    Setoid,
-    Chain<T, Self>,
-    Comonad<T, Self>,
-    Traversable<T, Self>
+  implements HKT, Setoid, Chain<T, Self>, Comonad<T, Self>, Traversable<T, Self>
 {
   hkt!: IdentityHKTMark
   static hkt: IdentityHKTMark

@@ -52,22 +52,17 @@ commands:
       - run:
           command: cd modules/test-all-exports && pnpm verify
           name: Verify exports
-  install-utils:
-    steps:
-      - run:
-          command: sudo npm add -g sort-package-json prettier
-          name: Install sort-package-json and prettier
   sort-package-json:
     steps:
       - run:
           command: |
-            git ls-files | grep package.json | xargs sort-package-json --check
+            git ls-files | grep package.json | xargs pnpx sort-package-json --check
           name: Verify package jsons sorted
   prettier:
     steps:
       - run:
           command: |
-            prettier **/*.ts --check 
+            pnpx prettier **/*.ts --check 
           name: Run prettier
 jobs:
   test:
@@ -92,7 +87,6 @@ jobs:
     steps:
       - checkout
       - install-pnpm
-      - install-utils
       - sort-package-json
       - prettier
 
