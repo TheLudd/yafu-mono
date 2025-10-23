@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/TheLudd/yafu-mono/compare/@yafu/test-utils@1.0.4...@yafu/test-utils@1.0.5) (2025-10-23)
+
+### Bug Fixes
+
+- **test-utils:** generate array types in array functions ([4962c45](https://github.com/TheLudd/yafu-mono/commit/4962c45f412b22c35fcad0b4c92d99e56df7b5e1))
+
 ## [1.0.4](https://github.com/TheLudd/yafu-mono/compare/@yafu/test-utils@1.0.3...@yafu/test-utils@1.0.4) (2025-10-22)
 
 **Note:** Version bump only for package @yafu/test-utils

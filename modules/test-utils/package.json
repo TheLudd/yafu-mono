@@ -1,6 +1,6 @@
 {
   "name": "@yafu/test-utils",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Test utilities for @yafu packages",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
