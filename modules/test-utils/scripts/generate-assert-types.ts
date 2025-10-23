@@ -5,6 +5,7 @@ import {
   TSMethodSignature,
   exportNamedDeclaration,
   identifier,
+  isTSArrayType,
   program,
   tsInterfaceBody,
   tsInterfaceDeclaration,
@@ -64,27 +65,51 @@ const createTypedArgument = (name: string, type: string) => {
   return id
 }
 
-const rtfSuccessPrependTypes = [
-  createTypedArgument('env', 'Env'),
-  createTypedArgument('rtf', 'RTF<unknown, T, Env>'),
-]
+const rtfSuccessPrependTypes = {
+  single: [
+    createTypedArgument('env', 'Env'),
+    createTypedArgument('rtf', 'RTF<unknown, T, Env>'),
+  ],
+  array: [
+    createTypedArgument('env', 'Env'),
+    createTypedArgument('rtf', 'RTF<unknown, T[], Env>'),
+  ],
+}
 
-const rtfFailPrependTypes = [
-  createTypedArgument('env', 'Env'),
-  createTypedArgument('rtf', 'RTF<T, unknown, Env>'),
-]
+const rtfFailPrependTypes = {
+  single: [
+    createTypedArgument('env', 'Env'),
+    createTypedArgument('rtf', 'RTF<T, unknown, Env>'),
+  ],
+  array: [
+    createTypedArgument('env', 'Env'),
+    createTypedArgument('rtf', 'RTF<T, unknown, Env>'),
+  ],
+}
 
-const parallelSuccessPrependTypes = [
-  createTypedArgument('parallel', 'Parallel<unknown, T>'),
-]
+const parallelSuccessPrependTypes = {
+  single: [createTypedArgument('parallel', 'Parallel<unknown, T>')],
+  array: [createTypedArgument('parallel', 'Parallel<unknown, T[]>')],
+}
 
-const parallelFailPrependTypes = [
-  createTypedArgument('parallel', 'Parallel<T, unknown>'),
-]
+const parallelFailPrependTypes = {
+  single: [createTypedArgument('parallel', 'Parallel<T, unknown>')],
+  array: [createTypedArgument('parallel', 'Parallel<T[], unknown>')],
+}
+
+interface PrependTypes {
+  single: Identifier[]
+  array: Identifier[]
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const isArrayType = (param: any) => {
+  return isTSArrayType(param.typeAnnotation?.typeAnnotation)
+}
 
 const generateInterface = (
   name: string,
-  prependTypes: Identifier[],
+  prependTypes: PrependTypes,
   extraTypes: string[] = [],
 ) => {
   function appendToSignarture(signature: TSMethodSignature) {
@@ -96,10 +121,13 @@ const generateInterface = (
       ...extraTypeParameters.map(createTSTypeParameter),
       ...originalTypeParams,
     ])
+    const toPrepend = isArrayType(parameters[0])
+      ? prependTypes.array
+      : prependTypes.single
     return tsMethodSignature(
       key,
       newTypeParameters,
-      [...prependTypes, ...parameters.slice(1)],
+      [...toPrepend, ...parameters.slice(1)],
       returnType,
     )
   }
