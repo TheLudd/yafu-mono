@@ -1,6 +1,6 @@
 {
   "name": "@yafu/reader",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "Reader monad",
   "license": "MIT",
   "author": "Ludwig Magnusson <ludwig.magnusson@gmail.com>",
@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@yafu/curry": "^1.3.1",
-    "@yafu/fantasy-functions": "^2.1.6",
+    "@yafu/fantasy-functions": "^2.1.7",
     "@yafu/fantasy-types": "^1.1.3",
     "@yafu/identity": "^2.0.12",
     "@yafu/type-utils": "^1.1.1",

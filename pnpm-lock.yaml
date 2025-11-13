@@ -93,7 +93,7 @@ importers:
         specifier: ^1.3.1
         version: link:../curry
       '@yafu/fantasy-functions':
-        specifier: ^2.1.6
+        specifier: ^2.1.7
         version: link:../fantasy-functions
       '@yafu/fantasy-types':
         specifier: ^1.1.3
@@ -157,7 +157,7 @@ importers:
   modules/fantasy-array-polyfill:
     dependencies:
       '@yafu/fantasy-functions':
-        specifier: ^2.1.6
+        specifier: ^2.1.7
         version: link:../fantasy-functions
       '@yafu/fantasy-types':
         specifier: ^1.1.3
@@ -215,7 +215,7 @@ importers:
         specifier: ^5.0.1
         version: 5.0.1
       yafu:
-        specifier: ^2.1.4
+        specifier: ^2.2.0
         version: link:../yafu
     devDependencies:
       '@babel/core':
@@ -323,7 +323,7 @@ importers:
         specifier: ^1.3.1
         version: link:../curry
       '@yafu/fantasy-functions':
-        specifier: ^2.1.6
+        specifier: ^2.1.7
         version: link:../fantasy-functions
       '@yafu/fantasy-types':
         specifier: ^1.1.3
@@ -369,10 +369,10 @@ importers:
         specifier: ^1.3.1
         version: link:../curry
       '@yafu/either':
-        specifier: ^1.3.1
+        specifier: ^1.3.2
         version: link:../either
       '@yafu/fantasy-functions':
-        specifier: ^2.1.6
+        specifier: ^2.1.7
         version: link:../fantasy-functions
       '@yafu/fantasy-types':
         specifier: ^1.1.3
@@ -381,7 +381,7 @@ importers:
         specifier: ^2.0.12
         version: link:../identity
       yafu:
-        specifier: ^2.1.4
+        specifier: ^2.2.0
         version: link:../yafu
     devDependencies:
       '@babel/core':
@@ -430,7 +430,7 @@ importers:
         specifier: ^1.3.1
         version: link:../curry
       '@yafu/fantasy-functions':
-        specifier: ^2.1.6
+        specifier: ^2.1.7
         version: link:../fantasy-functions
       '@yafu/type-utils':
         specifier: ^1.1.1
@@ -482,7 +482,7 @@ importers:
         specifier: ^1.3.1
         version: link:../curry
       '@yafu/fantasy-functions':
-        specifier: ^2.1.6
+        specifier: ^2.1.7
         version: link:../fantasy-functions
       '@yafu/fantasy-types':
         specifier: ^1.1.3
@@ -522,7 +522,7 @@ importers:
         specifier: ^15.2.0
         version: 15.2.0
       yafu:
-        specifier: ^2.1.4
+        specifier: ^2.2.0
         version: link:../yafu
 
   modules/reader:
@@ -531,7 +531,7 @@ importers:
         specifier: ^1.3.1
         version: link:../curry
       '@yafu/fantasy-functions':
-        specifier: ^2.1.6
+        specifier: ^2.1.7
         version: link:../fantasy-functions
       '@yafu/fantasy-types':
         specifier: ^1.1.3
@@ -580,22 +580,22 @@ importers:
         specifier: ^1.3.1
         version: link:../curry
       '@yafu/either':
-        specifier: ^1.3.1
+        specifier: ^1.3.2
         version: link:../either
       '@yafu/fantasy-functions':
-        specifier: ^2.1.6
+        specifier: ^2.1.7
         version: link:../fantasy-functions
       '@yafu/fantasy-types':
         specifier: ^1.1.3
         version: link:../fantasy-types
       '@yafu/io':
-        specifier: ^1.1.5
+        specifier: ^1.1.6
         version: link:../io
       '@yafu/parallel':
-        specifier: ^1.3.1
+        specifier: ^1.3.2
         version: link:../parallel
       '@yafu/reader':
-        specifier: ^1.3.1
+        specifier: ^1.3.2
         version: link:../reader
       '@yafu/type-utils':
         specifier: ^1.1.1
@@ -737,7 +737,7 @@ importers:
   modules/test-utils:
     dependencies:
       '@yafu/reader-transforms':
-        specifier: ^1.5.0
+        specifier: ^1.5.1
         version: link:../reader-transforms
       chai:
         specifier: ^4.3.8
@@ -783,7 +783,7 @@ importers:
         specifier: ^1.2.2
         version: link:../create-rollup-config
       '@yafu/parallel':
-        specifier: ^1.3.1
+        specifier: ^1.3.2
         version: link:../parallel
       eslint:
         specifier: ^8.48.0
@@ -798,7 +798,7 @@ importers:
         specifier: ^1.3.1
         version: link:../curry
       yafu:
-        specifier: ^2.1.4
+        specifier: ^2.2.0
         version: link:../yafu
     devDependencies:
       '@esbuild-kit/esm-loader':
@@ -10043,6 +10043,7 @@ packages:
       {
         integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==,
       }
+    requiresBuild: true
 
   /picomatch@2.3.1:
     resolution:

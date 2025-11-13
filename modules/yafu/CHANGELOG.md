@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/TheLudd/yafu/compare/yafu@2.1.4...yafu@2.2.0) (2025-11-13)
+
+### Features
+
+- **yafu:** add function difference-by ([a10cf57](https://github.com/TheLudd/yafu/commit/a10cf5776d856c5a6a351b4cd8364f5299344a12))
+
 ## [2.1.4](https://github.com/TheLudd/yafu/compare/yafu@2.1.3...yafu@2.1.4) (2023-09-02)
 
 ### Bug Fixes
